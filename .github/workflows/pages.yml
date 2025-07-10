@@ -34,43 +34,61 @@ jobs:
         with:
           pandoc-version: 'latest'
       # ───────────────────────────────────────────────
-      - name: Install TeX Live (latexmk, fonts, bibtex…)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-              latexmk \
-              texlive-latex-base \
-              texlive-latex-recommended \
-              texlive-latex-extra \
-              texlive-fonts-recommended \
-              texlive-fonts-extra \
-              texlive-bibtex-extra
-      # ───────────────────────────────────────────────
+      # - name: Install TeX Live (latexmk, fonts, bibtex…)
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y \
+      #         latexmk \
+      #         texlive-latex-base \
+      #         texlive-latex-recommended \
+      #         texlive-latex-extra \
+      #         texlive-fonts-recommended \
+      #         texlive-fonts-extra \
+      #         texlive-bibtex-extra
+      # # ───────────────────────────────────────────────
+      # - name: Set up TeX Live
+      #   uses: teatimeguest/setup-texlive-action@v2
+      #   with:
+      #     version: 2024       # or 'latest'
+      #     cache:  true        # speed up subsequent builds
+      #     packages: |
+      #       scheme-full       # full TL incl. bibtex, fonts, latexmk
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10.13'
 
-      - name: Install deps
-        run: |
-          pip install d2lbook
-          pip install -r requirements.txt
-          # --- compatibility pins ----------------------------------
-          # sphinxcontrib-bibtex needs the helper that vanished in 0.25
-          # 3. Compatibility pins for the d2lbook/Sphinx stack  ▼▼▼
-          #    - Sphinx 5.3 needs docutils < 0.20
-          #    - sphinxcontrib-bibtex needs Pybtex < 0.25
-          pip install --force-reinstall \
-              "sphinx==5.3.0" \
-              "docutils==0.19" \
-              "pybtex==0.24.0" \
-              "pybtex-docutils==1.0.3"
+      # - name: Install deps
+      #   run: |
+      #     pip install d2lbook
+      #     pip install -r requirements.txt
+      #     # --- compatibility pins ----------------------------------
+      #     # sphinxcontrib-bibtex needs the helper that vanished in 0.25
+      #     # 3. Compatibility pins for the d2lbook/Sphinx stack  ▼▼▼
+      #     #    - Sphinx 5.3 needs docutils < 0.20
+      #     #    - sphinxcontrib-bibtex needs Pybtex < 0.25
+      #     pip install --force-reinstall \
+      #         "sphinx==5.3.0" \
+      #         "docutils==0.19" \
+      #         "pybtex==0.24.0" \
+      #         "pybtex-docutils==1.0.3"
           # ----------------------------------------------------------
+      - uses: xu-cheng/texlive-action@v3
+        with:
+          os: debian            # debian|alpine
+          texlive_version: 2024 # or 'latest'
+          run: |
+            # install Python & d2lbook *inside* the container
+            apt-get update -qq
+            apt-get install -y python3-pip
+            pip install d2lbook
+            d2lbook build html
+            d2lbook build pdf
 
-      - name: Build d2l-book (HTML + PDF)
-        run: |
-          d2lbook build html
-          d2lbook build pdf        
+      # - name: Build d2l-book (HTML + PDF)
+      #   run: |
+      #     d2lbook build html
+      #     d2lbook build pdf        
 
       - name: Copy PDF to site root
         run: cp dist/pdf/book.pdf dist/html/book.pdf
