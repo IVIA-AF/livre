@@ -1,0 +1,61 @@
+# .github/workflows/pages.yml  ── build & deploy d2l-book to GitHub Pages
+name: Build & Deploy d2l-book
+
+on:
+  push:            # publish whenever prod is updated
+    branches: [prod]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages:    write
+  id-token: write      # required by deploy-pages
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Tell Pages what branch/path to expect and inject the BASE_PATH env var
+      - uses: actions/configure-pages@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install deps
+        run: |
+          pip install d2lbook
+          pip install -r requirements.txt
+
+      - name: Build d2l-book (HTML + PDF)
+        run: |
+          d2lbook build html
+          d2lbook build pdf        
+
+      - name: Copy PDF to site root
+        run: cp dist/pdf/book.pdf dist/html/book.pdf
+
+      - name: Upload static site (dist/html)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/html          # ← the folder that must be served   [oai_citation:0‡GitHub](https://github.com/actions/upload-pages-artifact)
+
+  # Deployment job
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/prod'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
