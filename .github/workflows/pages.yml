@@ -42,6 +42,7 @@ jobs:
         run: |
           pip install d2lbook
           pip install -r requirements.txt
+          pip install "pybtex<0.26" "pybtex-docutils<1.1"
 
       - name: Build d2l-book (HTML + PDF)
         run: |
