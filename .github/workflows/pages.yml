@@ -2,6 +2,12 @@
 name: Build & Deploy d2l-book
 
 on:
+  pull_request:
+    # The PR’s *target* branch must be prod
+    branches:
+      - prod
+    # Optional but explicit: run on every change that could lead to a merge
+    types: [opened, synchronize, reopened, ready_for_review]
   push:            # publish whenever prod is updated
     branches: [prod]
   workflow_dispatch:
