@@ -23,7 +23,10 @@ jobs:
 
       # Tell Pages what branch/path to expect and inject the BASE_PATH env var
       - uses: actions/configure-pages@v5
-
+      - name: Install Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: 'latest'
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
