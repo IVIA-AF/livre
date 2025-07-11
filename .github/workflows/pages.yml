@@ -89,7 +89,7 @@ jobs:
       - name: Build d2l-book (HTML + PDF)
         run: |
           d2lbook build html
-          d2lbook build pdf        
+          # d2lbook build pdf        
 
       - name: Copy PDF to site root
         run: cp dist/pdf/book.pdf dist/html/book.pdf
