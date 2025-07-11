@@ -40,9 +40,10 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5 # Sets up BASE_PATH and other Pages specifics
 
+      # This step installs Pandoc to a known location and potentially sets PATH
       - name: Install Pandoc
-        # Pandoc is often required by d2lbook for various conversions
         uses: r-lib/actions/setup-pandoc@v2
+        id: setup-pandoc # Add an ID to easily access its outputs
         with:
           pandoc-version: 'latest'
 
@@ -52,10 +53,21 @@ jobs:
         uses: xu-cheng/texlive-action@v3
         with:
           os: debian # Recommended for broader compatibility with Python packages
-          texlive_version: latest # Or a specific year like '2024' for stability
+          texlive_version: latest
           run: |
-            # Update apt and install python3-venv (for virtual environments)
-            # python3-pip is often installed with python3-venv, but explicitly list for clarity
+            # Add Pandoc's binary directory to the PATH for this shell session.
+            # The 'setup-pandoc' action typically puts pandoc in a directory
+            # like /usr/local/bin or similar, and sets an output variable.
+            # We explicitly add it to ensure it's found.
+            # Using ${{ steps.setup-pandoc.outputs.pandoc-dir }} is the most robust way
+            # to get the exact path where setup-pandoc installed it.
+            export PATH="${{ steps.setup-pandoc.outputs.pandoc-dir }}:$PATH"
+
+            # Verify pandoc is now found (optional, but good for debugging)
+            which pandoc
+            pandoc --version
+
+            # Update apt and install python3-venv
             apt-get update -qq
             apt-get install -y python3-pip python3-venv
 
