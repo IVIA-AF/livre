@@ -1,91 +1,134 @@
-# .github/workflows/pages.yml  ── build & deploy d2l-book to GitHub Pages
+# .github/workflows/pages.yml ── Build & Deploy d2l-book to GitHub Pages
 name: Build & Deploy d2l-book
 
 on:
   pull_request:
-    branches: [prod]
+    # Trigger on PRs targeting the 'prod' branch
+    branches:
+      - prod
+    # Run on changes that could lead to a merge
     types: [opened, synchronize, reopened, ready_for_review]
   push:
+    # Publish whenever 'prod' is updated
     branches: [prod]
-  workflow_dispatch:
+  workflow_dispatch: # Allow manual triggering from the Actions tab
 
+# Set permissions for the GITHUB_TOKEN
+# 'contents: read' is needed to checkout the repository
+# 'pages: write' is needed to publish to GitHub Pages
+# 'id-token: write' is needed by actions/deploy-pages to authenticate
 permissions:
   contents: read
-  pages:    write
+  pages: write
   id-token: write
 
-# Refined concurrency:
-# - For PRs: cancel outdated runs to save resources.
-# - For the 'prod' branch: let runs complete.
+# Ensure only one deploy job runs at a time for 'pages' group
+# 'cancel-in-progress: true' is often preferred for deployments
+# to ensure only the latest successful build is deployed.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/prod' }}
+  group: pages
+  cancel-in-progress: true # Set to true to cancel previous runs if a new one starts
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Using ubuntu-latest as it's a Debian-based system
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4 # Recommended action for checking out code
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v5 # Sets up BASE_PATH and other Pages specifics
 
-      - name: Install Pandoc
-        uses: r-lib/actions/setup-pandoc@v2
+      # This step installs Pandoc to a known location and potentially sets PATH
+      # - name: Install Pandoc
+      #   uses: r-lib/actions/setup-pandoc@v2
+      #   id: setup-pandoc # Add an ID to easily access its outputs
+      #   with:
+      #     pandoc-version: 'latest'
+
+      - name: Set up TeX Live, Python, and Build d2l-book
+        # This step performs all Python/d2lbook setup and build within
+        # the TeX Live environment to ensure all dependencies are met.
+        uses: xu-cheng/texlive-action@v3
         with:
-          pandoc-version: 'latest'
+          os: debian # Recommended for broader compatibility with Python packages
+          texlive_version: latest
+          run: |
+            # Update apt and install necessary packages:
+            # python3-pip and python3-venv for Python environment
+            # pandoc for nbconvert/d2lbook functionality
+            apt-get update -qq
+            apt-get install -y python3-pip python3-venv pandoc
 
-      # OPTIMIZATION: Use a dedicated action with caching for TeX Live.
-      # The first run will be slow, but subsequent runs will be much faster.
-      - name: Set up TeX Live
-        uses: xu-cheng/setup-texlive-action@v3 # ✅ Correct, maintained path
-        with:
-          version: 2024
-          cache: true
-          packages: scheme-full # scheme-full is large but robust for d2l-book
+            # Verify pandoc is now found (optional, but good for debugging)
+            which pandoc
+            pandoc --version
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10.13'
-          # OPTIMIZATION: Cache pip dependencies
-          cache: 'pip'
+            # Create and activate a Python virtual environment to avoid
+            # "externally-managed-environment" error and isolate dependencies.
+            python3 -m venv venv_d2lbook
+            source venv_d2lbook/bin/activate
 
-      # OPTIMIZATION: Consolidate all pip install commands into one step
-      - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-          # Compatibility pins for d2lbook/Sphinx stack
-          pip install --force-reinstall \
-              "d2lbook" \
-              "sphinx==5.3.0" \
-              "docutils==0.19" \
-              "pybtex==0.24.0" \
-              "pybtex-docutils==1.0.3"
+            # Install d2lbook and project-specific dependencies
+            pip install d2lbook
+            # IMPORTANT: If your project has other Python dependencies,
+            # uncomment the line below and ensure requirements.txt exists
+            pip install -r requirements.txt
 
-      - name: Build d2l-book (HTML + PDF)
-        run: |
-          d2lbook build html
-          d2lbook build pdf
+            # --- compatibility pins ----------------------------------
+            # sphinxcontrib-bibtex needs the helper that vanished in 0.25
+            # 3. Compatibility pins for the d2lbook/Sphinx stack  ▼▼▼
+            #    - Sphinx 5.3 needs docutils < 0.20
+            #    - sphinxcontrib-bibtex needs Pybtex < 0.25
+            pip install --force-reinstall \
+                "sphinx==5.3.0" \
+                "docutils==0.19" \
+                "pybtex==0.24.0" \
+                "pybtex-docutils==1.0.3"
+            # ----------------------------------------------------------
 
-      - name: Copy PDF to site root for download
-        run: cp dist/pdf/Apprentissage-Automatisé.pdf dist/html/Apprentissage-Automatisé.pdf
+            # Build the d2l-book
+            # By default, d2lbook outputs to `dist/html` and `dist/pdf`
+            d2lbook build html
+            d2lbook build pdf
+            
+            # --- PDF Copy happens HERE, inside the same run block and container ---
+            mkdir -p dist/html # This ensures it's writable in the container
+            cp dist/pdf/Apprentissage-Automatise.pdf dist/html/Apprentissage-Automatise.pdf
+            # --------------------------------------------------------------------
 
-      - name: Upload artifact
+            # Deactivate the virtual environment (optional, but good practice)
+            deactivate
+
+      # - name: Copy PDF to Site Root (if desired)
+      #   # Assuming d2lbook outputs to dist/html and dist/pdf by default.
+      #   # Adjust paths if your d2l-book configuration specifies different output directories.
+      #   run: |
+      #     mkdir -p dist/html # Ensure the directory exists
+      #     cp dist/pdf/Apprentissage-Automatisé.pdf dist/html/Apprentissage-Automatisé.pdf
+      #   # This makes the PDF accessible at your-repo-name/Apprentissage-Automatisé.pdf on GitHub Pages.
+      #   # Remove this step if you don't need the PDF directly in the web root.
+
+      - name: Upload Static Site Artifact
+        # Uploads the built HTML files to be served by GitHub Pages.
+        # Ensure the 'path' matches your d2l-book's HTML output directory.
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/html
+          path: dist/html # Most common d2l-book HTML output directory
 
-  # No changes needed for the deployment job
   deploy:
+    # This job runs only on 'push' events to the 'prod' branch
+    # and only after the 'build' job has successfully completed.
     if: github.event_name == 'push' && github.ref == 'refs/heads/prod'
     needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: build # Ensures deployment happens only after a successful build
+
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        id: deployment # Required to capture the deployed URL
+        uses: actions/deploy-pages@v4 # The official action for deploying to Pages
