@@ -80,6 +80,18 @@ jobs:
             # uncomment the line below and ensure requirements.txt exists
             pip install -r requirements.txt
 
+            # --- compatibility pins ----------------------------------
+            # sphinxcontrib-bibtex needs the helper that vanished in 0.25
+            # 3. Compatibility pins for the d2lbook/Sphinx stack  ▼▼▼
+            #    - Sphinx 5.3 needs docutils < 0.20
+            #    - sphinxcontrib-bibtex needs Pybtex < 0.25
+            pip install --force-reinstall \
+                "sphinx==5.3.0" \
+                "docutils==0.19" \
+                "pybtex==0.24.0" \
+                "pybtex-docutils==1.0.3"
+            # ----------------------------------------------------------
+
             # Build the d2l-book
             # By default, d2lbook outputs to `dist/html` and `dist/pdf`
             d2lbook build html
