@@ -65,10 +65,6 @@ jobs:
             which pandoc
             pandoc --version
 
-            # Update apt and install python3-venv
-            apt-get update -qq
-            apt-get install -y python3-pip python3-venv
-
             # Create and activate a Python virtual environment to avoid
             # "externally-managed-environment" error and isolate dependencies.
             python3 -m venv venv_d2lbook
@@ -96,18 +92,23 @@ jobs:
             # By default, d2lbook outputs to `dist/html` and `dist/pdf`
             d2lbook build html
             d2lbook build pdf
+            
+            # --- PDF Copy happens HERE, inside the same run block and container ---
+            mkdir -p dist/html # This ensures it's writable in the container
+            cp dist/pdf/Apprentissage-Automatisé.pdf dist/html/Apprentissage-Automatisé.pdf
+            # --------------------------------------------------------------------
 
             # Deactivate the virtual environment (optional, but good practice)
             deactivate
 
-      - name: Copy PDF to Site Root (if desired)
-        # Assuming d2lbook outputs to dist/html and dist/pdf by default.
-        # Adjust paths if your d2l-book configuration specifies different output directories.
-        run: |
-          mkdir -p dist/html # Ensure the directory exists
-          cp dist/pdf/Apprentissage-Automatisé.pdf dist/html/Apprentissage-Automatisé.pdf
-        # This makes the PDF accessible at your-repo-name/Apprentissage-Automatisé.pdf on GitHub Pages.
-        # Remove this step if you don't need the PDF directly in the web root.
+      # - name: Copy PDF to Site Root (if desired)
+      #   # Assuming d2lbook outputs to dist/html and dist/pdf by default.
+      #   # Adjust paths if your d2l-book configuration specifies different output directories.
+      #   run: |
+      #     mkdir -p dist/html # Ensure the directory exists
+      #     cp dist/pdf/Apprentissage-Automatisé.pdf dist/html/Apprentissage-Automatisé.pdf
+      #   # This makes the PDF accessible at your-repo-name/Apprentissage-Automatisé.pdf on GitHub Pages.
+      #   # Remove this step if you don't need the PDF directly in the web root.
 
       - name: Upload Static Site Artifact
         # Uploads the built HTML files to be served by GitHub Pages.
