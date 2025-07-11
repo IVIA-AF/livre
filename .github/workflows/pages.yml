@@ -121,6 +121,7 @@ jobs:
     # This job runs only on 'push' events to the 'prod' branch
     # and only after the 'build' job has successfully completed.
     if: github.event_name == 'push' && github.ref == 'refs/heads/prod'
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

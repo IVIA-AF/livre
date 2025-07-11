@@ -6,8 +6,7 @@ C'est pour lever cette barrière que nous avons entrepris de créer ce cours d'i
 ## Contribuez à notre projet !
 Ce projet [https://github.com/IVIA-AF/livre](https://github.com/IVIA-AF/livre) est une initiative collaborative, et nous croyons fermement que la diversité des perspectives est essentielle pour enrichir la connaissance. C'est pourquoi nous invitons chaleureusement tout chercheur et praticien francophone en intelligence artificielle à se joindre à nous. Que vous souhaitiez suggérer des modifications, proposer des ajouts pour couvrir des sujets supplémentaires, ou partager votre expertise, votre contribution est précieuse. Ensemble, nous pouvons construire une ressource d'apprentissage automatique francophone de premier plan.
 
-Pour nous faire part de vos suggestions ou pour toute question, n'hésitez pas à nous contacter à [contact@ivia.africa]().
-
+Pour nous faire part de vos suggestions ou pour toute question, n'hésitez pas à nous contacter à [contact@ivia.africa](mailto:contact@ivia.africa).
 
 # Table des matières
 
