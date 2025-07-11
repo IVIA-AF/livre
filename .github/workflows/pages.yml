@@ -41,11 +41,11 @@ jobs:
         uses: actions/configure-pages@v5 # Sets up BASE_PATH and other Pages specifics
 
       # This step installs Pandoc to a known location and potentially sets PATH
-      - name: Install Pandoc
-        uses: r-lib/actions/setup-pandoc@v2
-        id: setup-pandoc # Add an ID to easily access its outputs
-        with:
-          pandoc-version: 'latest'
+      # - name: Install Pandoc
+      #   uses: r-lib/actions/setup-pandoc@v2
+      #   id: setup-pandoc # Add an ID to easily access its outputs
+      #   with:
+      #     pandoc-version: 'latest'
 
       - name: Set up TeX Live, Python, and Build d2l-book
         # This step performs all Python/d2lbook setup and build within
@@ -55,13 +55,11 @@ jobs:
           os: debian # Recommended for broader compatibility with Python packages
           texlive_version: latest
           run: |
-            # Add Pandoc's binary directory to the PATH for this shell session.
-            # The 'setup-pandoc' action typically puts pandoc in a directory
-            # like /usr/local/bin or similar, and sets an output variable.
-            # We explicitly add it to ensure it's found.
-            # Using ${{ steps.setup-pandoc.outputs.pandoc-dir }} is the most robust way
-            # to get the exact path where setup-pandoc installed it.
-            export PATH="${{ steps.setup-pandoc.outputs.pandoc-dir }}:$PATH"
+            # Update apt and install necessary packages:
+            # python3-pip and python3-venv for Python environment
+            # pandoc for nbconvert/d2lbook functionality
+            apt-get update -qq
+            apt-get install -y python3-pip python3-venv pandoc
 
             # Verify pandoc is now found (optional, but good for debugging)
             which pandoc
