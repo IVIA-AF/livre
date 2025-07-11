@@ -33,19 +33,27 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
         with:
           pandoc-version: 'latest'
+
+      # CORRECTED ACTION: Use the currently maintained repository for setup-texlive-action.
+      - name: Set up TeX Live
+        uses: xu-cheng/setup-texlive-action@v3
+        with:
+          version: 2024
+          cache: true
+          packages: scheme-full
       # ───────────────────────────────────────────────
-      - name: Install TeX Live (latexmk, fonts, bibtex…)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full
-          # sudo apt-get install -y \
-          #     latexmk \
-          #     texlive-latex-base \
-          #     texlive-latex-recommended \
-          #     texlive-latex-extra \
-          #     texlive-fonts-recommended \
-          #     texlive-fonts-extra \
-          #     texlive-bibtex-extra
+      # - name: Install TeX Live (latexmk, fonts, bibtex…)
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y texlive-full
+      #     # sudo apt-get install -y \
+      #     #     latexmk \
+      #     #     texlive-latex-base \
+      #     #     texlive-latex-recommended \
+      #     #     texlive-latex-extra \
+      #     #     texlive-fonts-recommended \
+      #     #     texlive-fonts-extra \
+      #     #     texlive-bibtex-extra
       # ───────────────────────────────────────────────
       # - name: Set up TeX Live
       #   uses: teatimeguest/setup-texlive-action@v2
