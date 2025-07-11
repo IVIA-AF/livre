@@ -39,7 +39,7 @@ jobs:
       # OPTIMIZATION: Use a dedicated action with caching for TeX Live.
       # The first run will be slow, but subsequent runs will be much faster.
       - name: Set up TeX Live
-        uses: teatimeguest/setup-texlive-action@v3
+        uses: xu-cheng/setup-texlive-action@v3 # ✅ Correct, maintained path
         with:
           version: 2024
           cache: true
