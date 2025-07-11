@@ -1,4 +1,6 @@
-# Apprentissage-Automatisé
+Initiative pour la Vulgarisation de l’Intelligence Artificielle dans l’AFRIUE francophone (IVIA-AF)
+
+# Table des matières
 
 ```toc
 chapter1
