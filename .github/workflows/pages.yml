@@ -95,7 +95,7 @@ jobs:
             
             # --- PDF Copy happens HERE, inside the same run block and container ---
             mkdir -p dist/html # This ensures it's writable in the container
-            cp dist/pdf/Apprentissage-Automatisé.pdf dist/html/Apprentissage-Automatisé.pdf
+            cp dist/pdf/Apprentissage-Automatise.pdf dist/html/Apprentissage-Automatise.pdf
             # --------------------------------------------------------------------
 
             # Deactivate the virtual environment (optional, but good practice)
