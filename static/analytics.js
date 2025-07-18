@@ -14,51 +14,80 @@
             resolve();
           }
         }, 100);
+        
+        // Timeout after 5 seconds
+        setTimeout(() => {
+          clearInterval(checkInterval);
+          console.warn('⚠️ Vercel Analytics not loaded within 5 seconds');
+          resolve(); // Continue anyway
+        }, 5000);
       }
     });
   }
 
   // Track page view with Vercel Analytics
   async function trackPageView() {
-    await waitForVercelAnalytics();
-    
-    const page = window.location.pathname;
-    const referrer = document.referrer;
-    
-    // Track page view
-    window.va('pageview', {
-      url: page,
-      referrer: referrer
-    });
-    
-    console.log('📊 Page tracked:', page);
+    try {
+      await waitForVercelAnalytics();
+      
+      const page = window.location.pathname;
+      const referrer = document.referrer;
+      
+      // Track page view
+      if (typeof window.va === 'function') {
+        window.va('pageview', {
+          url: page,
+          referrer: referrer
+        });
+        console.log('📊 Page tracked:', page);
+      } else {
+        console.log('📊 Page view (Vercel Analytics not available):', page);
+      }
+    } catch (error) {
+      console.error('❌ Error tracking page view:', error);
+    }
   }
 
   // Track external link clicks
   async function trackExternalLinks() {
-    await waitForVercelAnalytics();
-    
-    document.addEventListener('click', (event) => {
-      const link = event.target.closest('a');
-      if (link && link.hostname !== window.location.hostname) {
-        window.va('event', {
-          name: 'external_link_click',
-          data: {
-            url: link.href,
-            text: link.textContent,
-            page: window.location.pathname
+    try {
+      await waitForVercelAnalytics();
+      
+      document.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && link.hostname !== window.location.hostname) {
+          if (typeof window.va === 'function') {
+            window.va('event', {
+              name: 'external_link_click',
+              data: {
+                url: link.href,
+                text: link.textContent,
+                page: window.location.pathname
+              }
+            });
+            console.log('🔗 External link clicked:', link.href);
           }
-        });
-        
-        console.log('🔗 External link clicked:', link.href);
-      }
-    });
+        }
+      });
+    } catch (error) {
+      console.error('❌ Error tracking external links:', error);
+    }
   }
 
   // Initialize tracking
   document.addEventListener('DOMContentLoaded', () => {
     trackPageView();
     trackExternalLinks();
+  });
+
+  // Also track on page load for single-page apps
+  window.addEventListener('load', () => {
+    if (typeof window.va === 'function') {
+      window.va('pageview', {
+        url: window.location.pathname,
+        referrer: document.referrer
+      });
+    }
   });
 
 })(); 
