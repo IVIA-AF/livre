@@ -66,3 +66,9 @@ jupyter nbconvert --to markdown prise_en_main_python.ipynb --output-dir './'
 •	è → \e`
 •	ç → \c{c}
 ```
+
+
+<!-- find dist/html -name "*.html" -exec sed -i '' '/<script src="_static\/sphinx_materialdesign_theme.js/a\
+    <!-- Vercel Analytics -->\
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>\
+    <script src="_static/analytics.js"></script>' {} \; -->

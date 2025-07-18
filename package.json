@@ -4,8 +4,9 @@
   "description": "IVIA-AF Machine Learning Book with Simple Analytics",
   "main": "index.js",
   "scripts": {
-    "dev": "echo 'No build needed - static files already built'",
-    "deploy": "echo 'No build needed - static files already built'"
+    "build": "./build-with-analytics.sh",
+    "dev": "d2lbook build html",
+    "deploy": "./build-with-analytics.sh && git add dist/html/ && git commit -m 'Update built files with analytics' && git push origin vercel-static"
   },
   "dependencies": {},
   "devDependencies": {},
