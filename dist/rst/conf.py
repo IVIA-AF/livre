@@ -61,7 +61,7 @@ html_theme_options = {
     'primary_color': 'blue',
     'accent_color': 'deep_orange',
     'header_links': [
-        ('PDF', 'https://livre.ivia.africa/Apprentissage-Automatise.pdf', True, 'fas fa-file-pdf'),
+        ('PDF', 'https://raw.githubusercontent.com/IVIA-AF/livre/dev/dist/pdf/Apprentissage-Automatise.pdf', True, 'fas fa-file-pdf'),
     ],
     'show_footer': False
 }

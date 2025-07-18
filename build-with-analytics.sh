@@ -6,6 +6,10 @@ echo "🚀 Building IVIA-AF Book with Analytics..."
 echo "📦 Building with d2l-book..."
 d2lbook build html
 
+# Copy analytics.js to _static directory
+echo "📊 Copying analytics.js to _static directory..."
+cp static/analytics.js dist/html/_static/analytics.js
+
 # Add analytics scripts to all HTML files
 echo "📊 Adding analytics scripts to HTML files..."
 find dist/html -name "*.html" -exec sed -i '' 's|<script type="text/javascript" src="_static/sphinx_materialdesign_theme.js "></script>|<script type="text/javascript" src="_static/sphinx_materialdesign_theme.js "></script>\
