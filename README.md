@@ -1,4 +1,33 @@
-# ivia-af.github.io
+# IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle en Afrique Francophone
+
+## 🚀 Déploiement sur Vercel avec Analytics Simple
+
+Ce projet est maintenant configuré pour être déployé sur Vercel avec un système d'analytics simple pour suivre les consultations du livre.
+
+### Installation rapide
+
+```bash
+# Installation des dépendances
+pip install -r requirements.txt
+
+# Build local
+d2lbook build html
+
+# Déploiement sur Vercel
+vercel
+```
+
+### Analytics et Statistiques
+
+Le système d'analytics simple vous permet de :
+- 📊 Suivre les pages visitées
+- 🌍 Voir d'où viennent les visiteurs (référents)
+- 🔗 Tracker les clics sur les liens externes
+- 📈 Utiliser Vercel Analytics intégré
+
+Les données sont disponibles dans le dashboard Vercel ou via Google Analytics.
+
+### Configuration requise
 
 - pip install git+https://github.com/d2l-ai/d2l-book
 - conda install pandoc librsvg
@@ -15,6 +44,8 @@ rm -rf \_build && d2lbook build pdf
 rm -rf \_build && d2lbook build html && d2lbook build pdf
 
 rm -rf \_build && d2lbook build html && d2lbook build pdf && d2lbook deploy html pdf
+
+rm -rf dist && d2lbook build html && d2lbook build pdf && d2lbook deploy html pdf
 
 d2lbook deploy html pdf
 

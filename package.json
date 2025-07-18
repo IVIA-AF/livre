@@ -1,0 +1,22 @@
+{
+  "name": "ivia-af-livre",
+  "version": "1.0.0",
+  "description": "IVIA-AF Machine Learning Book with Simple Analytics",
+  "main": "index.js",
+  "scripts": {
+    "build": "pip install -r requirements.txt && d2lbook build html",
+    "dev": "d2lbook build html",
+    "deploy": "d2lbook build html && d2lbook deploy html"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "machine-learning",
+    "education",
+    "french",
+    "africa",
+    "analytics"
+  ],
+  "author": "IVIA-AF Team",
+  "license": "MIT"
+} 

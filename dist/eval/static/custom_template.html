@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}">
+    <link rel="stylesheet" href="{{ pathto('_static/d2lbook.css', 1) }}">
+    <link rel="stylesheet" href="{{ pathto('_static/custom.css', 1) }}">
+    <link rel="icon" href="{{ pathto('_static/favicon.jpeg', 1) }}">
+    
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    
+    <!-- Custom Analytics -->
+    <script src="{{ pathto('_static/analytics.js', 1) }}"></script>
+</head>
+<body>
+    <div class="d2lbook-container">
+        {{ body }}
+    </div>
+</body>
+</html> 
