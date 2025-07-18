@@ -1,0 +1,21 @@
+{
+  "name": "ivia-af-livre",
+  "version": "1.0.0",
+  "description": "IVIA-AF Machine Learning Book with Simple Analytics",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo 'No build needed - static files already built'",
+    "deploy": "echo 'No build needed - static files already built'"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "machine-learning",
+    "education",
+    "french",
+    "africa",
+    "analytics"
+  ],
+  "author": "IVIA-AF Team",
+  "license": "MIT"
+} 
