@@ -4,9 +4,8 @@
   "description": "IVIA-AF Machine Learning Book with Simple Analytics",
   "main": "index.js",
   "scripts": {
-    "build": "pip install -r requirements.txt && d2lbook build html",
-    "dev": "d2lbook build html",
-    "deploy": "d2lbook build html && d2lbook deploy html"
+    "dev": "echo 'No build needed - static files already built'",
+    "deploy": "echo 'No build needed - static files already built'"
   },
   "dependencies": {},
   "devDependencies": {},
