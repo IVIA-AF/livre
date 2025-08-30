@@ -711,7 +711,7 @@ variable :**
 
 1. Les noms ne doivent pas commencer par un nombre.
 2. Pas d’espace dans les noms, utilisez \_ à la place
-3. Interdit d’utiliser les symboles suivants : ’",<>/?|()!@#$%^&*~-+
+3. Interdit d’utiliser les symboles suivants : ’“,<>/?|()!@#$%^&*~-+
 4. C’est une bonne pratique (PEP8) de mettre les noms en minuscules
 
 Les noms de variables permettent de conserver et manipuler plusieurs
