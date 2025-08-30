@@ -1,4 +1,5 @@
 {
+  "buildCommand": "echo 'No build needed'",
   "outputDirectory": "dist/html",
   "framework": null,
   "headers": [
