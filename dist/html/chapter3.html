@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; frame-ancestors *; frame-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; font-src * data: blob:; connect-src *; object-src *; base-uri *; form-action *;">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Apprentissage Supervisé &#8212; IVIA-AF: Initiative pour la Vulgarisation de l&#39;Intelligence Artificielle dans l&#39;AFRIUE francophone 1.0.0-beta0 documentation</title>
+
+    <link rel="stylesheet" href="_static/material-design-lite-1.3.0/material.blue-deep_orange.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/d2l.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/d2l.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.jpeg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="prev" title="Pré-requis" href="chapter2.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Apprentissage Supervisé</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="_sources/chapter3.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          
+              <a  class="mdl-navigation__link" href="https://raw.githubusercontent.com/IVIA-AF/livre/dev/dist/pdf/Apprentissage-Automatise.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  PDF
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/logo_2.png" alt="IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction Générale à l’Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Pré-requis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Apprentissage Supervisé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="_static/sphinx_materialdesign_theme.js "></script>
+    <!-- Vercel Analytics -->
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+    <script src="_static/analytics.js"></script>
+    <header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/logo_2.png" alt="IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction Générale à l’Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Pré-requis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Apprentissage Supervisé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content" role="main">
+        
+  <div class="section" id="apprentissage-supervise">
+<span id="ch2"></span><h1>Apprentissage Supervisé<a class="headerlink" href="#apprentissage-supervise" title="Permalink to this heading">¶</a></h1>
+<p>Dans ce chapitre, nous allons explorer l’apprentissage supervisé. Ce
+type d’apprentissage, aussi connu sous le nom d’apprentissage avec
+tutelle (maître), permet de déterminer la relation qui existe entre une
+variable explicative <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> et une variable à expliquer
+(étiquette) <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>. En d’autres termes, l’apprentissage
+supervisé est le processus permettant à un modèle d’apprendre, en lui
+fournissant des données d’entrée ainsi que des données de sortie. Cette
+paire d’entrée/sortie est généralement appelée «données étiquetées».
+Dans un cadre illustratif, pensez à un enseignant qui, connaissant la
+bonne réponse à une question, évaluera un élève en fonction de
+l’exactitude de sa réponse à cette question. Pour plus de clarification,
+comparons l’approche de l’apprentissage automatique à la programmation
+traditionnelle.</p>
+<ul>
+<li><p>Dans la programmation traditionnelle, comme illustré dans la figure
+<a class="reference external" href="#fig:tradi_prog">1.1</a>, nous avons une fonction <span class="math notranslate nohighlight">\(f\)</span> connue
+qui reçoit la donnée en entrée <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> et renvoie la
+réponse correspondante <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> en sortie. Par exemple,
+nous pouvons penser à écrire une fonction <span class="math notranslate nohighlight">\(f\)</span> qui calcule le
+carré d’un nombre; si nous donnons en entrée le nombre <span class="math notranslate nohighlight">\(2\)</span>,
+notre programme va nous renvoyer la valeur
+<span class="math notranslate nohighlight">\(\displaystyle f(2) = 2^2 = 4 = y\)</span>.</p>
+<div class="figure align-default" id="id4">
+<img alt="_images/traditional_programming.png" src="_images/traditional_programming.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">L’approche traditionnelle</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>L’approche de la programmation utilisée dans l’apprentissage
+automatique est tout à fait différente de la précédente. Dans cette
+dernière, nous ne connaissons pas la fonction <span class="math notranslate nohighlight">\(f\)</span> et nous
+voulons donc l’approximer par une fonction <span class="math notranslate nohighlight">\(\hat{f}\)</span> en
+utilisant les données à notre disposition. Cette approche est donc
+divisée en deux phases. La première est la phase où nous entraînons
+notre fonction <span class="math notranslate nohighlight">\(\hat{f}\)</span> (figure <a class="reference external" href="#fig:ML_prog_train">1.2</a>).
+Si nous revenons à notre exemple précédent, cette étape pourra
+consister à présenter à la fonction <span class="math notranslate nohighlight">\(\hat{f}\)</span>, plusieurs
+couples de nombres et leurs carrés
+<span class="math notranslate nohighlight">\(\{(2, 4), (3, 9), (4, 16), \cdots\}\)</span>. L’objectif ici est de
+trouver un moyen d’estimer la fonction “carrée” en observant
+uniquement les données à notre disposition.</p>
+<div class="figure align-default" id="id5">
+<img alt="_images/ML_Programming_flow_Training.png" src="_images/ML_Programming_flow_Training.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">L’approche apprentissage automatique</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>La dernière étape consiste à fournir un nouveau nombre à notre
+fonction <span class="math notranslate nohighlight">\(f^\star\)</span>, obtenue après l’étape <span class="math notranslate nohighlight">\(1\)</span>, afin
+qu’elle prédise (<em>approximativement</em>) le carré de ce nombre.</p>
+<div class="figure align-default" id="id6">
+<img alt="_images/ML_Programming_flow_Testing.png" src="_images/ML_Programming_flow_Testing.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">L’approche apprentissage automatique</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>Dans la suite du cours, nous reviendrons beaucoup plus en détails sur
+les étapes ci-dessus présentées.</p>
+</li>
+</ul>
+<p>L’apprentissage supervisé est souvent utilisé pour deux types de
+problèmes: les problèmes de régression et les problèmes de
+classification.</p>
+<div class="section" id="problemes-de-regression">
+<h2>Problèmes de Régression<a class="headerlink" href="#problemes-de-regression" title="Permalink to this heading">¶</a></h2>
+<p>Dans l’apprentissage supervisé, on parle de problèmes de régression
+lorsque la variable à expliquer <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> est continue. Par
+exemple lorsqu’on veut <strong>prédire le prix</strong> d’une bouteille de vin sur la
+base de <strong>certaines variables</strong> (le pays de fabrication, qualité, le
+taux d’alcool, etc.). Il s’agit bel et bien d’un problème de régression.</p>
+<div class="section" id="la-regression-lineaire">
+<h3>La Régression Linéaire<a class="headerlink" href="#la-regression-lineaire" title="Permalink to this heading">¶</a></h3>
+<p>La régression linéaire est un problème de régression pour lequel le
+modèle ou la fonction dépend linéairement de ses paramètres [&#64;reg_lin].
+Les différents types de régression linéaire que nous connaissons sont la
+régression linéaire affine, la régression linéaire polynomiale et la
+régression linéaire à fonctions de base radiales. Dans ce document, nous
+allons nous focaliser sur deux types fondamentaux de régression
+linéaire: la régression linéaire affine et la régression linéaire
+polynomiale.</p>
+<div class="section" id="la-regression-lineaire-affine">
+<h4>La régression linéaire affine<a class="headerlink" href="#la-regression-lineaire-affine" title="Permalink to this heading">¶</a></h4>
+<p>Une régression linéaire de paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> est
+dite affine si pour tout <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^d.\)</span></p>
+<div class="math notranslate nohighlight" id="equation-chapter3-0">
+<span class="eqno">(76)<a class="headerlink" href="#equation-chapter3-0" title="Permalink to this equation">¶</a></span>\[\begin{split}f_{\boldsymbol{\theta}}(\mathbf{x}) = \boldsymbol{\theta}_{0} + \boldsymbol{\theta}_{1}^{T} \mathbf{x} = \begin{bmatrix} \boldsymbol{\theta}_0 &amp; \boldsymbol{\theta}_1^{T} \end{bmatrix} \begin{bmatrix}
+1 \\
+\mathbf{x}
+\end{bmatrix}\end{split}\]</div>
+<p>avec <span class="math notranslate nohighlight">\(\boldsymbol{\theta}_0 \in \mathbb{R}\)</span> et
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}_1 \in \mathbb{R}^d.\)</span> Le terme
+<span class="math notranslate nohighlight">\(\left[ 1, \mathbf{x}\right]\)</span> est appelé attribut du modèle et il
+sera noté par <span class="math notranslate nohighlight">\(\phi(\mathbf{x}).\)</span></p>
+<div class="center docutils container">
+<div class="figure align-default" id="id7">
+<img alt="_images/linearReg_im1.png" src="_images/linearReg_im1.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Représentation graphique d’un exemple de données d’entraînement</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="line-block">
+<div class="line">Les jeux de données représentés dans la figure <a class="reference external" href="#exdonnee">1.4</a>
+forment un ensemble d’entraînement où la régression linéaire affine
+sera la plus appropriée.</div>
+<div class="line">Pour déterminer les meilleurs paramètres de la régression linéaire
+affine deux différentes méthodes sont utilisées à savoir: la méthode
+explicite et la méthode approximative.</div>
+</div>
+<ul>
+<li><p><strong>La méthode explicite</strong></p>
+<p>Dans le cas de la régression linéaire affine, la méthode explicite
+peut-être utilisée par le biais de l’estimation du maximum de
+vraisemblance qui interpelle la notion de probabilité conditionnelle.</p>
+<div class="line-block">
+<div class="line">Pour être plus concret, nous allons considérer l’expression
+suivante:</div>
+<div class="line"><span class="math notranslate nohighlight">\(y_i = f_{\boldsymbol{\theta}} (\mathbf{x}_i) + \varepsilon~~~\)</span>
+avec <span class="math notranslate nohighlight">\(\varepsilon \sim N(0, \sigma^2)\)</span>.</div>
+</div>
+<p>Dans cette expression, nous supposons que <span class="math notranslate nohighlight">\(f\)</span> est la fonction
+que nous allons estimer à partir de son paramètre
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> et qui nous permettra de faire nos
+prédictions pour chaque élément donné à partir du domaine
+d’entraînement. Nous noterons par <span class="math notranslate nohighlight">\(\hat f\)</span> comme étant la
+fonction estimée de <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>Pour une suite de points
+<span class="math notranslate nohighlight">\((\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2),..., (\mathbf{x}_n, y_n)\)</span>
+représentant le domaine d’entraînement nous supposons que les
+<span class="math notranslate nohighlight">\(y_i\)</span> suivent chacun une loi normale et qu’ils sont aussi
+indépendants et identiquement distribués (i.i.d).</p>
+<p>Alors, nous avons
+<span class="math notranslate nohighlight">\(\mathbf{x} = \left\lbrace \mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_n\right\rbrace \in \mathbb{R}^{n \times d}\)</span>
+et
+<span class="math notranslate nohighlight">\(\mathbf{y} = \left\lbrace y_1, y_2, ..., y_n\right\rbrace \in \mathbb{R}^{n}\)</span>.</p>
+<p>Déterminons le paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta} ^{*}\)</span> qui
+maximise la vraisemblance.</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-1">
+<span class="eqno">(77)<a class="headerlink" href="#equation-chapter3-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \mathbb{P}(y_1, y_2,.., y_n|  \mathbf{x}_1, \mathbf{x}_2, \cdots \mathbf{x}_n; \boldsymbol{\theta}) &amp;= \mathbb{P}(\mathbf{y}|\mathbf{x}; \boldsymbol{\theta})
+  \\
+  &amp;= \prod_{i}^{n}\mathbb{P}(y_i| \mathbf{x}_i, \boldsymbol{\theta})~~ \text{avec }  y_i \sim N(\boldsymbol{\theta}^T \mathbf{x}_i; \sigma^2)\end{aligned}\end{split}\]</div>
+<p>Dans ce cas nous avons:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-2">
+<span class="eqno">(78)<a class="headerlink" href="#equation-chapter3-2" title="Permalink to this equation">¶</a></span>\[\mathbb{P}(y_i| \mathbf{x}_i; \boldsymbol{\theta}) = \frac{1}{\sigma \sqrt{2\pi }}\exp \left(-\frac{(yi - \boldsymbol{\theta}^T \mathbf{x_i})^2}{2 \sigma^2}\right).\]</div>
+<div class="line-block">
+<div class="line">Nous savons que, la fonction logarithme est une fonction
+strictement croissante, ce qui implique que le paramètre
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta} ^*\)</span> qui maximise la vraisemblance
+maximise aussi le logarithme-vraisemblance. Ainsi, en appliquant le
+logarithme de la vraisemblance, nous avons:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-chapter3-3">
+<span class="eqno">(79)<a class="headerlink" href="#equation-chapter3-3" title="Permalink to this equation">¶</a></span>\[\log \mathbb{P}(\mathbf{y}|  \mathbf{x}; \boldsymbol{\theta}) = \sum_{i=1}^{n} \log \mathbb{P}(y_i| \mathbf{x}_i; \boldsymbol{\theta}).\]</div>
+</div></blockquote>
+<p>Pour chaque
+<span class="math notranslate nohighlight">\(i \in \left\lbrace 1, 2, ..., n\right\rbrace ,~\log \mathbb{P} (y_i| \mathbf{x}_i; \boldsymbol{\theta}) =\log\left(\frac{1}{\boldsymbol{\sigma} \sqrt{2\pi}}\right)~ -\frac{\left(y_i - \boldsymbol{\theta}^T \mathbf{x}_i\right)^2}{2 \sigma^2}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-chapter3-4">
+<span class="eqno">(80)<a class="headerlink" href="#equation-chapter3-4" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+\implies \log \mathbb{P} (\mathbf{y}| \mathbf{x}; \boldsymbol{\theta}) &amp;= -\frac{1}{2 \sigma^2} \sum_{i=1}^{n}(y_i - \boldsymbol{\theta}^T \mathbf{x}_i)^2 +c^{ste}
+\\
+\\
+&amp;= -\frac{1}{2 \sigma^2} (\mathbf{y} - \boldsymbol{\theta} \mathbf{x})^T (\mathbf{y} - \boldsymbol{\theta} \mathbf{x}) + c^{ste}\end{aligned}\end{split}\]</div>
+<p>Ainsi, la dérivée partielle du logarithme de la vraisemblance par
+rapport à <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> est donnée par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-5">
+<span class="eqno">(81)<a class="headerlink" href="#equation-chapter3-5" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+\dfrac{\partial \log \mathbb{P} (\mathbf{y}| \mathbf{x}, \boldsymbol{\theta})}{\partial \boldsymbol{\theta}} &amp; = \frac{\partial}{\partial \boldsymbol{\theta}} \left( -\frac{1}{2 \sigma^2} (\mathbf{y} - \mathbf{x} \boldsymbol{\theta})^T (\mathbf{y} - \mathbf{x} \boldsymbol{\theta} ) + c^{ste} \right)
+\\
+\\
+%&amp; =  -\frac{1}{\sigma^2} (y - \boldsymbol{\theta} X)^T (y - \boldsymbol{\theta} X)
+&amp; = \frac{1}{\sigma^2} \mathbf{x}^T(\mathbf{x}\boldsymbol{\theta} - \mathbf{y}).\end{aligned}\end{split}\]</div>
+<p>Alors, résoudre l’équation:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-6">
+<span class="eqno">(82)<a class="headerlink" href="#equation-chapter3-6" title="Permalink to this equation">¶</a></span>\[\displaystyle \frac{\partial \log \mathbb{P}(\mathbf{y}| \mathbf{x}, \boldsymbol{\theta})}{\partial \boldsymbol{\theta}} = 0\]</div>
+<p>nous permettra de trouver la valeur de <span class="math notranslate nohighlight">\(\boldsymbol{\theta}^*\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-7">
+<span class="eqno">(83)<a class="headerlink" href="#equation-chapter3-7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+    \frac{\partial \log \mathbb{P}(\mathbf{y}| \mathbf{x}, \boldsymbol{\theta})}{\partial \boldsymbol{\theta}} &amp;=0,\\
+    \mathbf{x}^T(\mathbf{x}\boldsymbol{\theta} - \mathbf{y}) &amp;= 0, \\
+    \mathbf{x}^T\mathbf{x}\boldsymbol{\theta} &amp;= \mathbf{x}^T\mathbf{y}.\end{aligned}\end{split}\]</div>
+<p>En supposant que la matrice <span class="math notranslate nohighlight">\(\mathbf{x}^T\mathbf{x}\)</span> est
+inversible nous avons :</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-8">
+<span class="eqno">(84)<a class="headerlink" href="#equation-chapter3-8" title="Permalink to this equation">¶</a></span>\[\boldsymbol{\theta}^{*} = (\mathbf{x}^T\mathbf{x})^{-1}\mathbf{x}^T\mathbf{y}.\]</div>
+<p>Alors, vu que nous avons déterminé le paramètre
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}\)</span>, la fonction
+<span class="math notranslate nohighlight">\(\hat{\boldsymbol{f}}\)</span> associée au paramètre
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}\)</span>, souvent appelée “hypothèse” ou
+“modèle” s’écrit comme</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-9">
+<span class="eqno">(85)<a class="headerlink" href="#equation-chapter3-9" title="Permalink to this equation">¶</a></span>\[\hat{\boldsymbol{f}}(\mathbf{x}) = \boldsymbol{\theta}^{*}\mathbf{x}.\]</div>
+<p>[droite]</p>
+<div class="center docutils container">
+<div class="figure align-default" id="id8">
+<img alt="_images/linearReg_im3.png" src="_images/linearReg_im3.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Représentation graphique de la fonction <span class="math notranslate nohighlight">\(\hat{f}\)</span> définie
+dans l’ensemble <span class="math notranslate nohighlight">\(X\)</span> à valeur dans <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>La méthode explicite nous permet d’obtenir la solution exacte de
+l’équation <a class="reference external" href="#equat">[equat]</a>. Tout de même, trouver cette solution
+exacte est souvent très compliquée dans le cas où l’étude se fait sur
+un grand ensemble de jeux de données (la complexité pour trouver
+l’inverse dans l’équation <a class="reference external" href="#star">[star]</a> est
+<span class="math notranslate nohighlight">\(\mathcal{O}(n^{3})\)</span>). Pour cela, dans ce qui suit, nous allons
+présenter des méthodes alternatives qui nous permettront de donner
+une valeur approchée à la solution exacte.</p>
+</li>
+<li><p><strong>Méthodes approximatives</strong></p>
+<div class="line-block">
+<div class="line">Dans cette partie, nous allons utiliser une méthode itérative pour
+estimer la valeur des paramètres de l’équation suivante:</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-chapter3-10">
+<span class="eqno">(86)<a class="headerlink" href="#equation-chapter3-10" title="Permalink to this equation">¶</a></span>\[\mathbf{y}=\boldsymbol{\theta} \mathbf{x}\]</div>
+<p>,</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line">où <span class="math notranslate nohighlight">\(\boldsymbol{\theta} \in \mathbb{R}^{d+1}\)</span> est le vecteur
+de paramètres à estimer;
+<span class="math notranslate nohighlight">\(\mathbf{X} = \left\lbrace \mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_n\right\rbrace \in \mathbb{R}^{n \times (d+1)}\)</span>
+et
+<span class="math notranslate nohighlight">\(\mathbf{y} = \left\lbrace y_1, y_2, ..., y_n\right\rbrace \in \mathbb{R}^{n}\)</span>
+les données. $$</div>
+</div>
+<p><strong>La fonction de perte</strong></p>
+<p>La fonction de perte mesure la différence entre la valeur observée et
+la valeur estimée. En apprentissage automatique, l’objectif est
+d’optimiser la fonction de perte. Il existe différentes fonctions de
+perte selon le critère (ou métrique permettant d’évaluer la
+performance du modèle) adopté(e). Dans cette partie, nous allons
+utiliser l’erreur quadratique moyenne (appelé Mean Square Error (MSE)
+en anglais) pour définir notre fonction de perte.</p>
+<p>L’erreur quadratique moyenne entre le <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> observé et
+le <span class="math notranslate nohighlight">\(\mathbb{\hat{y}}\)</span> prédit est donnée par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-11">
+<span class="eqno">(87)<a class="headerlink" href="#equation-chapter3-11" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+\operatorname{MSE}(\mathbf{y}, \hat{\boldsymbol{y}}) &amp; = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2,\end{aligned}\]</div>
+<p>où <span class="math notranslate nohighlight">\(n\)</span> est la dimension des vecteurs <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> et
+<span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}\)</span>.</p>
+<p>Dans le cas de la régression linéaire, cette fonction peut être
+réécrite comme étant une fonction <span class="math notranslate nohighlight">\(E\)</span> de
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-12">
+<span class="eqno">(88)<a class="headerlink" href="#equation-chapter3-12" title="Permalink to this equation">¶</a></span>\[E\left(\boldsymbol{\theta}\right)  = \frac{1}{n}\sum_{i=1}^{n}(y_i - \boldsymbol{\theta}^{T} \mathbf{x}_i)^2.\]</div>
+<p>Par conséquent, le paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> qui
+correspond à la meilleure ligne d’ajustement sera tout simplement la
+valeur qui minimise la fonction de perte <span class="math notranslate nohighlight">\(E\)</span>. Pour cela, nous
+allons introduire une méthode la plus souvent utilisée pour minimiser
+une fonction (éventuellement convexe) dans l’apprentissage
+automatique à savoir la descente de gradient.</p>
+<p>[f_convexe]</p>
+<div class="center docutils container">
+<div class="figure align-default" id="id9">
+<img alt="_images/linearReg_im2.png" src="_images/linearReg_im2.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Représentation graphique d’une fonction convexe</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="descente-de-gradient-gd">
+<h4>Descente de gradient {GD}<a class="headerlink" href="#descente-de-gradient-gd" title="Permalink to this heading">¶</a></h4>
+<p>La descente de gradient est une procédure itérative d’optimisation dans
+laquelle, à chaque étape, on améliore la solution en essayant de
+minimiser la fonction de perte considérée [&#64;desc_grad]. Elle est
+appliquée lorsque l’on cherche le minimum d’une fonction dont on connaît
+l’expression analytique, qui est dérivable, mais dont le calcul direct
+du minimum est difficile.</p>
+<p>Pour entamer cette procédure, nous allons commencer par initialiser le
+paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>. Ensuite, nous calculons la
+dérivée partielle de la fonction <span class="math notranslate nohighlight">\(E\)</span> par rapport au paramètre
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> donnée par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-13">
+<span class="eqno">(89)<a class="headerlink" href="#equation-chapter3-13" title="Permalink to this equation">¶</a></span>\[\frac{\partial E}{\partial \boldsymbol{\theta}} = -\frac{2}{n} \sum_{i=1}^{n} \mathbf{x}_i(y_i - \boldsymbol{\theta}^{T} \mathbf{x}_i).\]</div>
+<p>Pour trouver les meilleurs paramètres, nous allons répéter le processus
+ci-dessous jusqu’à ce que la fonction de perte soit très proche ou égale
+à <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-14">
+<span class="eqno">(90)<a class="headerlink" href="#equation-chapter3-14" title="Permalink to this equation">¶</a></span>\[\boldsymbol{\theta} = \boldsymbol{\theta} - \gamma \cdot \frac{\partial E}{\partial \boldsymbol{\theta}},\]</div>
+<p>La valeur de <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> trouvée après convergence est
+la valeur optimale que nous noterons par <span class="math notranslate nohighlight">\(\boldsymbol{\theta}^*\)</span>.</p>
+<p>Alors, concernant l’exemple de la figure <a class="reference external" href="#exdonnee">1.4</a>, notre
+hypothèse ou modèle sera représenté par une droite d’ajustement de la
+même forme que celle en couleur verte sur la figure
+<a class="reference external" href="#droitelin">1.5</a>. Cette droite est d’équation:</p>
+<div class="center docutils container">
+<p><span class="math notranslate nohighlight">\(\mathbf{y} = \boldsymbol{\theta}^*\mathbf{x}\)</span>.</p>
+</div>
+<div class="line-block">
+<div class="line"><strong>Implementation</strong></div>
+</div>
+<div class="algorithm docutils container">
+<div class="algorithmic docutils container">
+<p>class <strong>LinearRégression</strong>():    def <strong>__init__</strong> (self):
+      pass    def <strong>fonction_perte</strong>(self, y_vrai, y_prédit):
+      définit une fonction de perte et retourne sa valeur    def
+<strong>algorithme</strong>(self, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>,
+taux_apprentissage, nombre_itération):       initialiser les
+paramètres <span class="math notranslate nohighlight">\(\boldsymbol{\theta}_0\)</span> et
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}_1\)</span></p>
+<p>for i in range(nombre_itération):           <strong>prédiction</strong>(x),
+          calcule la perte au moyen de <strong>fonction_perte</strong>,
+          mise à jour des paramètres <span class="math notranslate nohighlight">\(\boldsymbol{\theta}_0\)</span>
+et <span class="math notranslate nohighlight">\(\boldsymbol{\theta}_1\)</span>,           return
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}_0\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\theta}_1\)</span>,
+   def <strong>prédiction</strong>(self, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>):       y_prédit
+<span class="math notranslate nohighlight">\(= \boldsymbol{\theta}_0^T \mathbf{x} + \boldsymbol{\theta}_1\)</span>,
+      return y_prédit</p>
+</div>
+</div>
+<p>Un exemple d’implementation de régression linéaire est disponible
+<a class="reference external" href="https://colab.research.google.com/drive/1Ad94wJI2hch6BxpRV9P-SZcc3UfI2zwY#scrollTo=BPyCNZ9Z6tMg">ici</a></p>
+</div>
+<div class="section" id="la-regression-lineaire-polynomiale">
+<h4>La régression linéaire polynomiale<a class="headerlink" href="#la-regression-lineaire-polynomiale" title="Permalink to this heading">¶</a></h4>
+<p>La régression linéaire de paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> est dite
+polynomiale si pour tout <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^d,\)</span></p>
+<div class="math notranslate nohighlight" id="equation-chapter3-15">
+<span class="eqno">(91)<a class="headerlink" href="#equation-chapter3-15" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+\text{f}_{\boldsymbol{\theta}}(\mathbf{x}) &amp;= \boldsymbol{\theta}_0 + \boldsymbol{\theta}_1 \mathbf{x}^1 +...+ \boldsymbol{\theta}_m \mathbf{x}^{m}
+\\
+&amp;= \left[ \boldsymbol{\theta}_0, \boldsymbol{\theta}_1, ..., \boldsymbol{\theta}_m\right] \begin{bmatrix}
+1 \\
+\mathbf{x}^{1} \\
+\vdots \\
+\mathbf{x}^{m}
+\end{bmatrix}
+\\
+&amp;=\sum_{i=0}^{m} \boldsymbol{\theta}_i \mathbf{x}^{i},\end{aligned}\end{split}\]</div>
+<p>avec comme attribut le vecteur
+<span class="math notranslate nohighlight">\(\phi (\mathbf{x}) = \left[ 1, \mathbf{x}^1, ..., \mathbf{x}^m\right]^T\)</span>.
+Ainsi, deux méthodes existent pour déterminer le meilleur paramètre
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}^*\)</span>.</p>
+<ol class="arabic">
+<li><p><strong>Estimation par la méthode du maximum de vraisemblance (appelée MLE:
+Maximum Likelihood Estimation)</strong>: Suivant de manière analogique de la
+détermination du paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}^*\)</span> sur la
+partie précédente, la meilleure valeur du paramètre
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}\)</span> est déterminée par
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}^*= (\mathbf{x}^T \mathbf{x})^{-1}\mathbf{x}^T\mathbf{y}.\)</span></p></li>
+<li><p><strong>Estimation par la méthode d’un posteriori maximal (appelée MAP:
+Maximum A Posteriori)</strong>: La méthode consiste à trouver la valeur
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}_{\mathrm{MAP}}\)</span> qui maximise le
+produit entre la vraisemblance et la distribution à priori des
+paramètres <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> comme l’indique l’équation
+<a class="reference external" href="#naivebayes">[naivebayes]</a>. Cette méthode d’estimation apparaît
+généralement dans un cadre bayésien. Tout comme la méthode du maximum
+de vraisemblance, elle peut être utilisée afin d’estimer un certain
+nombre de paramètres inconnus, comme les paramètres d’une densité de
+probabilité, reliés à un échantillon donné. La seule différence avec
+la méthode de maximum de vraisemblance est sa possibilité de prendre
+en compte un à priori non uniforme sur les paramètres à estimer.
+Ainsi, nous pouvons dire que l’estimateur au maximum de vraisemblance
+est l’estimateur MAP pour une distribution à priori uniforme. Par le
+théorème de Bayes, nous pouvons obtenir le postérieur comme un
+produit de vraisemblance avec :</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-16">
+<span class="eqno">(92)<a class="headerlink" href="#equation-chapter3-16" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+        \mathbb{P}\left(\boldsymbol{\theta}|\mathbf{y};\mathbf{x} \right) &amp;= \frac{\mathbb{P}\left(\mathbf{y};\mathbf{x}|\boldsymbol{\theta}\right) \mathbb{P}\left(\boldsymbol{\theta} \right)}{\mathbb{P}\left(\mathbf{y};\mathbf{x}\right)}
+        \\
+        &amp; \propto \mathbb{P}\left(\mathbf{y};\mathbf{x}|\boldsymbol{\theta}\right)\mathbb{P}\left(\boldsymbol{\theta}\right).\nonumber
+    \end{aligned}\end{split}\]</div>
+</li>
+</ol>
+<p>Avec
+<span class="math notranslate nohighlight">\(\mathbf{Y}| \boldsymbol{\theta} \sim \mathcal{N}(\boldsymbol{\theta}^T \mathbf{x}, \sigma^2)\)</span>
+et
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta} \sim \mathcal{N}(\mathbf{0}, \lambda^2 \mathbf{I})\)</span>
+où <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> représente la matrice identité dont la dimension
+est la longueur du vecteur <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>. Ainsi, nous
+pouvons écrire la vraisemblance comme:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-17">
+<span class="eqno">(93)<a class="headerlink" href="#equation-chapter3-17" title="Permalink to this equation">¶</a></span>\[\mathbb{P}(\boldsymbol{\theta}| \mathbf{y};\mathbf{x}) = \frac{1}{\sigma \sqrt{2\pi }}\exp{\left(-\frac{(y - \boldsymbol{\theta}^T \mathbf{x})^2}{2 \sigma^2}\right)} \frac{1}{\lambda \sqrt{2\pi }} \operatorname{exp}\left(-\frac{\boldsymbol{\theta}^2}{2 \lambda^2}\right)\]</div>
+<p>En utilisant la fonction logarithme, nous avons</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-18">
+<span class="eqno">(94)<a class="headerlink" href="#equation-chapter3-18" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+ \log \mathbb{P}(\boldsymbol{\theta}|\mathbf{x}, \mathbf{y}) &amp;= \log\left(\frac{1}{\sigma \sqrt{2\pi }}\operatorname{exp}\left(-\frac{(\mathbf{y} - \boldsymbol{\theta}^T \mathbf{x})^2}{2 \sigma^2}\right) \frac{1}{\lambda \sqrt{2\pi }}\exp{\left(-\frac{\boldsymbol{\theta}^2}{2 \lambda^2}\right)} \right)\\
+ &amp;= -\frac{1}{2 \sigma^2}(\mathbf{y} - \boldsymbol{\theta}^T \mathbf{x})^2 -\frac{1}{2 \lambda^2}\boldsymbol{\theta} ^2 + c^{te}
+\\
+&amp; = -\frac{1}{2 \sigma^2}||\mathbf{y} - \boldsymbol{\theta} \mathbf{x}||^2 -\frac{1}{2 \lambda^2}||\boldsymbol{\theta}|| ^2 + c^{te}.\end{aligned}\end{split}\]</div>
+<p>Et le paramètre à estimer <span class="math notranslate nohighlight">\(\boldsymbol{\theta}^*\)</span> correspond au
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> qui annule la dérivée partielle de
+<span class="math notranslate nohighlight">\(\log \mathbb{P}(\mathbf{y}| \mathbf{x}, \boldsymbol{\theta})\)</span> par
+rapport à <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>.</p>
+<div class="center docutils container">
+<p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial \log \mathbb{P}(\mathbf{y}| \mathbf{x}, \boldsymbol{\theta})}{\partial \boldsymbol{\theta}} = 0  \Longleftrightarrow \frac{\partial \log}{\partial \boldsymbol{\theta}}\left(-\frac{1}{2 \sigma^2}||\mathbf{y} - \boldsymbol{\theta} \mathbf{x}||^2 -\frac{1}{2 \lambda^2}||\boldsymbol{\theta}||^2 + c^{te} \right) = 0\)</span>.</p>
+</div>
+<p><span class="math notranslate nohighlight">\(\linebreak\)</span> Ceci revient à déterminer le
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> qui annule l’expression</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-19">
+<span class="eqno">(95)<a class="headerlink" href="#equation-chapter3-19" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  \frac{1}{ \sigma^2}\mathbf{x}^T (\mathbf{y} - \boldsymbol{\theta} \mathbf{x}) -\frac{1}{ \lambda^2} \boldsymbol{\theta}. \end{aligned}\]</div>
+<p>Alors,</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-20">
+<span class="eqno">(96)<a class="headerlink" href="#equation-chapter3-20" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+    &amp;-\frac{1}{ \sigma^2}\mathbf{x}^T (\mathbf{y} - \boldsymbol{\theta} \mathbf{x}) -\frac{1}{ \lambda^2} \boldsymbol{\theta} = 0
+    \Longleftrightarrow
+    -\frac{1}{ \sigma^2}\mathbf{x}^T \mathbf{y} + \frac{1}{ \sigma^2} \boldsymbol{\theta} \mathbf{x}^T \mathbf{X} - \frac{1}{\lambda^2}\boldsymbol{\theta} = 0
+    \\
+    \\
+    &amp;~(\frac{1}{\sigma^2}\mathbf{x}^T \mathbf{x} - \frac{1}{\lambda^2}) \boldsymbol{\theta} = \frac{1}{\sigma^2}\mathbf{x}^T \mathbf{y}
+    \Longleftrightarrow
+  \boldsymbol{\theta}^* = \left(\mathbf{x}^T \mathbf{x} - \frac{\sigma^2}{\lambda^2} \mathbf{I} \right)^{-1} \mathbf{x}^T\mathbf{y}.\end{aligned}\end{split}\]</div>
+<p>Cas Pratique</p>
+</div>
+</div>
+</div>
+<div class="section" id="les-problemes-de-classification">
+<h2>Les Problèmes de Classification<a class="headerlink" href="#les-problemes-de-classification" title="Permalink to this heading">¶</a></h2>
+<p>A la différence avec le problème de régression, la classification est un
+autre type de problème d’apprentissage supervisé où la variable à
+prédire est discrète (ou qualitative ou catégorique). Cette variable
+discrète peut être binaire (deux classes) ou multiple (multi-classe).
+Par exemple lorsqu’on veut <strong>catégoriser</strong> si un e-mail reçu est un
+‘spam’ ou “non-spam” il s’agit bel et bien d’un problème de
+classification.</p>
+<div class="section" id="lalgorithme-des-k-plus-proches-voisins-k-nn">
+<h3>L’algorithme des <span class="math notranslate nohighlight">\(K\)</span> plus proches voisins (<span class="math notranslate nohighlight">\(K\)</span>-NN)<a class="headerlink" href="#lalgorithme-des-k-plus-proches-voisins-k-nn" title="Permalink to this heading">¶</a></h3>
+<p>L’algorithme des <span class="math notranslate nohighlight">\(K\)</span> plus proches voisins aussi appelé
+<span class="math notranslate nohighlight">\(K\)</span>-Nearest Neighbors (<span class="math notranslate nohighlight">\(K\)</span>-NN) en anglais est une méthode
+d’apprentissage supervisé utilisée pour la classification aussi bien que
+la régression <span id="id1">()</span> [&#64;goodfellow2016deep]. Il est
+compté parmi les plus simples algorithmes d’apprentissage automatique
+supervisé, facile à mettre en oeuvre et à comprendre.</p>
+<p>Toutefois dans l’industrie, il est plus utilisé pour les problèmes de
+classification. Son fonctionnement se base sur le principe suivant: <em>dis
+moi qui sont tes voisins, je te dirais qui tu es …</em></p>
+<p>L’objectif de cet algorithme est de déterminer la classe d’une nouvelle
+observation <span class="math notranslate nohighlight">\(x\)</span> en fonction de la classe majoritaire parmi ses
+<span class="math notranslate nohighlight">\(K\)</span> plus proches voisins. Donc l’algorithme est basé sur la mesure
+de similarité des voisins proches pour classifier une nouvelle
+observation <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>La méthode des <span class="math notranslate nohighlight">\(K\)</span> plus proches voisins, où <span class="math notranslate nohighlight">\(K\)</span> représente
+le nombre de voisins proches est une méthode non-paramétrique. Cela
+signifie que l’algorithme permet de faire une classification sans faire
+d’hypothèse sur la fonction
+<span class="math notranslate nohighlight">\(y=f(\mathbf{x}_1,\mathbf{x}_2, \dots \mathbf{x}_n)\)</span> qui relie la
+variable dépendante <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> aux variables indépendantes
+<span class="math notranslate nohighlight">\(\mathbf{x}_1,\mathbf{x}_2, \dots, \mathbf{x}_n\)</span>.</p>
+<p>Soit <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> l’ensemble des données ou l’échantillon
+d’apprentissage, défini par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-21">
+<span class="eqno">(97)<a class="headerlink" href="#equation-chapter3-21" title="Permalink to this equation">¶</a></span>\[\mathcal{D}=\{(\mathbf{x}_i, y_i), i=1, \dots, n\},\]</div>
+<p>où <span class="math notranslate nohighlight">\(y_i \in \{1,\dots,c\}\)</span> dénote la classe de la donnée
+<span class="math notranslate nohighlight">\(i\)</span> et
+<span class="math notranslate nohighlight">\(\mathbf{x}_i=(\mathbf{x}_{i1}, \dots, \mathbf{x}_{im})\)</span> est le
+vecteur représentant les variables (attributs) prédictrices de la donnée
+<span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Supposons un nouveau point <span class="math notranslate nohighlight">\(\textbf{p}\)</span> pour lequel nous voulons
+prédire la classe dans la quelle il doit appartenir comme indiqué dans
+la figure <a class="reference external" href="#fig:Knn">1.7</a>.</p>
+<div class="figure align-default" id="id10">
+<img alt="_images/KNN.png" src="_images/KNN.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Classification d’un nouveau point entre deux classes</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<p>La première chose à faire est de calculer la distance entre le point
+<span class="math notranslate nohighlight">\(\textbf{p}\)</span> avec tous les autres points. Ensuite trouver les
+<span class="math notranslate nohighlight">\(K\)</span> points les plus proches de <span class="math notranslate nohighlight">\(\textbf{p}\)</span>. C’est-à-dire
+les <span class="math notranslate nohighlight">\(K\)</span> points dont la distance avec <span class="math notranslate nohighlight">\(\textbf{p}\)</span> est
+minimale. Les <span class="math notranslate nohighlight">\(K-\)</span>points plus proches de <span class="math notranslate nohighlight">\(\textbf{p}\)</span> dans
+l’échantillon d’apprentissage sont obtenus par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-22">
+<span class="eqno">(98)<a class="headerlink" href="#equation-chapter3-22" title="Permalink to this equation">¶</a></span>\[\underset{\mathbf{x}_i}{K-\mbox{argmin}}\  \{d(\textbf{p},\mathbf{x}_i), i=1, \dots, n\}.\]</div>
+<p>Pour tout
+<span class="math notranslate nohighlight">\(i \in \{1, \dots, n\}, d_{p, i} := \{ d(p, \mathbf{x}_i), ~ i = 1, \dots, n \}\)</span>
+où <span class="math notranslate nohighlight">\(d\)</span> est une fonction de distance. Et en suite la classe prédite
+de <span class="math notranslate nohighlight">\(\textbf{p}\)</span> notée <span class="math notranslate nohighlight">\(\hat{\textbf{y}}\)</span> est la classe
+majoritairement représentée par les <span class="math notranslate nohighlight">\(k\)</span> voisins.</p>
+<p>Les points similaires ou les points les plus proches sont sélectionnés
+en utilisant une fonction de distance telle que la distance
+euclidienne <a class="reference external" href="#Euclidienne">[Euclidienne]</a>, la distance de
+Manhattan <a class="reference external" href="#Manhattan">[Manhattan]</a> et la distance de Minkowski
+ <a class="reference external" href="#Minkowski">[Minkowski]</a>. On choisit la fonction de distance en
+fonction des types de données manipulées, par exemple dans le cas où les
+données sont quantitatives et du même type, c’est la distance
+euclidienne qui est utilisée.</p>
+<p>Les points les plus proches de <span class="math notranslate nohighlight">\(P\)</span> sont trouvés en utilisant une
+fonction de distance telle que la distance Euclidienne, la distance de
+Minkowski et la distance de Manhattan.</p>
+<div class="section" id="algorithme">
+<h4>Algorithme<a class="headerlink" href="#algorithme" title="Permalink to this heading">¶</a></h4>
+<p>Soient <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> un échantillon d’apprentissage des
+observations <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> relatives à une classe <span class="math notranslate nohighlight">\(y_i\)</span>
+<span class="math notranslate nohighlight">\(\mathcal{D}=\{(\mathbf{x}_i, y_i), i=1, \dots,n\}\)</span> et
+<span class="math notranslate nohighlight">\(\textbf{p}\)</span> une nouvelle observation dont la classe
+<span class="math notranslate nohighlight">\(\hat{c}\)</span> doit être prédite. <strong>Les étapes de l’algorithme:</strong>
+Ainsi, l’algorithme se présente comme suit:</p>
+<ol class="arabic">
+<li><p>Choisir le paramètre <span class="math notranslate nohighlight">\(K\)</span>, le nombre de voisins les plus
+proches;</p></li>
+<li><p>Calculer la distance de la nouvelle observation <span class="math notranslate nohighlight">\(\textbf{p}\)</span>
+avec tous les autres échantillons selon une fonction de distance
+choisie <span class="math notranslate nohighlight">\(d(p, \mathbf{x}_i);\)</span></p></li>
+<li><p>Sélectionner les <span class="math notranslate nohighlight">\(K\)</span> plus proches voisins de
+<span class="math notranslate nohighlight">\(\textbf{p}\)</span>;</p></li>
+<li><p>Former la collection <span class="math notranslate nohighlight">\(K_c\)</span> des étiquettes des <span class="math notranslate nohighlight">\(K\)</span> plus
+proches voisins de <span class="math notranslate nohighlight">\(\textbf{p}\)</span>;</p></li>
+<li><p>Et la classe de <span class="math notranslate nohighlight">\(\textbf{p}\)</span>, <span class="math notranslate nohighlight">\(\hat{c}\)</span> est choisie
+d’après la majorité des <span class="math notranslate nohighlight">\(K_c\)</span> plus proches voisins,
+c’est-à-dire</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-23">
+<span class="eqno">(99)<a class="headerlink" href="#equation-chapter3-23" title="Permalink to this equation">¶</a></span>\[\hat{c}=\mbox{Mode}(K_c)\]</div>
+<p>.</p>
+</li>
+<li><p>Répéter l’étape 2 à 5 pour chaque nouveau point à classifier.</p></li>
+</ol>
+<p>L’algorithme <a class="reference external" href="#algorithme_knn">[algorithme_knn]</a> nous présente le
+pseudo-code de la méthode de plus proches voisins.</p>
+<div class="algorithm docutils container">
+<div class="algorithmic docutils container">
+<p>Un ensemble de données
+<span class="math notranslate nohighlight">\(\mathcal{D} = \{(\mathbf{x}_i, y_i)\}, i = 1, \dots,n\)</span>
+Choisir une fonction de distance <span class="math notranslate nohighlight">\(d\)</span> Choisir un nombre
+<span class="math notranslate nohighlight">\(K \in \mathbb{N}^*\)</span> Pour une nouvelle observation
+<span class="math notranslate nohighlight">\(\textbf{p}\)</span> dont on veut prédire la classe <span class="math notranslate nohighlight">\(\hat{c}\)</span>:
+     Calculer la distance <span class="math notranslate nohighlight">\(d(\textbf{p},\mathbf{x}_i)\)</span>
+     Retenir les <span class="math notranslate nohighlight">\(K\)</span> observations proches de
+<span class="math notranslate nohighlight">\(\textbf{p}\)</span>:
+<span class="math notranslate nohighlight">\(\underset{\mathbf{x}_i}{K-\arg \min}\  \{d(\textbf{p},\mathbf{x}_i), i=1, \dots, n\}\)</span>
+     Prendre les valeurs <span class="math notranslate nohighlight">\(\displaystyle y_{k}\)</span> des <span class="math notranslate nohighlight">\(K\)</span>
+observations retenues:           Si on effectue une régression:
+<span class="math notranslate nohighlight">\(\hat{c}= \frac{1}{K}\sum_{k=1}^{K} y_k\)</span> (la moyenne ou la
+médiane des <span class="math notranslate nohighlight">\(y_k\)</span> retenues)           Si on effectue une
+classification : Calculer le mode des <span class="math notranslate nohighlight">\(y_k\)</span> retenues
+     Retourner <span class="math notranslate nohighlight">\(\hat{c}\)</span>, la valeur qui a été prédite par
+<span class="math notranslate nohighlight">\(K\)</span>-NN pour l’observation <span class="math notranslate nohighlight">\(\textbf{p}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="comment-choisir-la-valeur-de-k">
+<h4>Comment choisir la valeur de <span class="math notranslate nohighlight">\(K\)</span> ?<a class="headerlink" href="#comment-choisir-la-valeur-de-k" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>En générale, le choix de la valeur de <span class="math notranslate nohighlight">\(K \in \mathbb{N}^{*}\)</span>
+dépend du jeu de données. Pour la classification binaire (en deux
+classes) par exemple il est préférable de choisir la valeur <span class="math notranslate nohighlight">\(K\)</span>
+impaire pour éviter les votes égalitaires. Historiquement, la valeur
+optimale de <span class="math notranslate nohighlight">\(K\)</span> pour la plupart de données est choisie entre 3
+et 10 [&#64;shalev2014understanding].</p></li>
+<li><p>Une optimale valeur de <span class="math notranslate nohighlight">\(K\)</span> peut être sélectionnée par diverses
+techniques heuristiques dont la <strong>validation-croisée</strong> (que nous
+allons expliquer ci-dessous).</p></li>
+<li><p>Notons que, si l’algorithme est utilisé pour la régression, c’est la
+moyenne (ou la médiane) des variables <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> des
+<span class="math notranslate nohighlight">\(K\)</span> plus proches observations qui sera utilisée pour la
+prédiction. Et dans le cas de la classification, c’est le mode des
+variables <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> des <span class="math notranslate nohighlight">\(K\)</span> plus proches observations
+qui servira pour la prédiction.</p></li>
+</ul>
+<p><strong>Validation-croisée (Cross-Validation)</strong></p>
+<p>La Validation-croisée (<em>Cross-validation</em>) est une méthode très
+populaire utilisée pour estimer la performance d’un algorithme. C’est
+une méthode statistique souvent utilisée dans des procédures
+d’estimation et aussi pour la sélection de modèles [&#64;chen2019mehryar].</p>
+<p>Son principe est le suivant :</p>
+<ul class="simple">
+<li><p>séparer les données en données en deux échantillon (apprentissage et
+validation);</p></li>
+<li><p>construire l’estimateur sur l’échantillon d’apprentissage et utiliser
+l’échantillon de validation pour évaluer l’erreur de prédiction;</p></li>
+<li><p>Répéter plusieurs fois le processus et enfin faire une moyenne des
+erreurs de prédiction obtenues.</p></li>
+</ul>
+<p>C’est une technique très utilisée pour le choix de meilleurs paramètres
+et hyperparamètres d’un modèle, par exemple pour le choix de la
+meilleure valeur de <span class="math notranslate nohighlight">\(K\)</span> dans l’algorithme de plus proches voisins
+(<span class="math notranslate nohighlight">\(K\)</span>-NN).</p>
+<p>On distingue les variantes suivantes de la technique de
+validation-croisée:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K\)</span>-fold cross-validation : Partitionnement des données en
+<span class="math notranslate nohighlight">\(K\)</span> sous-ensembles. Chaque sous-ensemble sert à tour de rôle
+d’échantillon de validation et le reste de sous-ensembles
+d’échantillon d’apprentissage. En pratique la valeur de <span class="math notranslate nohighlight">\(K\)</span>
+varie entre <span class="math notranslate nohighlight">\(5\)</span> et <span class="math notranslate nohighlight">\(10\)</span>.</p></li>
+<li><p>Leave-one-out cross-validation: qui signifie de laisser à tour de
+rôle une observation comme échantillon de validation et le reste des
+données comme échantillon d’apprentissage. C’est un <span class="math notranslate nohighlight">\(n\)</span>-fold
+validation-croisée avec <span class="math notranslate nohighlight">\(n\)</span>, le nombre total d’observations.</p></li>
+<li><p>Leave-<span class="math notranslate nohighlight">\(q\)</span>-out qui signifie de laisser à tour de rôle <span class="math notranslate nohighlight">\(q\)</span>
+observations comme échantillon de validation et le reste des données
+comme échantillon d’apprentissage. C’est une
+<span class="math notranslate nohighlight">\(\lceil  \frac{n}{q}\rceil\)</span>-fold validation-croisée.</p></li>
+</ul>
+<p>D’une manière générale, la procédure de partitionnement des données se
+présente souvent comme suit:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-24">
+<span class="eqno">(100)<a class="headerlink" href="#equation-chapter3-24" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+    \underbrace{Apprentissage }_{70\%} +
+    \underbrace{Validation}_{10\%}+
+    \underbrace{Test}_{20\%}\end{aligned}\]</div>
+<ul class="simple">
+<li><p>Les données d’apprentissage permettent de trouver un estimateur.</p></li>
+<li><p>Les données de validation nous permettent de trouver les meilleurs
+paramètres du modèle.</p></li>
+<li><p>Les données test permettent de calculer l’erreur de prédiction
+finale. Notons que cette méthode de validation-croisée est utilisée
+pour tous types d’algorithme d’apprentissage.</p></li>
+</ul>
+</div>
+<div class="section" id="les-avantages-de-lalgorithme-de-k-nn">
+<h4>Les avantages de l’algorithme de <span class="math notranslate nohighlight">\(K\)</span>-NN<a class="headerlink" href="#les-avantages-de-lalgorithme-de-k-nn" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Il est simple, facile à interpréter.</p></li>
+<li><p>Il n’existe pas de phase d’apprentissage proprement dite comme c’est
+le cas pour les autres algorithmes, c’est pour cela qu’on le
+classifie dans le <em>Lazy Learning.</em></p></li>
+<li><p>Offre des performances très intéressantes lorsque le volume de
+données d’apprentissage est trop large.</p></li>
+<li><p>Le temps d’exécution est minimum par rapport à d’autres algorithmes
+de classification.</p></li>
+<li><p>Il peut être utilisé pour classification et régression.</p></li>
+<li><p>Il ne fait pas d’hypothèse (linéaire, affines,..) sur les données.</p></li>
+</ul>
+</div>
+<div class="section" id="les-limitations-de-lalgorithme-de-k-nn">
+<h4>Les limitations de l’algorithme de <span class="math notranslate nohighlight">\(K\)</span>-NN<a class="headerlink" href="#les-limitations-de-lalgorithme-de-k-nn" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>L’algorithme a plus besoin de mémoire car l’ensemble des données
+doivent être garder dans cette dernière pour pouvoir effectuer la
+prédiction d’une nouvelle observation à chaque fois.</p></li>
+<li><p>Sensibles aux attributs non pertinents et non corrélés.</p></li>
+<li><p>L’étape de la prédiction peur être lente dû au calcul de distance de
+chaque nouvelle observation avec les jeux de données en entier à
+chaque prédiction.</p></li>
+<li><p>Le choix de la fonction de distance ainsi que le nombre de voisins
+<span class="math notranslate nohighlight">\(K\)</span> peut ne pas être évident. C’est ainsi qu’il faut essayer
+plusieurs combinaisons(en utilisant la méthode de validation-croisée)
+pour avoir un bon résultat.</p></li>
+</ul>
+</div>
+<div class="section" id="exemple-pratique">
+<h4>Exemple pratique<a class="headerlink" href="#exemple-pratique" title="Permalink to this heading">¶</a></h4>
+<p>Ci-dessous, nous allons prendre un exemple simple pour comprendre
+l’intuition derrière l’algorithme de <span class="math notranslate nohighlight">\(K\)</span>-NN. Considérons le
+tableau de données ci-dessous qui contient la taille (feet), l’âge
+(année) et le poids(en kilogramme) de <span class="math notranslate nohighlight">\(10\)</span> personnes où ID
+représente l’identifiant de chaque personne dans le tableau. Comme vous
+le remarquez le poids du ID <span class="math notranslate nohighlight">\(11\)</span> est manquant. Nous allons
+appliquer l’algorithme de <span class="math notranslate nohighlight">\(K\)</span>-NN pour prédire le poids de la
+personne ID 11.</p>
+<div class="docutils container" id="tab-rrr">
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Données pour l’illustration</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 31%" />
+<col style="width: 22%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
+<th class="head"><p><strong>Taille</strong></p></th>
+<th class="head"><p><strong>Âge</strong></p></th>
+<th class="head"><p><strong>Poids</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>5</p></td>
+<td><p>45</p></td>
+<td><p>77</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>5.11</p></td>
+<td><p>26</p></td>
+<td><p>47</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>5.6</p></td>
+<td><p>30</p></td>
+<td><p>55</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>5.9</p></td>
+<td><p>34</p></td>
+<td><p>59</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>4.8</p></td>
+<td><p>40</p></td>
+<td><p>72</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>5.8</p></td>
+<td><p>36</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>5.3</p></td>
+<td><p>19</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>5.8</p></td>
+<td><p>28</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>5.5</p></td>
+<td><p>23</p></td>
+<td><p>45</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>5.6</p></td>
+<td><p>32</p></td>
+<td><p>58</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>5.5</p></td>
+<td><p>38</p></td>
+<td><p>?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>[tab:rrr]</p>
+<p>Nous pouvons représenter graphiquement les données du tableau
+<a class="reference external" href="#tab:rrr">1.1</a> en se basant sur la taille et l’âge.</p>
+<div class="figure align-default" id="fig-knnnew">
+<img alt="_images/KNN_new.png" src="_images/KNN_new.png" />
+</div>
+<p>Comme nous le remarquons, le point rouge (ID 11) est notre nouvelle
+observation dont nous voulons prédire la classe dans laquelle il
+appartient.</p>
+<p><strong>Étape 1:</strong> Commençons par choisir le nombre des voisins les plus
+proche. Pour notre cas prenons <span class="math notranslate nohighlight">\(K=5\)</span>.</p>
+<p><strong>Étape 2:</strong> Calculer la distance entre le nouveau point (rouge) avec
+tous les autres points</p>
+<div class="figure align-default" id="id12">
+<img alt="_images/KNN_dist.png" src="_images/KNN_dist.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">La distance euclidienne entre nouvelle observation et tous les autres
+points</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Étape 3:</strong> Sélectionner les <span class="math notranslate nohighlight">\(5\)</span> plus proches voisins.</p>
+<div class="figure align-default" id="id13">
+<img alt="_images/KNN_sel.png" src="_images/KNN_sel.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Sélection de <span class="math notranslate nohighlight">\(5\)</span> plus proches voisins</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Étape 4:</strong> Pour la valeur de <span class="math notranslate nohighlight">\(K=5\)</span>, les points les plus proches
+sont <span class="math notranslate nohighlight">\(1,\ 4,\ 5,\ 6\text{ et } 10.\)</span></p>
+<p><strong>Étape 5:</strong> Ainsi, comme la classe des points <span class="math notranslate nohighlight">\(4,\ 6\)</span> et
+<span class="math notranslate nohighlight">\(10\)</span> est majoritaire donc le point <span class="math notranslate nohighlight">\(11\)</span> se classifie dans
+cette classe. Et comme c’est un cas de la régression, la prédiction pour
+ID11 est la moyenne de ces 5 voisins les plus proches c’est-à-dire
+<span class="math notranslate nohighlight">\((77+59+72+60+58)/5=65.2\ Kg\)</span>. Ainsi le poids prédit pour ID11 est
+<span class="math notranslate nohighlight">\(65.2\ Kg\)</span>.</p>
+</div>
+</div>
+<div class="section" id="lalgorithme-du-perceptron">
+<h3>L’algorithme du Perceptron<a class="headerlink" href="#lalgorithme-du-perceptron" title="Permalink to this heading">¶</a></h3>
+<p>L’algorithme de perceptron est un algorithme d’apprentissage supervisé
+utilisé pour la classification binaire (c’est-à-dire séparant deux
+classes). C’est l’un des tout premier algorithme d’apprentissage
+supervisé et de réseau de neurones artificiels le plus simple. Le terme
+vient de l’unité de base dans un
+<a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels#Perceptron_2">neurone</a>
+qui s’appelle <em>perceptron</em>.</p>
+<p>C’est un type de classification linéaire, c’est-à-dire que les données
+d’apprentissage sont séparées par une droite classées dans des
+catégories correspondantes de telle sorte que si la classification à
+deux catégories est appliquée, toutes les données sont rangées dans ces
+deux catégories. Dans ce cas on cherche à trouver un hyperplan qui
+sépare correctement les données en deux catégories. Comme nous le voyons
+dans la figure <a class="reference external" href="#fig:perceptron">1.12</a> ci-dessous.</p>
+<p><a href="#id16"><span class="problematic" id="id17">|L’algorithme du perceptron|</span></a> <a href="#id18"><span class="problematic" id="id19">|L’algorithme du perceptron|</span></a></p>
+<p>L’idée générale de l’algorithme du perceptron est d’initialiser le
+vecteur de poids réels <span class="math notranslate nohighlight">\(\mathbf{w} \in \mathbb{R}^d\)</span> au vecteur
+nul ou à une variable aléatoire, itérer un nombre de fois jusqu’à la
+convergence sur les données d’apprentissage.</p>
+<p>Soient <span class="math notranslate nohighlight">\(\mathcal{D} = \{(\mathbf{x}_i, y_i)\}^{n}_{i=1}\)</span>, un
+ensemble de données où <span class="math notranslate nohighlight">\(\mathbf{x}_i \in \mathbb{R}^d\)</span> est le
+vecteur d’entrées de dimension <span class="math notranslate nohighlight">\(d\)</span> et l’étiquette
+<span class="math notranslate nohighlight">\(y_i \in \{-1,1\}\)</span>; <span class="math notranslate nohighlight">\(\mathbf{w} \in \mathbb{R}^d\)</span> un vecteur
+poids de dimension <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<p>L’objectif est de trouver un hyperplan
+<span class="math notranslate nohighlight">\(\mathbf{w}.\mathbf{x} + b=0\)</span> qui sépare les deux classes. Le
+terme <span class="math notranslate nohighlight">\(b\)</span> est l’intercepte appelé aussi “<em>bias term</em>” et
+<span class="math notranslate nohighlight">\(\mathbf{w}\cdot \mathbf{x}\)</span> est le produit scalaire défini par
+<span class="math notranslate nohighlight">\(\langle \mathbf{w},\mathbf{x} \rangle := \sum_{s=1}^{d} w_{s} \mathbf{x}_{s}\)</span>.</p>
+<p>C’est-à-dire apprendre le vecteur <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> tel que:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-25">
+<span class="eqno">(101)<a class="headerlink" href="#equation-chapter3-25" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  \mathbf{y}&amp; = \operatorname{signe}\left(\mathbf{w}\cdot \mathbf{x} +b\right)
+  \end{aligned}\]</div>
+<p></p>
+<div class="math notranslate nohighlight" id="equation-chapter3-26">
+<span class="eqno">(102)<a class="headerlink" href="#equation-chapter3-26" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \text{Si } \mathbf{w}\cdot \mathbf{x} +b&gt;0 \text{ alors } \operatorname{sgn}(\mathbf{w}\cdot \mathbf{x} +b) =+1, \text{ pour tout } \mathbf{x} \text{ appartenant \`a la classe positive.}\\
+  \text{Si } \mathbf{w}\cdot \mathbf{x} + b \leq 0 \text{ alors } \operatorname{sgn}(\mathbf{w}\cdot \mathbf{x} +b) = -1, \text{ pour tout } \mathbf{x} \text{ appartenant \`a la classe négative.}
+  \end{aligned}\end{split}\]</div>
+<p>#### Algorithme</p>
+<p>Soient les données d’apprentissage
+<span class="math notranslate nohighlight">\(\mathcal{D} = \{(\mathbf{x}_1, y_1), \dots, (\mathbf{x}_n, y_n)\}\)</span>
+où <span class="math notranslate nohighlight">\(\mathbf{x}_i \in \mathbb{R}^d\)</span>, <span class="math notranslate nohighlight">\(y_i \in \{-1,1\}\)</span> et
+<span class="math notranslate nohighlight">\(T\)</span> le nombre d’itérations. L’algorithme se présente comme suit:</p>
+<div class="algorithm docutils container">
+<div class="algorithmic docutils container">
+<p>Initialiser le vecteur <span class="math notranslate nohighlight">\(\mathbf{w} \leftarrow 0\)</span> <strong>Pour</strong>
+itération de 1 à T: **   Pour** chaque exemple
+<span class="math notranslate nohighlight">\((\mathbf{x}_i, y_i) \in \mathcal{D}:\)</span>       Calculer la
+prédiction
+<span class="math notranslate nohighlight">\(\hat{y_i} = \operatorname{signe }( \mathbf{w}. \mathbf{x}_i +b )\)</span>
+**      Si** <span class="math notranslate nohighlight">\(\hat{y_i} \neq y_i\)</span> <strong>alors</strong>          Ajuster
+<span class="math notranslate nohighlight">\(\mathbf{w} :\)</span> par
+         <span class="math notranslate nohighlight">\(\mathbf{w_{t+1}} \leftarrow \mathbf{w_t}+\mathbf{x}_i\)</span>
+si <span class="math notranslate nohighlight">\(y_i\)</span> est positive
+         <span class="math notranslate nohighlight">\(\mathbf{w_{t+1}} \leftarrow \mathbf{w_t}-\mathbf{x}_i\)</span>
+si <span class="math notranslate nohighlight">\(y_i\)</span> est négative       <strong>Fin si</strong>    <strong>Fin pour</strong> <strong>Fin
+pour</strong></p>
+</div>
+</div>
+<p>L’avantage de l’algorithme de perceptron est sa simplicité et son
+efficacité de séparer linéairement les données d’apprentissage.
+Néanmoins, tous les hyperplans qui séparent les données sont
+équivalents.</p>
+<p>L’algorithme ne peut séparer et converger vers la solution uniquement
+que si les données d’apprentissage sont linéairement séparables. Aussi,
+il n’est pas efficace quand il y a beaucoup d’attributs.</p>
+</div>
+<div class="section" id="la-regression-logistique">
+<h3>La Régression Logistique<a class="headerlink" href="#la-regression-logistique" title="Permalink to this heading">¶</a></h3>
+<p>La régression logistique est une méthode de classification simple mais
+puissante, pour les données binaires, et elle peut facilement être
+étendue à plusieurs classes. Considérons d’abord le modèle de régression
+le plus simple, correspondant à celui que nous avons vu précédemment,
+pour effectuer la classification. Nous le trouverons bientôt totalement
+insuffisant pour ce que nous voulons réaliser et il sera instructif de
+voir exactement pourquoi. Le modèle de la régression linéaire comme
+défini dans l’équation <a class="reference external" href="#reg_lin">[reg_lin]</a>, peut se réécrire comme:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-27">
+<span class="eqno">(103)<a class="headerlink" href="#equation-chapter3-27" title="Permalink to this equation">¶</a></span>\[h_{\boldsymbol{\theta}}(\mathbf{X})=  \mathbf{X}\boldsymbol{\theta},\]</div>
+<p>où <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> est une matrice de taille <span class="math notranslate nohighlight">\(n\times d\)</span> et
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta} \in \mathbb{R}^{d}\)</span>.</p>
+<p>Comme dans de nombreux problèmes d’estimation de paramètres,
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> est trouvé en minimisant certaines fonctions
+de pertes qui capturent à quel point notre prédiction est proche de la
+valeur réelle. Quand nous faisons des hypothèses sur la distribution des
+données, la fonction de perte est souvent en termes de vraisemblance des
+données. Cela signifie que le <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> optimal est
+celui pour lequel les données observées ont la probabilité la plus
+élevée. Par exemple, la régression linéaire suppose généralement que la
+variable dépendante est normalement distribuée autour de la moyenne
+<span class="math notranslate nohighlight">\(h_{\boldsymbol{\theta}}(\mathbf{x})\)</span>. Il peut être montré que la
+solution du maximum de vraisemblance est le <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>
+qui minimise la somme des erreurs quadratiques (la différence entre les
+valeurs prédites et les valeurs correctes). Si nous essayons d’utiliser
+la régression linéaire pour un problème de classification (prenons
+l’exemple d’une classification binaire) une méthode simple serait de
+grouper les données de telle sorte que:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-28">
+<span class="eqno">(104)<a class="headerlink" href="#equation-chapter3-28" title="Permalink to this equation">¶</a></span>\[\begin{split}y=
+\begin{cases}
+1,&amp; \text{si } \boldsymbol{\theta}^{T}\mathbf{x} &gt; 0 \quad (\mathbf{x}\in \mathbb{R}^{d}) \\
+0,&amp; \text{sinon}
+\end{cases}\end{split}\]</div>
+<p>Ceci est illustré par la figure <a class="reference external" href="#Figure1">1.13</a>.</p>
+<div class="figure align-default" id="id14">
+<img alt="_images/linear_for_classi.png" src="_images/linear_for_classi.png" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Régression linéaire dans le cas d’une classification binaire</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="la-regression-logistique-binaire">
+<h4>La régression logistique binaire<a class="headerlink" href="#la-regression-logistique-binaire" title="Permalink to this heading">¶</a></h4>
+<p>La régression logistique ordinaire ou régression logistique binaire vise
+à expliquer une variable d’intérêt binaire (c’est-à-dire de type « oui /
+non » ou « vrai / faux »). Les variables explicatives qui seront
+introduites dans le modèle peuvent être quantitatives (l’âge, la taille,
+etc) ou qualitatives (le genre par exemple).</p>
+<p><strong>Exemple</strong></p>
+<p>Dans cet exemple, la variable explicative <span class="math notranslate nohighlight">\(x\)</span> est une matrice de
+vecteurs colonnes <span class="math notranslate nohighlight">\(\mathbf{x}_1, \mathbf{x}_2\)</span> où
+<span class="math notranslate nohighlight">\(\mathbf{x}_1\)</span> est le vecteur ‘apprendre’ qui représente le nombre
+d’heures d’étude de l’étudiant, et <span class="math notranslate nohighlight">\(\mathbf{x}_2\)</span> est le nombre
+d’heures pendant lesquelles l’étudiant dort. L’objectif est de prédire
+si l’étudiant va réussir à l’examen ou non, respectivement représentée
+par les classes 1 et 0.</p>
+<div class="center docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 27%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Apprendre</p></th>
+<th class="head"><p>Dormir</p></th>
+<th class="head"><p>Réussir</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4.85</p></td>
+<td><p>9.63</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>8.62</p></td>
+<td><p>3.23</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>5.43</p></td>
+<td><p>8.23</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>9.21</p></td>
+<td><p>6.34</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Comme dans le cas de la régression linéaire, on suppose que les données
+suivent une fonction linéaire de la forme:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-29">
+<span class="eqno">(105)<a class="headerlink" href="#equation-chapter3-29" title="Permalink to this equation">¶</a></span>\[\mathbf{y}= \boldsymbol{\theta}^T\mathbf{x}.\]</div>
+<p><span class="math notranslate nohighlight">\(\mathbf{y}\)</span> représente la variable à expliquer,
+<span class="math notranslate nohighlight">\(\mathbf{x}\)</span> est la variable explicative et
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> un paramètre. Comme nous l’avons vu, la
+variable <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> est une variable continue. Pour utiliser
+cette technique dans le cas d’une variable discrète (ici binaire),
+supposons que <span class="math notranslate nohighlight">\(p\)</span> est la probabilité qu’un événement se réalise;
+alors <span class="math notranslate nohighlight">\(1-p\)</span> est la probabilité de l’évènement contraire. La
+variable aléatoire <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> qui prend les valeurs ‘oui’ ou
+‘non’ (1,0 en langage machine) suit la loi de Bernoulli. On définit ce
+qu’on appelle la transformation logit donnée par l’équation suivante:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-30">
+<span class="eqno">(106)<a class="headerlink" href="#equation-chapter3-30" title="Permalink to this equation">¶</a></span>\[\log\left(\frac{p}{1-p}\right)=\boldsymbol{\theta}^T\mathbf{x} .\]</div>
+<p>Cette transformation donne la relation entre la probabilité qu’un
+évenment se réalise et la combinaison linéaire des variables. Le rapport
+<span class="math notranslate nohighlight">\(\frac{p}{1-p}\)</span> est appelé le Rapport de Côte (RC). En appliquant
+l’exponentielle sur cette relation on obtient:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-31">
+<span class="eqno">(107)<a class="headerlink" href="#equation-chapter3-31" title="Permalink to this equation">¶</a></span>\[\frac{p}{1-p} =  e^{\boldsymbol{\theta}^T\mathbf{x}}.\]</div>
+<p>Ce qui implique:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-32">
+<span class="eqno">(108)<a class="headerlink" href="#equation-chapter3-32" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+p &amp;=\frac{e^{\boldsymbol{\theta}^T\mathbf{x}}}{1+e^{\boldsymbol{\theta}^T\mathbf{x}}}\nonumber\\
+%&amp;=\frac{1}{\frac{1}{e^{X\boldsymbol{\theta}+1}}}\nonumber\\
+&amp;=\frac{1}{1+e^{-\boldsymbol{\theta}^T\mathbf{x}}}\end{aligned}\end{split}\]</div>
+<p>Avec <span class="math notranslate nohighlight">\(z= \boldsymbol{\theta}^T\mathbf{x}\)</span>, la fonction
+<span class="math notranslate nohighlight">\(\sigma\)</span> définie par
+<span class="math notranslate nohighlight">\(\displaystyle \sigma(z)=\frac{1}{1+e^{-z}}\)</span> est appelée la
+fonction Sigmoïde ou logistique. Dans les lignes qui suivent, nous
+allons donner certaines de ses propriétés.</p>
+</div>
+</div>
+<div class="section" id="la-fonction-sigmoide-et-ses-proprietes">
+<h3>La fonction Sigmoïde et ses propriétés<a class="headerlink" href="#la-fonction-sigmoide-et-ses-proprietes" title="Permalink to this heading">¶</a></h3>
+<p>Elle est définie par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-33">
+<span class="eqno">(109)<a class="headerlink" href="#equation-chapter3-33" title="Permalink to this equation">¶</a></span>\[\sigma(z)=\dfrac{1}{1+e^{-z}},\]</div>
+<p>La représentation graphique de la fonction Sigmoïde est donnée par la
+figure <a class="reference external" href="#sigmoid">1.14</a>.</p>
+<div class="figure align-default" id="id15">
+<img alt="_images/logistic2.png" src="_images/logistic2.png" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">La fonction Sigmoïde</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+<p>Une qualité importante de cette fonction est qu’elle transforme tous les
+nombres réels sur la plage <span class="math notranslate nohighlight">\([0, 1]\)</span>. En régression logistique,
+cette transformation <span class="math notranslate nohighlight">\(\sigma (z)\)</span> nous permet d’avoir une vue
+probabiliste qui est d’une importance cruciale pour la classification.
+Avec cette fonction, les nombres positifs deviennent des probabilités
+élevées; les nombres négatifs deviennent de faible probabilité.</p>
+<p>Comme vous l’avez sûrement remarqué, l’algorithme de régression linéaire
+repose sur l’obtention d’un paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}\)</span>
+dit optimal. Dans la section suivante nous allons discuter sur le choix
+et l’obtention de la valeur <span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}\)</span>.</p>
+<div class="section" id="estimation-du-maximum-de-vraisemblance">
+<h4>Estimation du maximum de vraisemblance<a class="headerlink" href="#estimation-du-maximum-de-vraisemblance" title="Permalink to this heading">¶</a></h4>
+<p>Pour choisir la valeur du paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>, on
+utilise la méthode du maximum de vraisemblance. La variable à expliquer
+<span class="math notranslate nohighlight">\(\mathbf{y}\)</span> est une variable binaire, i.e
+<span class="math notranslate nohighlight">\(\mathbf{y}\in \{0,1\}\)</span> et la fonction Sigmoïde nous permet de
+projeter les résultats dans l’intervalle <span class="math notranslate nohighlight">\([0, 1]\)</span>. Plus
+précisément, pour un <span class="math notranslate nohighlight">\(z\)</span> considéré, on choisit
+<span class="math notranslate nohighlight">\(\sigma (z) \in [0,1]\)</span> comme étant un paramètre d’une loi de
+Bernoulli et ainsi, on a pour tout <span class="math notranslate nohighlight">\(i=1, \dots, n\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-34">
+<span class="eqno">(110)<a class="headerlink" href="#equation-chapter3-34" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+\mathbb{P}(Y=y_{i})&amp;=\left(\sigma(z)\right)^{y_{i}}\left(1-\sigma(z)\right)^{1-y_{i}}\\
+&amp;=\left(\sigma(\boldsymbol{\theta}^T\mathbf{x}_i)\right)^{y_{i}} \left (1-\sigma(\boldsymbol{\theta}^T\mathbf{x}_i)\right)^{1-y_{i}}\end{aligned}\end{split}\]</div>
+<p>Par suite, on peut exprimer la vraisemblance:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-35">
+<span class="eqno">(111)<a class="headerlink" href="#equation-chapter3-35" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+\ell(\boldsymbol{\theta})&amp;=\prod_  {i=1}^{n}\mathbb{P}\left(Y=y_{i}\right)\end{aligned}\]</div>
+<p>En appliquant la fonction logarithme, on obtient le
+logarithme-vraisemblance donnée par l’expression suivante:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-36">
+<span class="eqno">(112)<a class="headerlink" href="#equation-chapter3-36" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+    \log( \ell(\boldsymbol{\theta}))\equiv L(\boldsymbol{\theta})=\sum_{i=1}^{n}y_{i}\log\sigma\left(\boldsymbol{\theta}^{T}\mathbf{x}_i\right) + \left(1-y_{i}\right)\log\left(1-\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i)\right)\end{aligned}\]</div>
+<p>Notre objective est de trouver le paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>
+qui maximise la vraisemblance:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-37">
+<span class="eqno">(113)<a class="headerlink" href="#equation-chapter3-37" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+ \max_{\boldsymbol{\theta}}
+ L(\boldsymbol{\theta}) = \max_{\boldsymbol{\theta}}\sum_{i=1}^{n}y_{i}\log\sigma \left(\boldsymbol{\theta}^{T}\mathbf{x}_i \right) + \left(1-y_{i}\right)\log \left(1-\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i)\right)   \end{aligned}\]</div>
+<p>En générale, pour trouver l’estimation du maximum de vraisemblance, nous
+dérivons d’abord la <span class="math notranslate nohighlight">\(\log\)</span>-vraisemblance par rapport à
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>. Pour commencer, prenons la dérivée par
+rapport à une composante de <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>, disons
+<span class="math notranslate nohighlight">\(\theta^j\)</span></p>
+<div class="math notranslate nohighlight" id="equation-chapter3-38">
+<span class="eqno">(114)<a class="headerlink" href="#equation-chapter3-38" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+\frac{\partial}{\partial \theta^j}L(\boldsymbol{\theta})
+&amp;=\left[ y_i\frac{1}{\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i)}-(1-y_i)\frac{1}{1-\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i)}\right]\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i)(1-\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i))(\frac{\partial}{\partial \theta^j}\boldsymbol{\theta}^{T}\mathbf{x}_i)\\
+&amp;=\left[y_i(1-\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i))-(1-y_{i})\sigma(\boldsymbol{\theta}^{T}\mathbf{x}_i)\right]\mathbf{x}_i^{j}\\
+&amp;=\left(y_{i}-\sigma(\boldsymbol{\theta}^{T} \mathbf{x}_i)\right)\mathbf{x}_i^{j}\end{aligned}\end{split}\]</div>
+<p>Une méthode classique de trouver le <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> optimal
+est de poser la dérivée
+<span class="math notranslate nohighlight">\(\displaystyle \frac{\partial}{\partial \theta^j}L(\boldsymbol{\theta})=0\)</span>
+pour tout <span class="math notranslate nohighlight">\(j\)</span> et trouver la valeur exacte de
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> qui maximise la vraisemblance. Cependant, la
+solution exacte n’est pas toujours facile à calculer à cause du fait que
+c’est une équation transcendantale (il n’y a pas de solution
+analytique). Par conséquent, la technique souvent utilisée pour résoudre
+ce problème est la méthode de la descente de gradient <a class="reference external" href="#GD">1.1.1.2</a>.</p>
+<p>Ainsi en utilisant la technique de la descente de gradient, le paramètre
+<span class="math notranslate nohighlight">\(\theta^j\)</span> sera mis à jour par la formule suivante, pour chaque
+itération:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-39">
+<span class="eqno">(115)<a class="headerlink" href="#equation-chapter3-39" title="Permalink to this equation">¶</a></span>\[\theta^j = \theta^j + \gamma . \frac{\partial}{\partial \theta^j}L(\boldsymbol{\theta}).\]</div>
+<p>Le paramètre <span class="math notranslate nohighlight">\(\gamma\)</span> est appelé taux d’apprentissage. Le
+paramètre <span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}\)</span> obtenu à la sortie de cet
+algorithme maximise la log-vraisemblance.</p>
+<p>Ainsi nous considérons un seuil 0.5 et regroupons les données comme
+suit:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-40">
+<span class="eqno">(116)<a class="headerlink" href="#equation-chapter3-40" title="Permalink to this equation">¶</a></span>\[\begin{split}\hat{y}=
+\begin{cases}
+1,&amp; \text{si } \sigma(\boldsymbol{\theta}^{*T}\mathbf{x}) &gt; 0.5 \\
+0,&amp; \text{sinon}
+\end{cases}\end{split}\]</div>
+</div>
+<div class="section" id="cas-pratique">
+<h4>Cas pratique<a class="headerlink" href="#cas-pratique" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+<div class="section" id="regression-logistique-multinomiale">
+<h3>Régression logistique multinomiale<a class="headerlink" href="#regression-logistique-multinomiale" title="Permalink to this heading">¶</a></h3>
+<p>La régression logistique multinomiale est une forme généralisée de la
+régression logistique binaire utilisée pour estimer la probabilité quand
+le nombre de classe <span class="math notranslate nohighlight">\(C\)</span> est supérieur à deux. Prenons l’exemple de
+reconnaissance de chiffres à partir de leur image. Cette tâche consiste
+à identifier une image comme l’un des éléments de l’ensemble
+<span class="math notranslate nohighlight">\(\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span>. Dans ce cas, la fonction
+[^1]Sigmoïde utilisée dans le cas binaire est remplacée par la
+[^2]<em>fonction Softmax</em>.</p>
+</div>
+<div class="section" id="la-fonction-softmax-et-ses-proprietes">
+<span id="estimation-du-maximum-de-vraisemblance-1"></span><h3>La fonction Softmax et ses propriétés<a class="headerlink" href="#la-fonction-softmax-et-ses-proprietes" title="Permalink to this heading">¶</a></h3>
+<p>La régression logistique multinomiale utilise une <em>fonction Softmax</em>
+pour modéliser la relation entre les variables explicatives et les
+probabilités de chaque classe. Elle prédit la classe qui a la
+probabilité la plus élevée parmi toutes les classes.</p>
+<p>La fonction <span class="math notranslate nohighlight">\(\operatorname{Softmax}\)</span> est définie par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-41">
+<span class="eqno">(117)<a class="headerlink" href="#equation-chapter3-41" title="Permalink to this equation">¶</a></span>\[\operatorname{Softmax}(z)_i=\dfrac{e^{z_i}} {\sum_{j=1}^{C} e^{z_{j}}}, \quad i=1,\cdots, C.
+u\]</div>
+<p>où <span class="math notranslate nohighlight">\(C\)</span> est le nombre de classes.</p>
+<p>Cette fonction <span class="math notranslate nohighlight">\(\operatorname{Softmax}\)</span> prend comme entrée
+<span class="math notranslate nohighlight">\(\mathbf{z}\)</span> qui est un vecteur de dimension <span class="math notranslate nohighlight">\(n\)</span> et produit
+<span class="math notranslate nohighlight">\(\mathbf{\hat{y}}\)</span> un vecteur de même dimension de valeurs réelles
+entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Toutes les valeurs <span class="math notranslate nohighlight">\(z_{i}\)</span> sont les éléments du vecteur d’entrée
+et peuvent prendre n’importe quelle valeur réelle. Le dénominateur de la
+formule <a class="reference external" href="#soft">[soft]</a> est le terme de normalisation qui garantit
+que toutes les valeurs de sortie de la fonction totaliseront <span class="math notranslate nohighlight">\(1\)</span>,
+constituant ainsi une distribution de probabilité valide.</p>
+<p>On peut écrire la probabilité de la classe <span class="math notranslate nohighlight">\(c\)</span> pour
+<span class="math notranslate nohighlight">\(c=1,\cdots,C\)</span> sachant <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> comme:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-42">
+<span class="eqno">(118)<a class="headerlink" href="#equation-chapter3-42" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+\begin{bmatrix}
+\mathbb{P}(y=1|\mathbf{x}) \\
+\vdots \\
+\mathbb{P}(y=C|\mathbf{x})
+\end{bmatrix} =
+\begin{bmatrix}
+\operatorname{Softmax}(\mathbf{x})_{1} \\
+\vdots \\
+\operatorname{Softmax}(\mathbf{x})_{C}
+\end{bmatrix}=
+\dfrac{1}{\sum_{j=1}^{C}e^{\boldsymbol{\theta}^T \mathbf{x}_{j}}}
+\begin{bmatrix}
+e^{\boldsymbol{\theta}^T \mathbf{x}_1}\\
+\vdots \\
+e^{\boldsymbol{\theta}^T \mathbf{x}_{C}}
+\end{bmatrix}\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="id2">
+<h3>Estimation du maximum de vraisemblance<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>De la même façon que dans le cas de la régression binaire, nous suivrons
+la même procédure pour déterminer le <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> qui
+maximise la vraisemblance.</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-43">
+<span class="eqno">(119)<a class="headerlink" href="#equation-chapter3-43" title="Permalink to this equation">¶</a></span>\[\ell(\boldsymbol{\theta})= \prod_{i=1}^{n}\mathbb{P}(y_{i}|\mathbf{x};\boldsymbol{\theta}).\]</div>
+<p>L’équation <a class="reference external" href="#lv">[lv]</a> suppose que les instances de données ont été
+générées indépendamment. Ainsi, en appliquant le logarithme
+sur <a class="reference external" href="#lv">[lv]</a>, nous obtenons:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-44">
+<span class="eqno">(120)<a class="headerlink" href="#equation-chapter3-44" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+    L(\boldsymbol{\theta})&amp;=\sum_{j=1}^{n}\sum_{i=1}^{C} \log\left[\left(\dfrac{e^{\boldsymbol{\theta}_{i}^T \mathbf{x}_{j}}} {\sum_{k=1}^{C} e^{\boldsymbol{\theta}_{k}^T \mathbf{x}_{j}}}\right)^{y_{j}}\right]\\
+    &amp;=\sum_{j=1}^{n}\sum_{i=1}^{C}y_{j}\log\left(\dfrac{e^{\boldsymbol{\theta}^{T}_i \mathbf{x}_{j}}} {\displaystyle\sum_{k=1}^{C} e^{\boldsymbol{\theta}^{T}_i \mathbf{x}_{j}}}\right).\end{aligned}\end{split}\]</div>
+<p>Donc maximiser la <span class="math notranslate nohighlight">\(\operatorname{log-vraisemblance}\)</span> équivaut à
+minimiser l’opposé de la <span class="math notranslate nohighlight">\(\operatorname{log-vraisemblance}\)</span> donnée
+par l’expression suivante :</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-45">
+<span class="eqno">(121)<a class="headerlink" href="#equation-chapter3-45" title="Permalink to this equation">¶</a></span>\[L(\boldsymbol{\theta})= -\sum_{j=1}^{n}\sum_{i=1}^{C}y_{j}\log\left(\dfrac{e^{\boldsymbol{\theta}_{i}^T \mathbf{x}_{j}}} {\sum_{k=1}^{C} e^{\boldsymbol{\theta}^{T}_k \mathbf{x}_{j}}}\right)
+  =- \sum_{j=1}^{n}\sum_{i=1}^{C}y_{j}\left[\log\left(e^{\boldsymbol{\theta}_{i}^T \mathbf{x}_{j}} \right) - \log\left( \displaystyle\sum_{k=1}^{C} e^{\boldsymbol{\theta}_{k}^T \mathbf{x}_{j}} \right)\right].\]</div>
+<p>Cet opposé de la <span class="math notranslate nohighlight">\(\operatorname{log-vraisemblance}\)</span> est aussi
+connu sous le nom de <strong>l’entropie de Shannon (cross-entropy)</strong> qui est
+la fonction de perte dans ce cas. Pour trouver le
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> qui minimise cette fonction de perte, on
+suit la même procédure que dans le cas de la régression logistique,
+c’est-à-dire trouver la dérivée de la fonction de perte et appliquer
+l’algorithme de la descente de gradient.</p>
+<p>En Calculant la dérivée de la fonction de perte par rapport à
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}_{j}\)</span> on a:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-46">
+<span class="eqno">(122)<a class="headerlink" href="#equation-chapter3-46" title="Permalink to this equation">¶</a></span>\[\frac{\partial}{\partial \boldsymbol{\theta}_{j}}L(\boldsymbol{\theta})=-\sum_{i=1}^{n}y_{i}\mathbf{x}_i + \sum_{i=1}^{n}
+\dfrac{1}{{\sum_{k=1}^{C}e^{\boldsymbol{\theta}_{k}^T \mathbf{x}_i}}}e^{\boldsymbol{\theta}_{j}^T\mathbf{x}_i}\mathbf{x}_i\]</div>
+<p>Maintenant on utilise l’algorithme de la descente de gradient durant le
+processus d’entraînement pour obtenir le <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>
+optimal. À chaque itération, on met à jour chacun des paramètres
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}_j\)</span> par la formule suivante:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-47">
+<span class="eqno">(123)<a class="headerlink" href="#equation-chapter3-47" title="Permalink to this equation">¶</a></span>\[\boldsymbol{\theta}_{j} = \boldsymbol{\theta}_{j} - \gamma\frac{\partial}{\partial \boldsymbol{\theta}_{j}}L(\boldsymbol{\theta}).\]</div>
+<p>A la sortie de cette algorithme nous obtenons le paramètre optimal
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta}^{*}\)</span>. Ainsi, le vecteur
+<span class="math notranslate nohighlight">\(\mathbf{\hat{y}}\)</span> prédit est donné par:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-48">
+<span class="eqno">(124)<a class="headerlink" href="#equation-chapter3-48" title="Permalink to this equation">¶</a></span>\[\mathbf{\hat{y}}= \operatorname{argmax }~\operatorname{softmax}(\boldsymbol{\theta}^{\star} \mathbf{x}_{test}).\]</div>
+</div>
+<div class="section" id="naive-bayes">
+<h3>Naïve Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">¶</a></h3>
+<p>Dans cette sous section nous allons introduire un autre algorithme
+souvent utilisé dans le cadre des problèmes de classification. Cet
+algorithme est connu sous le nom de <strong>Naïve Bayes</strong>, naïve parce qu’il
+fait une simple hypothèse sur les données, celle qui suppose qu’elles
+sont indépendantes les une des autres, même si ceci n’est souvent pas
+vrai en pratique.</p>
+<p>Les systèmes modernes populaires comme la classification des émails
+reçus comme <strong>spam</strong> ou <strong>non-spam</strong> sont souvent implémentés avec
+naïves Bayes et quelques fois leur performance est difficile à surpasser
+par des algorithmes sophistiqués.</p>
+<p>Naïve Bayes fait partie des algorithmes de type <strong>génératif</strong>, qui sont
+différents des algorithmes vus jusque-là qui sont de type
+<strong>discriminatif</strong>.</p>
+<p>L’une des grandes différences entre les algorithmes de type génératif et
+ceux dits discriminatifs réside dans le fait que les premiers font une
+hypothèse sur les données <span class="math notranslate nohighlight">\(\mathbb{P}(\mathbf{x}|y)\)</span> tandis que
+les derniers font une hypothèse sur les étiquettes (classes)
+<span class="math notranslate nohighlight">\(\mathbb{P}(y|\mathbf{x})\)</span>.</p>
+<p>Pour ceux qui sont familiers avec les notions mathématiques, peut être
+que vous vous êtes posé la question si cet algorithme a un lien avec la
+règle de Bayes (Naïve Bayes) ? OUI! vous avez raison car cette formule
+nous donne un lien entre les algorithmes de type discriminatif et ceux
+de type génératif.</p>
+<p>Rappelons la formule <a class="reference external" href="#naivebayes">[naivebayes]</a></p>
+<div class="math notranslate nohighlight" id="equation-chapter3-49">
+<span class="eqno">(125)<a class="headerlink" href="#equation-chapter3-49" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+    \mathbb{P}(\mathbf{x}|y) &amp;= \frac{\mathbb{P}(y|\mathbf{x}) \mathbb{P}(\mathbf{x})}{\mathbb{P}(y)}.\end{aligned}\]</div>
+<p>Considérons le cas de la classification des emails (spam ou no-spam).
+Nous pouvons ré-écrire la formule précédente comme :</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-50">
+<span class="eqno">(126)<a class="headerlink" href="#equation-chapter3-50" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+    \mathbb{P}(\mbox{document} |\mbox{classe}) &amp;= \frac{\mathbb{P}(\mbox{classe}|\mbox{document}) \mathbb{P}(\mbox{document})}{\mathbb{P}(\mbox{classe})}. \end{aligned}\]</div>
+<p>Avec <strong>document</strong> qui représente l’ensemble des émails, et <strong>classe</strong>
+leur catégorie.</p>
+<p>Pour mieux illustrer la notion introduite dans le paragraphe précédent,
+réfléchissons sur un exemple pratique. Disons que vous êtes responsable
+d’un champ de feuille de manioc et vous voulez avoir un système qui vous
+alarme dès qu’une chèvre entre dans le champ. Nous supposerons (non
+réaliste) que dans cette contrée nous ne pouvons avoir que deux espèces
+d’animaux, chèvre et chien, donc nous avons deux catégories
+<span class="math notranslate nohighlight">\(c_1\)</span>=”chèvre” et <span class="math notranslate nohighlight">\(c_2\)</span> = “chien”.</p>
+<p>Comme vous l’avez sûrement appris dans ce cours, les algorithmes que
+nous utilisons en apprentissage automatique ne prennent en entrée que
+les données de type numérique. Alors nos données deviennent :</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}\)</span> qui représente certaines caractéristiques des deux
+animaux, par exemple : ‘couleur’, ‘cris’, ‘vitesse’, …, toutes ces
+caractéristiques ont une représentation numérique (cris : bêler=0,
+aboyer=1, …).</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> qui prend la valeur “0” pour une chèvre et “1” pour un
+chien.</p></li>
+</ol>
+<p>Dans ce contexte, un algorithme de type discriminatif va chercher à
+apprendre une application (mapping) de l’espace des <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>
+dans l’espace des étiquettes <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>; en d’autres termes, ce
+type d’algorithmes va chercher à trouver une ligne (ou hyperplan) qui va
+séparer les chiens des chèvres étant données les caractéristiques
+(<span class="math notranslate nohighlight">\(\mathbf{x}\)</span>) observées, tandis que celui de type génératif va se
+focaliser à la modélisation des caractéristiques qui distinguent un
+chien d’une chèvre.</p>
+<div class="algorithm docutils container">
+<div class="algorithmic docutils container">
+<p><strong>fonction</strong> <span class="math notranslate nohighlight">\(Entrainer\_Naïve\_Bayes(D,\ C)\)</span>:        <strong>Pour
+chaque</strong> classe dans <span class="math notranslate nohighlight">\(C\)</span>:        <span class="math notranslate nohighlight">\(N_{doc}=\)</span> nombre de
+documents dans <span class="math notranslate nohighlight">\(D\)</span>        <span class="math notranslate nohighlight">\(N_{c}=\)</span> nombre de documents
+de classe <span class="math notranslate nohighlight">\(c\)</span> dans <span class="math notranslate nohighlight">\(D\)</span>
+<span class="math notranslate nohighlight">\(\log \operatorname{Prob}[c]= \log\frac{N_c}{N_{doc}}\)</span>
+       <span class="math notranslate nohighlight">\(V=\)</span> vocabulaire de <span class="math notranslate nohighlight">\(D\)</span>
+<span class="math notranslate nohighlight">\(\operatorname{classedoc}[c]=\)</span> <strong>ajouter</strong>(<span class="math notranslate nohighlight">\(d\)</span>) pour
+tout <span class="math notranslate nohighlight">\(d\in D\)</span> avec pour classe <span class="math notranslate nohighlight">\(c\)</span>        <strong>Pour
+chaque</strong> mot <span class="math notranslate nohighlight">\(w\)</span> de classe <span class="math notranslate nohighlight">\(c \in C\)</span> dans <span class="math notranslate nohighlight">\(V\)</span>:
+            <strong>compter</strong>(w, c) = nombre d’occurrence du mot
+<span class="math notranslate nohighlight">\(w\)</span> dans <span class="math notranslate nohighlight">\(\operatorname{classedoc}[c]\)</span>
+<span class="math notranslate nohighlight">\(\log \operatorname{Prob\_wc} [w, c] \leftarrow \log \frac{\operatorname{compter}(w, c)}{\sum_{w^{\prime} \in V} \left(\text {compter}\left(w^{\prime}, c\right)\right)}\)</span>
+<strong>retourner</strong> <span class="math notranslate nohighlight">\(\log \operatorname{Prob}\)</span>,
+<span class="math notranslate nohighlight">\(\log \operatorname{Prob\_wc},\ V\)</span></p>
+</div>
+<p>[train_naive]</p>
+</div>
+<div class="algorithm docutils container">
+<div class="algorithmic docutils container">
+<p><strong>fonction</strong>
+<span class="math notranslate nohighlight">\(Tester\_naive\_bayes(testdoc,\ logProb,\ logProb\_wc,\ C,\ V)\)</span>:
+      <strong>Pour chaque</strong> classe <span class="math notranslate nohighlight">\(c \in C\)</span>:
+         <span class="math notranslate nohighlight">\(\operatorname{somme[c]} = \log \operatorname{Prob}[c]\)</span>
+      <strong>Pour chaque</strong> position i dans <span class="math notranslate nohighlight">\(testdoc\)</span>:
+         <span class="math notranslate nohighlight">\(\operatorname{mot} = \operatorname{testdoc[i]}\)</span>
+              <span class="math notranslate nohighlight">\(\textbf{Si} \operatorname{mot} \in V:\)</span>
+                 <span class="math notranslate nohighlight">\(\operatorname{somme[c]}=\operatorname{somme[c]}+\log\)</span>
+<span class="math notranslate nohighlight">\(\operatorname{Prob\_wc}[mot, c]\)</span></p>
+<p>       <strong>retourner</strong>
+<span class="math notranslate nohighlight">\(\underset{c}{\arg\max} \quad \operatorname{somme[c]}\)</span></p>
+</div>
+<p>[test_naive]</p>
+</div>
+<p>Ainsi, parlons de comment nous pouvons construire un modèle de
+classification en utilisant Naïve Bayes.</p>
+<div class="section" id="entrainement-du-naive-bayes-exemple-pratique">
+<h4>Entraînement du Naïve Bayes (Exemple Pratique)<a class="headerlink" href="#entrainement-du-naive-bayes-exemple-pratique" title="Permalink to this heading">¶</a></h4>
+<p>Considérons le cas de l’analyse de sentiments, sur base des commentaires
+de gens après avoir suivi un film. Pour raison de simplicité nous
+considérerons un exemple de quelques phrases et leurs classes
+correspondantes.</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-51">
+<span class="eqno">(127)<a class="headerlink" href="#equation-chapter3-51" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{lll}
+    \hline \text{Mode} &amp; \text { Classe } &amp; \multicolumn{1}{c} {\text { Documents }} \\
+    \hline \text{ Train } &amp; - &amp; \text { tout simplement ennuyeux } \\
+    &amp; - &amp; \text { tout à fait prévisible et manque d'énergie } \\
+    &amp; - &amp; \text { pas de surprises et très peu de rires } \\
+    &amp; + &amp; \text { très intéressant } \\
+    &amp; + &amp; \text { le film le plus amusant de l'année } \\
+    \hline \text { Test } &amp; ? &amp; \text { prévisible sans amusement }
+    \end{array}\end{split}\]</div>
+<p>[fig:my_label]</p>
+<p>Nous commencerons par calculer le <strong>à priori</strong> pour les deux classes
+comme élaboré dans l’algorithme <a class="reference external" href="#train_naive">[train_naive]</a>.</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-52">
+<span class="eqno">(128)<a class="headerlink" href="#equation-chapter3-52" title="Permalink to this equation">¶</a></span>\[\mathbb{P}(+) = \log \frac{N_{+}}{N_{doc}}= \log \frac{2}{5}= -0.916290731874155\]</div>
+<div class="math notranslate nohighlight" id="equation-chapter3-53">
+<span class="eqno">(129)<a class="headerlink" href="#equation-chapter3-53" title="Permalink to this equation">¶</a></span>\[\mathbb{P}(-) = \log \frac{N_{-}}{N_{doc}} = \log \frac{3}{5} = -0.5108256237659907\]</div>
+<p>Comme vous l’avez remarqué, les formules que nous utilisons pour notre
+algorithme sont dans l’échelle logarithmique, ceci, pour raison d’éviter
+ce qui est connu en anglais comme underflow (quand les valeurs sont très
+proches de zéro au point d’être vue par l’ordinateur comme zéro),
+overflow (quand les valeurs sont très grandes) mais aussi pour augmenter
+la vitesse de calcul.</p>
+<p>La prochaine étape consiste à définir notre vocabulaire <span class="math notranslate nohighlight">\(V\)</span>. Le
+<span class="math notranslate nohighlight">\(V\)</span> est un ensemble qui contient les mots uniques de nos données.</p>
+<p>V = {‘tout’, ‘simplement’, ‘ennuyeux’, ‘à’, ‘fait’, ‘prévisible’, ‘et’,
+‘manque’, ‘d’, ‘énergie’, ‘pas’, ‘de’, ‘surprises’, ‘très’, ‘peu’,
+‘rires’, ‘intéressant’, ‘le’, ‘film’, ‘plus’, ‘amusant’, ‘l’, ‘année’}.</p>
+<p>Nous avons au total <span class="math notranslate nohighlight">\(23\)</span> mots uniques. Nous allons par la suite,
+calculer les valeurs de <span class="math notranslate nohighlight">\(classedoc\)</span> pour les deux classes:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\operatorname{classedoc}[+]\)</span> = [“très intéressant”, “le film
+le plus amusant de l’année”]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\operatorname{classedoc}[-]\)</span> = [“tout simplement ennuyeux”,
+“tout à fait prévisible et manque d’énergie”, “pas de surprises et
+très peu de rires”].</p></li>
+</ul>
+<p>Calculons ensuite le logarithme de la probabilité (d’apparition) de
+chaque mot dans notre vocabulaire étant donné une classe particulière.
+En pratique, pour le calcul de <span class="math notranslate nohighlight">\(\log \operatorname{Prob\_wc}\)</span>, il
+arrive que nous rencontrons de nouveaux mots qui n’étaient pas présents
+dans l’étape d’entraînement, ceci conduit au fait que
+<span class="math notranslate nohighlight">\(\log \operatorname{Prob\_wc} = \log(0)\)</span> qui n’est pas défini.
+Alors pour contourner ce problème, plusieurs alternatives existent dans
+la littérature; dans le contexte de notre exemple, nous allons utiliser
+la technique appelée “add-one (Laplace) smothing” qui va transformer la
+formule de <span class="math notranslate nohighlight">\(\log \operatorname{Prob}\_wc\)</span> fournie dans
+l’algorithme <a class="reference external" href="#train_naive">[train_naive]</a>:</p>
+<div class="math notranslate nohighlight" id="equation-chapter3-54">
+<span class="eqno">(130)<a class="headerlink" href="#equation-chapter3-54" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+\displaystyle \log \operatorname{Prob}\_wc &amp;= \log \frac{\operatorname{compter}(w, c)+1}{\sum_{w^{\prime} \in V} \left(\text {compter}\left(w^{\prime}, c\right)+1\right)}\\
+&amp;=\log \frac{\operatorname{compter}(w, c)+1}{\sum_{w^{\prime} \in V} \left(\operatorname {compter}\left(w^{\prime}, c\right)\right)+|V|}\end{aligned}\end{split}\]</div>
+<p>En réalité comme vous l’avez peut être remarqué, l’algorithme de Naïve
+Bayes est simplement un comptage systématique des mots.</p>
+<p>Notre tâche ici est de classifier la phrase “<em>prévisible sans
+amusement</em>” comme soit positive (+) ou négative (-).</p>
+<div class="center docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentiment</span> <span class="n">positive</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>                                                         <span class="n">Sentiment</span> <span class="n">négative</span> <span class="p">(</span><span class="o">-</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="commentaires-et-discussions">
+<h2>Commentaires et Discussions<a class="headerlink" href="#commentaires-et-discussions" title="Permalink to this heading">¶</a></h2>
+<p>Partagez vos questions, commentaires et expériences avec la communauté
+IVIA-AF ! Utilisez la section de commentaires ci-dessous pour :</p>
+<ul class="simple">
+<li><p>Poser des questions sur les concepts présentés</p></li>
+<li><p>Partager vos expériences avec l’apprentissage automatique</p></li>
+<li><p>Suggérer des améliorations ou corrections</p></li>
+<li><p>Discuter avec d’autres apprenants</p></li>
+</ul>
+<p><em>Les commentaires sont modérés pour maintenir un environnement
+d’apprentissage respectueux et constructif.</em></p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Apprentissage Supervisé</a><ul>
+<li><a class="reference internal" href="#problemes-de-regression">Problèmes de Régression</a><ul>
+<li><a class="reference internal" href="#la-regression-lineaire">La Régression Linéaire</a><ul>
+<li><a class="reference internal" href="#la-regression-lineaire-affine">La régression linéaire affine</a></li>
+<li><a class="reference internal" href="#descente-de-gradient-gd">Descente de gradient {GD}</a></li>
+<li><a class="reference internal" href="#la-regression-lineaire-polynomiale">La régression linéaire polynomiale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#les-problemes-de-classification">Les Problèmes de Classification</a><ul>
+<li><a class="reference internal" href="#lalgorithme-des-k-plus-proches-voisins-k-nn">L’algorithme des <span class="math notranslate nohighlight">\(K\)</span> plus proches voisins (<span class="math notranslate nohighlight">\(K\)</span>-NN)</a><ul>
+<li><a class="reference internal" href="#algorithme">Algorithme</a></li>
+<li><a class="reference internal" href="#comment-choisir-la-valeur-de-k">Comment choisir la valeur de <span class="math notranslate nohighlight">\(K\)</span> ?</a></li>
+<li><a class="reference internal" href="#les-avantages-de-lalgorithme-de-k-nn">Les avantages de l’algorithme de <span class="math notranslate nohighlight">\(K\)</span>-NN</a></li>
+<li><a class="reference internal" href="#les-limitations-de-lalgorithme-de-k-nn">Les limitations de l’algorithme de <span class="math notranslate nohighlight">\(K\)</span>-NN</a></li>
+<li><a class="reference internal" href="#exemple-pratique">Exemple pratique</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lalgorithme-du-perceptron">L’algorithme du Perceptron</a></li>
+<li><a class="reference internal" href="#la-regression-logistique">La Régression Logistique</a><ul>
+<li><a class="reference internal" href="#la-regression-logistique-binaire">La régression logistique binaire</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#la-fonction-sigmoide-et-ses-proprietes">La fonction Sigmoïde et ses propriétés</a><ul>
+<li><a class="reference internal" href="#estimation-du-maximum-de-vraisemblance">Estimation du maximum de vraisemblance</a></li>
+<li><a class="reference internal" href="#cas-pratique">Cas pratique</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#regression-logistique-multinomiale">Régression logistique multinomiale</a></li>
+<li><a class="reference internal" href="#la-fonction-softmax-et-ses-proprietes">La fonction Softmax et ses propriétés</a></li>
+<li><a class="reference internal" href="#id2">Estimation du maximum de vraisemblance</a></li>
+<li><a class="reference internal" href="#naive-bayes">Naïve Bayes</a><ul>
+<li><a class="reference internal" href="#entrainement-du-naive-bayes-exemple-pratique">Entraînement du Naïve Bayes (Exemple Pratique)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commentaires-et-discussions">Commentaires et Discussions</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="chapter2.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Pré-requis</div>
+         </div>
+     </a>
+     <a id="button-next" href="bibliography.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Bibliography</div>
+        </div>
+     </a>
+  </div>
+        
+        
+        <!-- Giscus Comments Section - Integrated with page content -->
+        <div class="giscus-container" id="giscus-container" style="
+            max-width: 100%; 
+            margin: 3rem 0 2rem 0; 
+            padding: 2rem; 
+            background: #ffffff; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+            border: 1px solid #e1e5e9; 
+            min-height: 200px;
+            clear: both;
+            overflow: hidden;
+        ">
+            <h3 style="
+                margin: 0 0 1.5rem 0; 
+                color: #333; 
+                font-size: 1.3rem; 
+                font-weight: 600;
+                text-align: center;
+                border-bottom: 2px solid #007cba;
+                padding-bottom: 0.5rem;
+            ">💬 Commentaires et Discussions</h3>
+            
+            <div id="giscus-comments">
+                <script src="https://giscus.app/client.js"
+                        data-repo="IVIA-AF/livre"
+                        data-repo-id="R_kgDOPKBYSA"
+                        data-category="Commentaire"
+                        data-category-id="DIC_kwDOPKBYSM4CuxXP"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="fr"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+        </div>
+    </main>
+    </div>
+  </body>
+</html>
