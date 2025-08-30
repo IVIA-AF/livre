@@ -6,14 +6,14 @@ Ce guide explique comment configurer et utiliser le système de
 commentaires intégré dans votre projet livre IVIA-AF.
 
 🎯 Vue d’ensemble
-----------------
+-----------------
 
 Le système de commentaires permet aux lecteurs de : - Poser des
 questions sur le contenu - Partager leurs expériences - Suggérer des
 améliorations - Discuter avec d’autres apprenants
 
 🚀 Configuration du Système
---------------------------
+---------------------------
 
 1. Créer un compte Disqus
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +64,7 @@ Modifiez le fichier ``static/custom.css`` pour ajuster : - Couleurs -
 Espacement - Typographie - Responsive design
 
 📝 Utilisation
--------------
+--------------
 
 Pour les Lecteurs
 ~~~~~~~~~~~~~~~~~
@@ -85,7 +85,7 @@ Pour les Modérateurs
 4. **Gérer** les utilisateurs si nécessaire
 
 🔧 Personnalisation Avancée
---------------------------
+---------------------------
 
 Ajouter des Commentaires à de Nouvelles Leçons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -121,7 +121,7 @@ CSS** : ``static/custom.css`` - **Commentaires automatiques** sur toutes
 les pages
 
 🌐 Déploiement
--------------
+--------------
 
 Vercel (Recommandé)
 ~~~~~~~~~~~~~~~~~~~
@@ -137,7 +137,7 @@ Le système fonctionne sur toute plateforme statique : - GitHub Pages -
 Netlify - Surge - etc.
 
 📊 Analytics et Modération
--------------------------
+--------------------------
 
 Disqus Analytics
 ~~~~~~~~~~~~~~~~
@@ -156,7 +156,7 @@ Modération
 -  **Bannissement** d’utilisateurs si nécessaire
 
 🚨 Dépannage
------------
+------------
 
 Les Commentaires n’Apparaissent Pas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -174,7 +174,7 @@ Problèmes de Performance
 3. **Optimiser** les images et le contenu
 
 🔒 Sécurité et Confidentialité
------------------------------
+------------------------------
 
 Données Collectées
 ~~~~~~~~~~~~~~~~~~
@@ -190,7 +190,7 @@ Conformité RGPD
 -  **Transparence** sur l’utilisation des données
 
 📞 Support
----------
+----------
 
 Ressources Utiles
 ~~~~~~~~~~~~~~~~~

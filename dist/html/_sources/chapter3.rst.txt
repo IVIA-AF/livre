@@ -350,7 +350,7 @@ même forme que celle en couleur verte sur la figure
 
    .. container:: algorithmic
 
-      class **LinearRégression**\ ():    def **\__init_\_** (self):
+      class **LinearRégression**\ ():    def **\__init\_\_** (self):
             pass    def **fonction_perte**\ (self, y_vrai, y_prédit):
             définit une fonction de perte et retourne sa valeur    def
       **algorithme**\ (self, :math:`\mathbf{x}`, :math:`\mathbf{y}`,
