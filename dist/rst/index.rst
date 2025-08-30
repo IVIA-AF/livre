@@ -51,12 +51,8 @@ Commentaires et Discussions
 ---------------------------
 
 Partagez vos questions, commentaires et expériences avec la communauté
-IVIA-AF ! Utilisez la section de commentaires ci-dessous pour :
-
--  Poser des questions sur le projet global
--  Suggérer des améliorations ou nouvelles fonctionnalités
--  Partager vos expériences avec l’apprentissage automatique
--  Discuter avec d’autres membres de la communauté
+IVIA-AF ! Utilisez la version en ligne
+`livre.ivia.africa <https://livre.ivia.africa/>`__.
 
 *Les commentaires sont modérés pour maintenir un environnement
 d’apprentissage respectueux et constructif.*

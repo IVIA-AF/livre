@@ -4,7 +4,7 @@ echo "🚀 Building IVIA-AF Book with Analytics and Giscus Comments..."
 
 # Build the project
 echo "📦 Building with d2l-book..."
-d2lbook build html
+d2lbook build html pdf
 
 # Copy analytics.js to _static directory
 echo "📊 Copying analytics.js to _static directory..."
