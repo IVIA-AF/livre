@@ -2,7 +2,7 @@ PWD /Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre/dist/pdf
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/xetex/xelatex.fmt
-INPUT /Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre/dist/pdf/Apprentissage-Automatise.tex
+INPUT Apprentissage-Automatise.tex
 OUTPUT Apprentissage-Automatise.log
 INPUT ./sphinxmanual.cls
 INPUT ./sphinxmanual.cls
@@ -1174,7 +1174,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT ./Apprentissage-Automatise.toc
 INPUT Apprentissage-Automatise.toc
 INPUT Apprentissage-Automatise.toc
-OUTPUT Apprentissage-Automatise.toc
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
@@ -1193,6 +1192,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+OUTPUT Apprentissage-Automatise.toc
 INPUT ./Categories-of-Machine-Learning.jpg
 INPUT ./Categories-of-Machine-Learning.jpg
 INPUT Categories-of-Machine-Learning.jpg

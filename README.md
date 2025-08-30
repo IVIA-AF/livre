@@ -4,6 +4,9 @@
 
 Ce projet est maintenant configuré pour être déployé sur Vercel avec un système d'analytics simple pour suivre les consultations du livre.
 
+d2lbook is built on Sphinx, a Python-based documentation generator
+
+
 ### Installation rapide
 
 ```bash

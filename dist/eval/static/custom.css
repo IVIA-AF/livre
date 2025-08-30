@@ -1,0 +1,67 @@
+/* Custom styles for IVIA-AF Livre */
+
+/* Comment Section Styling */
+.comments-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 2px solid #e1e4e8;
+    background-color: #f8f9fa;
+}
+
+.comments-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.comments-section h3 {
+    color: #24292e;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.comments-section p {
+    color: #586069;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#disqus_thread {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+/* Responsive design for comment section */
+@media (max-width: 768px) {
+    .comments-section {
+        padding: 1rem 0;
+    }
+    
+    .comments-section .container {
+        padding: 0 0.5rem;
+    }
+    
+    .comments-section h3 {
+        font-size: 1.25rem;
+    }
+    
+    #disqus_thread {
+        padding: 1rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Integration with d2lbook theme */
+.d2lbook-container {
+    max-width: 100%;
+}
+
+/* Ensure proper spacing between content and comments */
+.d2lbook-container > *:not(:last-child) {
+    margin-bottom: 2rem;
+}

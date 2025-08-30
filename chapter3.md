@@ -1289,3 +1289,16 @@ amusement*\" comme soit positive (+) ou négative (-).
   ----------------------------------------------------------------------------- -------------------------------------------------------------------------------
 :::
 
+---
+
+## Commentaires et Discussions
+
+Partagez vos questions, commentaires et expériences avec la communauté IVIA-AF ! Utilisez la section de commentaires ci-dessous pour :
+
+- Poser des questions sur les concepts présentés
+- Partager vos expériences avec l'apprentissage automatique
+- Suggérer des améliorations ou corrections
+- Discuter avec d'autres apprenants
+
+*Les commentaires sont modérés pour maintenir un environnement d'apprentissage respectueux et constructif.*
+
