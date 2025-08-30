@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0, '..')
 sys.path.insert(0, '.')
 
-project = "IVIA-AF: Initiative pour la Vulgarisation de l’Intelligence Artificielle dans l’AFRIUE francophone"
+project = "IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone"
 copyright = "2023, All authors. IVIA-AF."
 author = "IVIA-AF Team"
 release = "1.0.0-beta0"
@@ -72,7 +72,7 @@ html_favicon = '_static/favicon.jpeg'
 html_logo = '_static/logo_2.png'
 
 latex_documents = [
-    (master_doc, "Apprentissage-Automatise.tex", "IVIA-AF: Initiative pour la Vulgarisation de l’Intelligence Artificielle dans l’AFRIUE francophone",
+    (master_doc, "Apprentissage-Automatise.tex", "IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone",
      author, 'manual'),
 ]
 

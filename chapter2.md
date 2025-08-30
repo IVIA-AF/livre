@@ -327,7 +327,6 @@ x
 
 
 
-
 ```{.python .input}
 #Autre syntaxe pour decrementer une variable
 x -= 1
@@ -1104,7 +1103,7 @@ Soit $(A_i)_{i\in I}$ une partition de $\Omega$ tel que
 $0\leq \mathbb{P}(A_{i})\leq 1,\forall\  i\in I$. Soit un événement $B$,
 tel que $\mathbb{P}(B)>0$. Alors pour tout $i\in I$,
 $$\mathbb{P}(A_{i}|B)=\frac{ \mathbb{P}\left(B|A_{i}\right)\mathbb{P}\left(A_{i}\right)}{\sum_{i \in I} \mathbb{P}\left(B|A_{i}\right)\mathbb{P}\left(A_{i}\right)}.
-$$
+ $$
 
 **Définition.**\
 Deux événements $A$ et $B$ sont dits **indépendants** si
@@ -1425,3 +1424,16 @@ $\hat{\theta}_{n}=\bar{\mathbf{x}}$ en résolvant l'équation
 $\nabla \log(q(\theta, x)) = 0$.
 
 [^1]: http://docs.anaconda.com/anaconda/navigator/
+
+---
+
+## Commentaires et Discussions
+
+Partagez vos questions, commentaires et expériences avec la communauté IVIA-AF ! Utilisez la section de commentaires ci-dessous pour :
+
+- Poser des questions sur les concepts présentés
+- Partager vos expériences avec l'apprentissage automatique
+- Suggérer des améliorations ou corrections
+- Discuter avec d'autres apprenants
+
+*Les commentaires sont modérés pour maintenir un environnement d'apprentissage respectueux et constructif.*

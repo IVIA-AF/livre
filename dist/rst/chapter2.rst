@@ -1626,6 +1626,7 @@ Indépendance et conditionnement.
   .. math::
 
      \mathbb{P}(A_{i}|B)=\frac{ \mathbb{P}\left(B|A_{i}\right)\mathbb{P}\left(A_{i}\right)}{\sum_{i \in I} \mathbb{P}\left(B|A_{i}\right)\mathbb{P}\left(A_{i}\right)}.
+      
 
 | **Définition.**
 | Deux événements :math:`A` et :math:`B` sont dits **indépendants** si
@@ -2048,3 +2049,19 @@ avec la convention :math:`\log (0)=-\infty .`
   avec :math:`S_n = \sum_{i} x_i` ce qui conduit à
   :math:`\hat{\theta}_{n}=\bar{\mathbf{x}}` en résolvant l’équation
   :math:`\nabla \log(q(\theta, x)) = 0`.
+
+--------------
+
+Commentaires et Discussions
+---------------------------
+
+Partagez vos questions, commentaires et expériences avec la communauté
+IVIA-AF ! Utilisez la section de commentaires ci-dessous pour :
+
+-  Poser des questions sur les concepts présentés
+-  Partager vos expériences avec l’apprentissage automatique
+-  Suggérer des améliorations ou corrections
+-  Discuter avec d’autres apprenants
+
+*Les commentaires sont modérés pour maintenir un environnement
+d’apprentissage respectueux et constructif.*
