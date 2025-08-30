@@ -1,14 +1,19 @@
 #!/bin/bash
 
-echo "🚀 Building IVIA-AF Book with Analytics and Comments..."
+echo "🚀 Building IVIA-AF Book with Analytics and Giscus Comments..."
 
 # Build the project
 echo "📦 Building with d2l-book..."
-d2lbook build html
+d2lbook build html pdf
 
 # Copy analytics.js to _static directory
 echo "📊 Copying analytics.js to _static directory..."
 cp static/analytics.js dist/html/_static/analytics.js
+
+# Copy custom template to _templates directory
+echo "📄 Copying custom template to _templates directory..."
+mkdir -p dist/html/_templates
+cp static/custom_template.html dist/html/_templates/
 
 # Add analytics scripts to all HTML files
 echo "📊 Adding analytics scripts to HTML files..."
@@ -17,14 +22,18 @@ find dist/html -name "*.html" -exec sed -i '' 's|<script type="text/javascript" 
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>\
     <script src="_static/analytics.js"></script>|' {} \;
 
-# Inject Disqus comments into HTML files
-echo "💬 Injecting Disqus comments into HTML files..."
-python3 inject_comments.py
+# Inject Giscus comments using Python script (more reliable than sed)
+echo "💬 Injecting Giscus comments using Python script..."
+python inject-giscus.py
 
-echo "✅ Build complete with analytics and comments!"
+echo "✅ Build complete with analytics and Giscus comments!"
 echo ""
 echo "📋 Next steps:"
-echo "1. Update DISQUS_SHORTNAME in inject_comments.py with your actual shortname"
-echo "2. git add dist/html/"
-echo "3. git commit -m 'Update built files with analytics and comments'"
-echo "4. git push origin vercel-static" 
+echo "1. Test locally: npm run serve-csp"
+echo "2. Open http://localhost:8000 in your browser"
+echo "3. Check if comments appear with proper styling and visibility"
+echo "4. If everything works, commit and push your changes"
+echo ""
+echo "🔧 To test locally:"
+echo "   npm run serve-csp"
+echo "   Then open http://localhost:8000 in your browser" 
