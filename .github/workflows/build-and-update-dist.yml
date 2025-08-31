@@ -34,8 +34,16 @@ jobs:
           os: debian
           texlive_version: latest
           run: |
+            # Install pip first
+            apt-get update -qq
+            apt-get install -y python3-pip python3-venv
+            
+            # Create and activate virtual environment
+            python3 -m venv venv
+            source venv/bin/activate
+            
             # Install Python dependencies in the LaTeX environment
-            python3 -m pip install --upgrade pip
+            pip install --upgrade pip
             pip install -r requirements.txt
             
             # Make build script executable
