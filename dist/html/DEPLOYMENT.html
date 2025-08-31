@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; frame-ancestors *; frame-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; font-src * data: blob:; connect-src *; object-src *; base-uri *; form-action *;">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Guide de déploiement sur Vercel avec Analytics &#8212; IVIA-AF: Initiative pour la Vulgarisation de l&#39;Intelligence Artificielle dans l&#39;AFRIUE francophone 1.0.0-beta0 documentation</title>
+
+    <link rel="stylesheet" href="_static/material-design-lite-1.3.0/material.blue-deep_orange.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/d2l.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/d2l.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.jpeg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Guide de déploiement sur Vercel avec Analytics</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="_sources/DEPLOYMENT.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          
+              <a  class="mdl-navigation__link" href="https://raw.githubusercontent.com/IVIA-AF/livre/dev/dist/pdf/Apprentissage-Automatise.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  PDF
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/logo_2.png" alt="IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction Générale à l’Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Pré-requis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Apprentissage Supervisé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/logo_2.png" alt="IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction Générale à l’Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Pré-requis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Apprentissage Supervisé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content" role="main">
+        
+  <div class="section" id="guide-de-deploiement-sur-vercel-avec-analytics">
+<h1>Guide de déploiement sur Vercel avec Analytics<a class="headerlink" href="#guide-de-deploiement-sur-vercel-avec-analytics" title="Permalink to this heading">¶</a></h1>
+<p>Ce guide vous explique comment déployer le livre IVIA-AF sur Vercel avec
+Vercel Analytics intégré.</p>
+<div class="section" id="prerequis">
+<h2>Prérequis<a class="headerlink" href="#prerequis" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Un compte Vercel (gratuit)</p></li>
+<li><p>Un repository GitHub avec votre code</p></li>
+</ol>
+</div>
+<div class="section" id="deploiement">
+<h2>Déploiement<a class="headerlink" href="#deploiement" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Connectez votre repository GitHub à Vercel</p></li>
+<li><p>Vercel détectera automatiquement la configuration <code class="docutils literal notranslate"><span class="pre">vercel.json</span></code></p></li>
+<li><p>Le build se fera automatiquement avec la commande :
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">d2lbook</span> <span class="pre">build</span> <span class="pre">html</span></code></p></li>
+</ol>
+</div>
+<div class="section" id="analytics">
+<h2>Analytics<a class="headerlink" href="#analytics" title="Permalink to this heading">¶</a></h2>
+<p>Le projet utilise <strong>Vercel Analytics</strong> intégré, qui est : - ✅
+<strong>Automatique</strong> - Pas de configuration supplémentaire - ✅ <strong>Gratuit</strong> -
+Inclus avec Vercel - ✅ <strong>Privé</strong> - Respecte la vie privée des
+utilisateurs - ✅ <strong>Simple</strong> - Données disponibles dans le dashboard
+Vercel</p>
+<div class="section" id="activation">
+<h3>Activation<a class="headerlink" href="#activation" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Dans votre projet Vercel, allez dans <strong>Settings</strong> → <strong>Analytics</strong></p></li>
+<li><p>Activez <strong>Vercel Analytics</strong></p></li>
+<li><p>C’est tout ! Les données commencent à être collectées automatiquement</p></li>
+</ol>
+</div>
+<div class="section" id="donnees-collectees">
+<h3>Données collectées<a class="headerlink" href="#donnees-collectees" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Pages visitées</strong> - Quelles pages sont les plus populaires</p></li>
+<li><p><strong>Sources de trafic</strong> - D’où viennent vos visiteurs</p></li>
+<li><p><strong>Clics sur liens externes</strong> - Quels liens externes sont cliqués</p></li>
+<li><p><strong>Informations de base</strong> - Navigateur, pays, etc.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="fonctionnalites-analytics">
+<h2>Fonctionnalités Analytics<a class="headerlink" href="#fonctionnalites-analytics" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="tracking-automatique">
+<span id="donnees-collectees-1"></span><h3>Tracking automatique<a class="headerlink" href="#tracking-automatique" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Pages visitées</strong> : Chaque page visitée est enregistrée</p></li>
+<li><p><strong>Sources de trafic</strong> : Sites référents</p></li>
+<li><p><strong>Clics sur liens externes</strong> : Suivi des liens sortants</p></li>
+<li><p><strong>Informations de base</strong> : User agent, timestamp</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Données collectées<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>URL de la page visitée</p></li>
+<li><p>Site référent (d’où vient le visiteur)</p></li>
+<li><p>User agent (navigateur, système d’exploitation)</p></li>
+<li><p>Timestamp de la visite</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="structure-des-fichiers">
+<h2>Structure des fichiers<a class="headerlink" href="#structure-des-fichiers" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>livre/
+├── static/
+│   ├── analytics.js      # Script client de tracking simple
+│   └── custom_template.html # Template HTML avec analytics
+├── vercel.json           # Configuration Vercel
+├── package.json          # Dépendances Node.js
+└── requirements.txt      # Dépendances Python
+</pre></div>
+</div>
+</div>
+<div class="section" id="commandes-utiles">
+<h2>Commandes utiles<a class="headerlink" href="#commandes-utiles" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build local</span>
+d2lbook<span class="w"> </span>build<span class="w"> </span>html
+
+<span class="c1"># Déploiement local</span>
+vercel
+
+<span class="c1"># Déploiement en production</span>
+vercel<span class="w"> </span>--prod
+</pre></div>
+</div>
+</div>
+<div class="section" id="personnalisation">
+<h2>Personnalisation<a class="headerlink" href="#personnalisation" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="modifier-le-tracking">
+<h3>Modifier le tracking<a class="headerlink" href="#modifier-le-tracking" title="Permalink to this heading">¶</a></h3>
+<p>Éditez <code class="docutils literal notranslate"><span class="pre">static/analytics.js</span></code> pour ajouter de nouveaux événements à
+tracker.</p>
+</div>
+<div class="section" id="integrer-un-autre-service-danalytics">
+<h3>Intégrer un autre service d’analytics<a class="headerlink" href="#integrer-un-autre-service-danalytics" title="Permalink to this heading">¶</a></h3>
+<p>Remplacez le code dans <code class="docutils literal notranslate"><span class="pre">static/analytics.js</span></code> par l’intégration de
+votre choix.</p>
+</div>
+</div>
+<div class="section" id="avantages-de-cette-approche">
+<h2>Avantages de cette approche<a class="headerlink" href="#avantages-de-cette-approche" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>✅ <strong>Simple</strong> : Pas de base de données à gérer</p></li>
+<li><p>✅ <strong>Rapide</strong> : Déploiement immédiat</p></li>
+<li><p>✅ <strong>Fiable</strong> : Utilise les services Vercel intégrés</p></li>
+<li><p>✅ <strong>Privé</strong> : Respecte la vie privée des utilisateurs</p></li>
+<li><p>✅ <strong>Gratuit</strong> : Vercel Analytics est inclus gratuitement</p></li>
+</ul>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this heading">¶</a></h2>
+<p>Pour toute question ou problème : - Email : <a class="reference external" href="mailto:contact&#37;&#52;&#48;ivia&#46;africa">contact<span>&#64;</span>ivia<span>&#46;</span>africa</a> - GitHub
+: <a class="reference external" href="https://github.com/IVIA-AF/livre">https://github.com/IVIA-AF/livre</a></p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Guide de déploiement sur Vercel avec Analytics</a><ul>
+<li><a class="reference internal" href="#prerequis">Prérequis</a></li>
+<li><a class="reference internal" href="#deploiement">Déploiement</a></li>
+<li><a class="reference internal" href="#analytics">Analytics</a><ul>
+<li><a class="reference internal" href="#activation">Activation</a></li>
+<li><a class="reference internal" href="#donnees-collectees">Données collectées</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fonctionnalites-analytics">Fonctionnalités Analytics</a><ul>
+<li><a class="reference internal" href="#tracking-automatique">Tracking automatique</a></li>
+<li><a class="reference internal" href="#id1">Données collectées</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structure-des-fichiers">Structure des fichiers</a></li>
+<li><a class="reference internal" href="#commandes-utiles">Commandes utiles</a></li>
+<li><a class="reference internal" href="#personnalisation">Personnalisation</a><ul>
+<li><a class="reference internal" href="#modifier-le-tracking">Modifier le tracking</a></li>
+<li><a class="reference internal" href="#integrer-un-autre-service-danalytics">Intégrer un autre service d’analytics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#avantages-de-cette-approche">Avantages de cette approche</a></li>
+<li><a class="reference internal" href="#support">Support</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        
+        <!-- Giscus Comments Section - Integrated with page content -->
+        <div class="giscus-container" id="giscus-container" style="
+            max-width: 100%; 
+            margin: 3rem 0 2rem 0; 
+            padding: 2rem; 
+            background: #ffffff; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+            border: 1px solid #e1e5e9; 
+            min-height: 200px;
+            clear: both;
+            overflow: hidden;
+        ">
+            <h3 style="
+                margin: 0 0 1.5rem 0; 
+                color: #333; 
+                font-size: 1.3rem; 
+                font-weight: 600;
+                text-align: center;
+                border-bottom: 2px solid #007cba;
+                padding-bottom: 0.5rem;
+            ">💬 Commentaires et Discussions</h3>
+            
+            <div id="giscus-comments">
+                <script src="https://giscus.app/client.js"
+                        data-repo="IVIA-AF/livre"
+                        data-repo-id="R_kgDOPKBYSA"
+                        data-category="Commentaire"
+                        data-category-id="DIC_kwDOPKBYSM4CuxXP"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="fr"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+        </div>
+    </main>
+    </div>
+  </body>
+</html>

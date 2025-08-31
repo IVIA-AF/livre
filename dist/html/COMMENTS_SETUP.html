@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; frame-ancestors *; frame-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; font-src * data: blob:; connect-src *; object-src *; base-uri *; form-action *;">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Système de Commentaires - Guide de Configuration &#8212; IVIA-AF: Initiative pour la Vulgarisation de l&#39;Intelligence Artificielle dans l&#39;AFRIUE francophone 1.0.0-beta0 documentation</title>
+
+    <link rel="stylesheet" href="_static/material-design-lite-1.3.0/material.blue-deep_orange.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/d2l.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/d2l.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.jpeg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Système de Commentaires - Guide de Configuration</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="_sources/COMMENTS_SETUP.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          
+              <a  class="mdl-navigation__link" href="https://raw.githubusercontent.com/IVIA-AF/livre/dev/dist/pdf/Apprentissage-Automatise.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  PDF
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/logo_2.png" alt="IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction Générale à l’Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Pré-requis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Apprentissage Supervisé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/logo_2.png" alt="IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle dans l'AFRIUE francophone"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction Générale à l’Apprentissage Automatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Pré-requis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Apprentissage Supervisé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content" role="main">
+        
+  <div class="section" id="systeme-de-commentaires-guide-de-configuration">
+<h1>Système de Commentaires - Guide de Configuration<a class="headerlink" href="#systeme-de-commentaires-guide-de-configuration" title="Permalink to this heading">¶</a></h1>
+<p>Ce guide explique comment configurer et utiliser le système de
+commentaires intégré dans votre projet livre IVIA-AF.</p>
+<div class="section" id="vue-densemble">
+<h2>🎯 Vue d’ensemble<a class="headerlink" href="#vue-densemble" title="Permalink to this heading">¶</a></h2>
+<p>Le système de commentaires permet aux lecteurs de : - Poser des
+questions sur le contenu - Partager leurs expériences - Suggérer des
+améliorations - Discuter avec d’autres apprenants</p>
+</div>
+<div class="section" id="configuration-du-systeme">
+<h2>🚀 Configuration du Système<a class="headerlink" href="#configuration-du-systeme" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="creer-un-compte-disqus">
+<h3>1. Créer un compte Disqus<a class="headerlink" href="#creer-un-compte-disqus" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Allez sur <a class="reference external" href="https://disqus.com">disqus.com</a></p></li>
+<li><p>Créez un compte ou connectez-vous</p></li>
+<li><p>Cliquez sur “Get Started” pour créer un nouveau site</p></li>
+<li><p>Choisissez “I want to install Disqus on my site”</p></li>
+<li><p>Remplissez les informations :</p>
+<ul class="simple">
+<li><p><strong>Website Name</strong>: <code class="docutils literal notranslate"><span class="pre">ivia-af-livre</span></code> (ou votre nom préféré)</p></li>
+<li><p><strong>Website URL</strong>: L’URL de votre site déployé</p></li>
+<li><p><strong>Category</strong>: Education</p></li>
+<li><p><strong>Language</strong>: French</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="obtenir-votre-disqus-shortname">
+<h3>2. Obtenir votre Disqus Shortname<a class="headerlink" href="#obtenir-votre-disqus-shortname" title="Permalink to this heading">¶</a></h3>
+<p>Après la création, vous recevrez un “shortname” (ex: <code class="docutils literal notranslate"><span class="pre">ivia-af-livre</span></code>).</p>
+</div>
+<div class="section" id="mettre-a-jour-la-configuration">
+<h3>3. Mettre à jour la Configuration<a class="headerlink" href="#mettre-a-jour-la-configuration" title="Permalink to this heading">¶</a></h3>
+<p>Dans le fichier <code class="docutils literal notranslate"><span class="pre">static/custom_template.html</span></code>, remplacez :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://ivia-af-livre.disqus.com/embed.js&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Par votre shortname :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://VOTRE_SHORTNAME.disqus.com/embed.js&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="personnaliser-lapparence">
+<h3>4. Personnaliser l’Apparence<a class="headerlink" href="#personnaliser-lapparence" title="Permalink to this heading">¶</a></h3>
+<p>Modifiez le fichier <code class="docutils literal notranslate"><span class="pre">static/custom.css</span></code> pour ajuster : - Couleurs -
+Espacement - Typographie - Responsive design</p>
+</div>
+</div>
+<div class="section" id="utilisation">
+<h2>📝 Utilisation<a class="headerlink" href="#utilisation" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="pour-les-lecteurs">
+<h3>Pour les Lecteurs<a class="headerlink" href="#pour-les-lecteurs" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Lire le contenu</strong> d’une leçon</p></li>
+<li><p><strong>Faire défiler</strong> jusqu’à la section “Commentaires et Discussions”</p></li>
+<li><p><strong>Cliquer</strong> sur la zone de commentaires</p></li>
+<li><p><strong>Se connecter</strong> avec Disqus (ou créer un compte)</p></li>
+<li><p><strong>Écrire</strong> et <strong>publier</strong> un commentaire</p></li>
+</ol>
+</div>
+<div class="section" id="pour-les-moderateurs">
+<h3>Pour les Modérateurs<a class="headerlink" href="#pour-les-moderateurs" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Accéder</strong> au <a class="reference external" href="https://disqus.com/admin/">panneau d’administration
+Disqus</a></p></li>
+<li><p><strong>Modérer</strong> les commentaires selon vos règles</p></li>
+<li><p><strong>Configurer</strong> les filtres anti-spam</p></li>
+<li><p><strong>Gérer</strong> les utilisateurs si nécessaire</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="personnalisation-avancee">
+<h2>🔧 Personnalisation Avancée<a class="headerlink" href="#personnalisation-avancee" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="ajouter-des-commentaires-a-de-nouvelles-lecons">
+<h3>Ajouter des Commentaires à de Nouvelles Leçons<a class="headerlink" href="#ajouter-des-commentaires-a-de-nouvelles-lecons" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Créer</strong> votre fichier <code class="docutils literal notranslate"><span class="pre">.md</span></code></p></li>
+<li><p><strong>Ajouter</strong> à la fin :</p></li>
+</ol>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+
+<span class="gu">## Commentaires et Discussions</span>
+
+Partagez vos questions, commentaires et expériences avec la communauté IVIA-AF ! Utilisez la section de commentaires ci-dessous pour :
+
+<span class="k">-</span><span class="w"> </span>Poser des questions sur les concepts présentés
+<span class="k">-</span><span class="w"> </span>Partager vos expériences avec l&#39;apprentissage automatique
+<span class="k">-</span><span class="w"> </span>Suggérer des améliorations ou corrections
+<span class="k">-</span><span class="w"> </span>Discuter avec d&#39;autres apprenants
+
+<span class="ge">*Les commentaires sont modérés pour maintenir un environnement d&#39;apprentissage respectueux et constructif.*</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration-avec-d2lbook">
+<h3>Intégration avec d2lbook<a class="headerlink" href="#integration-avec-d2lbook" title="Permalink to this heading">¶</a></h3>
+<p>Le système est conçu pour s’intégrer parfaitement avec d2lbook : -
+<strong>Template personnalisé</strong> : <code class="docutils literal notranslate"><span class="pre">static/custom_template.html</span></code> - <strong>Styles
+CSS</strong> : <code class="docutils literal notranslate"><span class="pre">static/custom.css</span></code> - <strong>Commentaires automatiques</strong> sur toutes
+les pages</p>
+</div>
+</div>
+<div class="section" id="deploiement">
+<h2>🌐 Déploiement<a class="headerlink" href="#deploiement" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="vercel-recommande">
+<h3>Vercel (Recommandé)<a class="headerlink" href="#vercel-recommande" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Pousser</strong> vos changements vers GitHub</p></li>
+<li><p><strong>Vercel</strong> se reconstruira automatiquement</p></li>
+<li><p><strong>Vérifier</strong> que les commentaires apparaissent</p></li>
+</ol>
+</div>
+<div class="section" id="autres-plateformes">
+<h3>Autres Plateformes<a class="headerlink" href="#autres-plateformes" title="Permalink to this heading">¶</a></h3>
+<p>Le système fonctionne sur toute plateforme statique : - GitHub Pages -
+Netlify - Surge - etc.</p>
+</div>
+</div>
+<div class="section" id="analytics-et-moderation">
+<h2>📊 Analytics et Modération<a class="headerlink" href="#analytics-et-moderation" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="disqus-analytics">
+<h3>Disqus Analytics<a class="headerlink" href="#disqus-analytics" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Vues</strong> des commentaires</p></li>
+<li><p><strong>Engagement</strong> des utilisateurs</p></li>
+<li><p><strong>Tendances</strong> de discussion</p></li>
+<li><p><strong>Démographie</strong> des utilisateurs</p></li>
+</ul>
+</div>
+<div class="section" id="moderation">
+<h3>Modération<a class="headerlink" href="#moderation" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Filtrage automatique</strong> du spam</p></li>
+<li><p><strong>Modération manuelle</strong> des commentaires</p></li>
+<li><p><strong>Règles personnalisables</strong></p></li>
+<li><p><strong>Bannissement</strong> d’utilisateurs si nécessaire</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="depannage">
+<h2>🚨 Dépannage<a class="headerlink" href="#depannage" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="les-commentaires-napparaissent-pas">
+<h3>Les Commentaires n’Apparaissent Pas<a class="headerlink" href="#les-commentaires-napparaissent-pas" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Vérifier</strong> que Disqus est activé</p></li>
+<li><p><strong>Contrôler</strong> la console du navigateur pour les erreurs</p></li>
+<li><p><strong>S’assurer</strong> que le shortname est correct</p></li>
+<li><p><strong>Vérifier</strong> que le site est accessible publiquement</p></li>
+</ol>
+</div>
+<div class="section" id="problemes-de-performance">
+<h3>Problèmes de Performance<a class="headerlink" href="#problemes-de-performance" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Charger</strong> Disqus de manière asynchrone (déjà configuré)</p></li>
+<li><p><strong>Utiliser</strong> un CDN pour les ressources statiques</p></li>
+<li><p><strong>Optimiser</strong> les images et le contenu</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="securite-et-confidentialite">
+<h2>🔒 Sécurité et Confidentialité<a class="headerlink" href="#securite-et-confidentialite" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="donnees-collectees">
+<h3>Données Collectées<a class="headerlink" href="#donnees-collectees" title="Permalink to this heading">¶</a></h3>
+<p>Disqus collecte : - <strong>Informations de base</strong> (nom, email) -
+<strong>Commentaires</strong> et interactions - <strong>Données de navigation</strong> (cookies)</p>
+</div>
+<div class="section" id="conformite-rgpd">
+<h3>Conformité RGPD<a class="headerlink" href="#conformite-rgpd" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Consentement</strong> explicite requis</p></li>
+<li><p><strong>Droit à l’oubli</strong> disponible</p></li>
+<li><p><strong>Transparence</strong> sur l’utilisation des données</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="support">
+<h2>📞 Support<a class="headerlink" href="#support" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="ressources-utiles">
+<h3>Ressources Utiles<a class="headerlink" href="#ressources-utiles" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://help.disqus.com/">Documentation Disqus</a></p></li>
+<li><p><a class="reference external" href="https://disqus.com/support/">Forum d’entraide</a></p></li>
+<li><p><a class="reference external" href="mailto:contact&#37;&#52;&#48;ivia&#46;africa">Contact IVIA-AF</a></p></li>
+</ul>
+</div>
+<div class="section" id="problemes-techniques">
+<h3>Problèmes Techniques<a class="headerlink" href="#problemes-techniques" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Vérifier</strong> la documentation officielle</p></li>
+<li><p><strong>Consulter</strong> les forums Disqus</p></li>
+<li><p><strong>Contacter</strong> l’équipe IVIA-AF</p></li>
+</ol>
+<hr class="docutils" />
+<p><em>Dernière mise à jour : $(date)</em> <em>Version : 1.0.0</em></p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Système de Commentaires - Guide de Configuration</a><ul>
+<li><a class="reference internal" href="#vue-densemble">🎯 Vue d’ensemble</a></li>
+<li><a class="reference internal" href="#configuration-du-systeme">🚀 Configuration du Système</a><ul>
+<li><a class="reference internal" href="#creer-un-compte-disqus">1. Créer un compte Disqus</a></li>
+<li><a class="reference internal" href="#obtenir-votre-disqus-shortname">2. Obtenir votre Disqus Shortname</a></li>
+<li><a class="reference internal" href="#mettre-a-jour-la-configuration">3. Mettre à jour la Configuration</a></li>
+<li><a class="reference internal" href="#personnaliser-lapparence">4. Personnaliser l’Apparence</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utilisation">📝 Utilisation</a><ul>
+<li><a class="reference internal" href="#pour-les-lecteurs">Pour les Lecteurs</a></li>
+<li><a class="reference internal" href="#pour-les-moderateurs">Pour les Modérateurs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#personnalisation-avancee">🔧 Personnalisation Avancée</a><ul>
+<li><a class="reference internal" href="#ajouter-des-commentaires-a-de-nouvelles-lecons">Ajouter des Commentaires à de Nouvelles Leçons</a></li>
+<li><a class="reference internal" href="#integration-avec-d2lbook">Intégration avec d2lbook</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deploiement">🌐 Déploiement</a><ul>
+<li><a class="reference internal" href="#vercel-recommande">Vercel (Recommandé)</a></li>
+<li><a class="reference internal" href="#autres-plateformes">Autres Plateformes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#analytics-et-moderation">📊 Analytics et Modération</a><ul>
+<li><a class="reference internal" href="#disqus-analytics">Disqus Analytics</a></li>
+<li><a class="reference internal" href="#moderation">Modération</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#depannage">🚨 Dépannage</a><ul>
+<li><a class="reference internal" href="#les-commentaires-napparaissent-pas">Les Commentaires n’Apparaissent Pas</a></li>
+<li><a class="reference internal" href="#problemes-de-performance">Problèmes de Performance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#securite-et-confidentialite">🔒 Sécurité et Confidentialité</a><ul>
+<li><a class="reference internal" href="#donnees-collectees">Données Collectées</a></li>
+<li><a class="reference internal" href="#conformite-rgpd">Conformité RGPD</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#support">📞 Support</a><ul>
+<li><a class="reference internal" href="#ressources-utiles">Ressources Utiles</a></li>
+<li><a class="reference internal" href="#problemes-techniques">Problèmes Techniques</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        
+        <!-- Giscus Comments Section - Integrated with page content -->
+        <div class="giscus-container" id="giscus-container" style="
+            max-width: 100%; 
+            margin: 3rem 0 2rem 0; 
+            padding: 2rem; 
+            background: #ffffff; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+            border: 1px solid #e1e5e9; 
+            min-height: 200px;
+            clear: both;
+            overflow: hidden;
+        ">
+            <h3 style="
+                margin: 0 0 1.5rem 0; 
+                color: #333; 
+                font-size: 1.3rem; 
+                font-weight: 600;
+                text-align: center;
+                border-bottom: 2px solid #007cba;
+                padding-bottom: 0.5rem;
+            ">💬 Commentaires et Discussions</h3>
+            
+            <div id="giscus-comments">
+                <script src="https://giscus.app/client.js"
+                        data-repo="IVIA-AF/livre"
+                        data-repo-id="R_kgDOPKBYSA"
+                        data-category="Commentaire"
+                        data-category-id="DIC_kwDOPKBYSM4CuxXP"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="fr"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+        </div>
+    </main>
+    </div>
+  </body>
+</html>
