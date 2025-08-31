@@ -4,3 +4,4 @@ _build/
 
 *.md
 debug-*
+*.yml
