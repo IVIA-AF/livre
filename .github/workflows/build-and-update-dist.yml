@@ -21,23 +21,34 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y pandoc librsvg2-bin
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
 
-      - name: Make build script executable
-        run: chmod +x ./build-with-analytics.sh
 
-      - name: Clean and build
-        run: |
-          rm -rf dist
-          ./build-with-analytics.sh
+
+      - name: Build with LaTeX support
+        uses: xu-cheng/texlive-action@v3
+        with:
+          os: debian
+          texlive_version: latest
+          run: |
+            # Install pip and pandoc first
+            apt-get update -qq
+            apt-get install -y python3-pip python3-venv pandoc librsvg2-bin
+            
+            # Create and activate virtual environment
+            python3 -m venv venv
+            source venv/bin/activate
+            
+            # Install Python dependencies in the LaTeX environment
+            pip install --upgrade pip
+            pip install -r requirements.txt
+            
+            # Make build script executable
+            chmod +x ./build-with-analytics.sh
+            
+            # Clean and build
+            rm -rf dist
+            ./build-with-analytics.sh
 
       - name: Commit and push changes
         run: |
