@@ -21,10 +21,7 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y pandoc librsvg2-bin
+
 
 
 
@@ -34,9 +31,9 @@ jobs:
           os: debian
           texlive_version: latest
           run: |
-            # Install pip first
+            # Install pip and pandoc first
             apt-get update -qq
-            apt-get install -y python3-pip python3-venv
+            apt-get install -y python3-pip python3-venv pandoc librsvg2-bin
             
             # Create and activate virtual environment
             python3 -m venv venv
