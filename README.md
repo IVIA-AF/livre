@@ -69,3 +69,5 @@ jupyter nbconvert --to markdown prise_en_main_python.ipynb --output-dir './'
 •	è → \e`
 •	ç → \c{c}
 ```
+
+check the /Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre project when I run the "d2lbook build html" the produce hltml doesn't rellay mention the equation number correctly when referenced in the document and the citation reference doesn't work 
