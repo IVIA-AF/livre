@@ -1,6 +1,5 @@
 .DS_Store
 *.pyc
-
 *.md
 debug-*
 *.yml
