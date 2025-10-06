@@ -179,3 +179,13 @@ warranty, not even for merchantability or fitness for a particular purpose.
     &\mathbf{u}\mapsto \left(\sum_{i=1}^{n}|u_i|^p\right)^{\frac{1}{p}}
 \end{aligned}
 \]
+
+<!-- parts/comments.html -->
+<p>FOOTER OK</p>
+<script src="https://utteranc.es/client.js"
+        repo="IVIA-AF/livre"
+        issue-term="title"
+        label="comments"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async></script>
