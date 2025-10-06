@@ -1,0 +1,51 @@
+https://executablebooks.org/en/latest/gallery/?utm_source=chatgpt.com
+
+
+pip install --pre "jupyter-book==2.*"
+brew install typst
+
+jupyter book init
+
+jupyter book start
+
+You can see a list of available templates with
+
+$ jupyter book templates list --pdf
+
+$ jupyter book templates list --typst lapreprint-typst
+
+jupyter book templates list
+
+$ jupyter book build --pdf
+
+jupyter book templates list --tex plain_latex_book
+
+
+pip install pandoc latex_to_myst
+# example: convert a chapter
+pandoc tex/chapter1.tex -f latex -t gfm+tex_math_dollars -o content/chapter1.md --wrap=none --filter=latex_to_myst
+
+
+pandoc tex/chapter1.tex \
+  -f latex \
+  -t gfm+tex_math_dollars \
+  --wrap=none \
+  --citeproc \
+  --metadata=link-citations=true \
+  --bibliography=references.bib \
+  --filter pandoc-crossref \
+  -o content/chapter1.md
+
+pandoc tex/chapter2.tex \
+  -f latex \
+  -t gfm+tex_math_dollars \
+  --wrap=none \
+  --citeproc \
+  --metadata=link-citations=true \
+  --bibliography=references.bib \
+  --filter pandoc-crossref \
+  -o content/chapter2.md
+
+jupyter book init --write-toc
+
+myst clean

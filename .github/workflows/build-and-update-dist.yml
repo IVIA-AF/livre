@@ -1,63 +1,63 @@
-name: Build and Update Dist
+# name: Build and Update Dist
 
-on:
-  push:
-    branches:
-      - dev   # or whichever branch you want
-  workflow_dispatch: # allows manual trigger
+# on:
+#   push:
+#     branches:
+#       - dev   # or whichever branch you want
+#   workflow_dispatch: # allows manual trigger
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # ensure full history for commits
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0   # ensure full history for commits
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-
-
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.10"
 
 
 
-      - name: Build with LaTeX support
-        uses: xu-cheng/texlive-action@v3
-        with:
-          os: debian
-          texlive_version: latest
-          run: |
-            # Install pip and pandoc first
-            apt-get update -qq
-            apt-get install -y python3-pip python3-venv pandoc librsvg2-bin
+
+
+#       - name: Build with LaTeX support
+#         uses: xu-cheng/texlive-action@v3
+#         with:
+#           os: debian
+#           texlive_version: latest
+#           run: |
+#             # Install pip and pandoc first
+#             apt-get update -qq
+#             apt-get install -y python3-pip python3-venv pandoc librsvg2-bin
             
-            # Create and activate virtual environment
-            python3 -m venv venv
-            source venv/bin/activate
+#             # Create and activate virtual environment
+#             python3 -m venv venv
+#             source venv/bin/activate
             
-            # Install Python dependencies in the LaTeX environment
-            pip install --upgrade pip
-            pip install -r requirements.txt
+#             # Install Python dependencies in the LaTeX environment
+#             pip install --upgrade pip
+#             pip install -r requirements.txt
             
-            # Make build script executable
-            chmod +x ./build-with-analytics.sh
+#             # Make build script executable
+#             chmod +x ./build-with-analytics.sh
             
-            # Clean and build
-            rm -rf dist
-            ./build-with-analytics.sh
+#             # Clean and build
+#             rm -rf dist
+#             ./build-with-analytics.sh
 
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dist/
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update dist folder [skip ci]"
-            git push origin HEAD:${GITHUB_REF#refs/heads/}
-          fi
+#       - name: Commit and push changes
+#         run: |
+#           git config user.name "github-actions[bot]"
+#           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+#           git add dist/
+#           if git diff --cached --quiet; then
+#             echo "No changes to commit"
+#           else
+#             git commit -m "Update dist folder [skip ci]"
+#             git push origin HEAD:${GITHUB_REF#refs/heads/}
+#           fi

@@ -1,0 +1,41 @@
+{
+  "input": {
+    "files": [],
+    "opts": {
+      "execute": false,
+      "pdf": true,
+      "tex": false,
+      "typst": false,
+      "docx": false,
+      "md": false,
+      "xml": false,
+      "meca": false,
+      "cff": false,
+      "site": false,
+      "html": false,
+      "all": false,
+      "doiBib": false,
+      "watch": false,
+      "force": false,
+      "checkLinks": false,
+      "strict": false,
+      "ci": false,
+      "maxSizeWebp": 1572864
+    }
+  },
+  "exports": [
+    {
+      "format": "typst",
+      "template": "lapreprint-typst",
+      "articles": [
+        {
+          "file": "/Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre/Jupyterbook/intro.md",
+          "level": 0
+        }
+      ],
+      "output": "/Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre/Jupyterbook/_build/exports/myst_typst/intro.pdf",
+      "$file": "/Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre/Jupyterbook/myst.yml",
+      "$project": "/Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre/Jupyterbook"
+    }
+  ]
+}
