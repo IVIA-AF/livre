@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Giscus</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; frame-ancestors *; frame-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; font-src * data: blob:; connect-src *; object-src *; base-uri *; form-action *;">
+</head>
+<body>
+    <h1>Test Giscus Comments</h1>
+    <p>This is a test page to verify Giscus functionality.</p>
+    
+    <div class="giscus-container" id="giscus-container" style="
+        max-width: 100%; 
+        margin: 3rem 0 2rem 0; 
+        padding: 2rem; 
+        background: #ffffff; 
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+        border: 1px solid #e1e5e9; 
+        min-height: 200px;
+        clear: both;
+        overflow: hidden;
+    ">
+        <h3 style="
+            margin: 0 0 1.5rem 0; 
+            color: #333; 
+            font-size: 1.3rem; 
+            font-weight: 600;
+            text-align: center;
+            border-bottom: 2px solid #007cba;
+            padding-bottom: 0.5rem;
+        ">💬 Commentaires et Discussions</h3>
+        
+        <div id="giscus-comments">
+            <script src="https://giscus.app/client.js"
+                    data-repo="IVIA-AF/livre"
+                    data-repo-id="R_kgDOKjKQYQ"
+                    data-category="General"
+                    data-category-id="DIC_kwDOKjKQYc4CbQYh"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="light"
+                    data-lang="fr"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </div>
+    
+    <script>
+        // Add some debugging
+        console.log('Test page loaded');
+        console.log('Current URL:', window.location.href);
+        console.log('Is localhost:', window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+    </script>
+</body>
+</html>
