@@ -1,5 +1,5 @@
 {
-  "buildCommand": "echo 'No build needed'",
+  "buildCommand": "myst build --html && python3 inject_giscus.py",
   "outputDirectory": "_build/html",
   "framework": null,
   "headers": [
