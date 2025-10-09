@@ -1,5 +1,5 @@
 {
-  "buildCommand": "myst build --html && python3 inject_giscus.py",
+  "buildCommand": "./build.sh",
   "outputDirectory": "_build/html",
   "framework": null,
   "headers": [
