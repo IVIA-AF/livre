@@ -33,8 +33,33 @@ def main():
     ):
         sys.exit(1)
 
-    # Build with jupyter-book
-    if not run_command("jupyter-book build .", "Building Jupyter Book"):
+    # Try different build approaches
+    build_success = False
+
+    # Approach 1: Try jupyter-book as Python module
+    if not build_success:
+        if run_command(
+            "python3 -m jupyter_book build .", "Building with jupyter-book module"
+        ):
+            build_success = True
+
+    # Approach 2: Try myst as Python module (fallback)
+    if not build_success:
+        print("🔄 Trying myst module as fallback...")
+        if run_command("python3 -m myst build --html", "Building with myst module"):
+            build_success = True
+
+    # Approach 3: Try direct command (if available)
+    if not build_success:
+        print("🔄 Trying direct commands as fallback...")
+        commands_to_try = ["jupyter-book build .", "myst build --html"]
+        for cmd in commands_to_try:
+            if run_command(cmd, f"Building with {cmd.split()[0]}"):
+                build_success = True
+                break
+
+    if not build_success:
+        print("❌ All build approaches failed")
         sys.exit(1)
 
     # Inject Giscus comments
