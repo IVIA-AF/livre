@@ -56,40 +56,51 @@ def inject_giscus_to_html(html_file):
             
             <div id="giscus-comments">
                 <script>
-                // Wait for MyST/Remix to fully load before initializing Giscus
+                // Simple Giscus initialization without Remix dependency
                 function initGiscus() {
-                    // Check if the page is fully loaded and React has rendered
-                    if (document.readyState === 'complete' && window.__remixContext) {
-                        // Create the Giscus script element
-                        const script = document.createElement('script');
-                        script.src = 'https://giscus.app/client.js';
-                        script.setAttribute('data-repo', 'IVIA-AF/livre');
-                        script.setAttribute('data-repo-id', 'R_kgDOKjKQYQ');
-                        script.setAttribute('data-category', 'General');
-                        script.setAttribute('data-category-id', 'DIC_kwDOKjKQYc4CbQYh');
-                        script.setAttribute('data-mapping', 'pathname');
-                        script.setAttribute('data-strict', '0');
-                        script.setAttribute('data-reactions-enabled', '1');
-                        script.setAttribute('data-emit-metadata', '0');
-                        script.setAttribute('data-input-position', 'top');
-                        script.setAttribute('data-theme', 'light');
-                        script.setAttribute('data-lang', 'fr');
-                        script.crossOrigin = 'anonymous';
-                        script.async = true;
-                        
-                        // Append to the comments container
-                        document.getElementById('giscus-comments').appendChild(script);
+                    console.log('🔍 Initializing Giscus...');
+                    
+                    // Create the Giscus script element
+                    const script = document.createElement('script');
+                    script.src = 'https://giscus.app/client.js';
+                    script.setAttribute('data-repo', 'IVIA-AF/livre');
+                    script.setAttribute('data-repo-id', 'R_kgDOPKBYSA');
+                    script.setAttribute('data-category', 'Commentaire');
+                    script.setAttribute('data-category-id', 'DIC_kwDOPKBYSM4CuxXP');
+                    script.setAttribute('data-mapping', 'pathname');
+                    script.setAttribute('data-strict', '0');
+                    script.setAttribute('data-reactions-enabled', '1');
+                    script.setAttribute('data-emit-metadata', '0');
+                    script.setAttribute('data-input-position', 'top');
+                    script.setAttribute('data-theme', 'light');
+                    script.setAttribute('data-lang', 'fr');
+                    script.crossOrigin = 'anonymous';
+                    script.async = true;
+                    
+                    // Add error handling
+                    script.onload = function() {
+                        console.log('✅ Giscus script loaded successfully');
+                    };
+                    script.onerror = function() {
+                        console.error('❌ Failed to load Giscus script');
+                    };
+                    
+                    // Append to the comments container
+                    const container = document.getElementById('giscus-comments');
+                    if (container) {
+                        container.appendChild(script);
+                        console.log('✅ Giscus script added to container');
                     } else {
-                        // Retry after a short delay
-                        setTimeout(initGiscus, 100);
+                        console.error('❌ Giscus container not found');
                     }
                 }
                 
-                // Start initialization
+                // Initialize when DOM is ready
                 if (document.readyState === 'loading') {
                     document.addEventListener('DOMContentLoaded', initGiscus);
                 } else {
-                    initGiscus();
+                    // DOM is already ready
+                    setTimeout(initGiscus, 100);
                 }
                 </script>
             </div>
