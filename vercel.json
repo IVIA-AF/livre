@@ -1,5 +1,4 @@
 {
-  "buildCommand": "python3 build_python.py",
   "outputDirectory": "_build/html",
   "framework": null,
   "headers": [

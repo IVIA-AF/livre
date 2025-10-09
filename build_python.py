@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Simple build script for MyST Jupyter Book with Giscus comments
-Uses jupyter-book which is more commonly available in deployment environments
+Uses the working myst command that we know exists
 """
 
 import os
@@ -25,7 +25,7 @@ def run_command(cmd, description):
 
 
 def main():
-    print("🚀 Starting Jupyter Book build process...")
+    print("🚀 Starting MyST build process...")
 
     # Install dependencies
     if not run_command(
@@ -33,33 +33,40 @@ def main():
     ):
         sys.exit(1)
 
+    # Ensure myst command is available
+    print("🔧 Ensuring myst command is available...")
+    run_command("python3 -m pip install --upgrade mystmd", "Upgrading mystmd")
+
+    # Check if myst command is available
+    print("🔍 Checking if myst command is available...")
+    myst_available = run_command("which myst", "Checking myst command")
+
     # Try different build approaches
     build_success = False
 
-    # Approach 1: Try jupyter-book as Python module
+    # Approach 1: Try myst command (most likely to work)
+    if not build_success and myst_available:
+        if run_command("myst build --html", "Building with myst command"):
+            build_success = True
+
+    # Approach 2: Try jupyter-book command
     if not build_success:
+        print("🔄 Trying jupyter-book command...")
+        if run_command("jupyter-book build .", "Building with jupyter-book"):
+            build_success = True
+
+    # Approach 3: Try with python -m (if available)
+    if not build_success:
+        print("🔄 Trying python module approach...")
         if run_command(
-            "python3 -m jupyter_book build .", "Building with jupyter-book module"
+            "python3 -c 'import mystmd; mystmd.cli.main()' build --html",
+            "Building with mystmd module",
         ):
             build_success = True
 
-    # Approach 2: Try myst as Python module (fallback)
-    if not build_success:
-        print("🔄 Trying myst module as fallback...")
-        if run_command("python3 -m myst build --html", "Building with myst module"):
-            build_success = True
-
-    # Approach 3: Try direct command (if available)
-    if not build_success:
-        print("🔄 Trying direct commands as fallback...")
-        commands_to_try = ["jupyter-book build .", "myst build --html"]
-        for cmd in commands_to_try:
-            if run_command(cmd, f"Building with {cmd.split()[0]}"):
-                build_success = True
-                break
-
     if not build_success:
         print("❌ All build approaches failed")
+        print("💡 Make sure mystmd is properly installed")
         sys.exit(1)
 
     # Inject Giscus comments
