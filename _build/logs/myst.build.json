@@ -13,7 +13,7 @@
       "xml": false,
       "meca": false,
       "cff": false,
-      "site": true,
+      "site": false,
       "html": false,
       "all": false,
       "doiBib": false,
