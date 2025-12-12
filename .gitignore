@@ -1,6 +1,11 @@
-.DS_Store
+DS_Store
+# Optional: also ignore the alternative format some systems create
+._.DS_Store
+# Optional: use a leading double asterisk to match in any directory, though a single entry usually suffices
+**/.DS_Store
 *.pyc
 *.md
 debug-*
 *.yml
 tex/
+.cursor/
