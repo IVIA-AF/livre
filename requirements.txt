@@ -1,0 +1,13 @@
+# Jupyter Book 2 and dependencies
+jupyter-book>=2.0.0
+
+# MyST Markdown (included with jupyter-book, but explicit for clarity)
+mystmd>=1.0.0
+
+# Optional: For LaTeX to Markdown conversion
+# pandoc (install separately via system package manager)
+# latex_to_myst (install via: pip install latex_to_myst)
+
+# Optional: For PDF generation
+# typst (install separately - see https://typst.app/)
+
