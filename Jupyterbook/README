@@ -1,51 +1,105 @@
-https://executablebooks.org/en/latest/gallery/?utm_source=chatgpt.com
+# Jupyter Book 2 - Quick Reference
 
+## Installation
 
-pip install --pre "jupyter-book==2.*"
-brew install typst
+```bash
+# Install Jupyter Book 2
+pip install "jupyter-book>=2.0.0"
 
-jupyter book init
+# For PDF export (optional)
+brew install typst  # macOS
+# or install typst via other methods for your OS
+```
 
-jupyter book start
+## Basic Commands
 
-You can see a list of available templates with
+**Important**: Jupyter Book 2 uses `myst build` as the unified entry point. `jupyter-book build` is deprecated.
 
-$ jupyter book templates list --pdf
+```bash
+# Initialize a new book
+jupyter-book init
 
-$ jupyter book templates list --typst lapreprint-typst
+# Build the book (HTML) - Use myst build
+myst build --html
 
-jupyter book templates list
+# Build PDF (requires typst)
+myst build --pdf
 
-$ jupyter book build --pdf
+# Clean previous builds
+myst clean
 
-jupyter book templates list --tex plain_latex_book
+# Serve locally (after build)
+cd _build/html && python -m http.server 8000
+```
 
+## Templates
 
-pip install pandoc latex_to_myst
-# example: convert a chapter
-pandoc tex/chapter1.tex -f latex -t gfm+tex_math_dollars -o content/chapter1.md --wrap=none --filter=latex_to_myst
+```bash
+# List available templates
+jupyter-book templates list
 
+# List PDF templates
+jupyter-book templates list --pdf
 
+# List Typst templates
+jupyter-book templates list --typst lapreprint-typst
+
+# List LaTeX templates
+jupyter-book templates list --tex plain_latex_book
+```
+
+## Content Conversion
+
+### LaTeX to Markdown
+
+```bash
+# Basic conversion
+pandoc tex/chapter1.tex -o content/chapter1.md
+
+# With citations and cross-references
 pandoc tex/chapter1.tex \
   -f latex \
-  -t gfm+tex_math_dollars \
+  -t commonmark_x+tex_math_dollars \
   --wrap=none \
   --citeproc \
   --metadata=link-citations=true \
   --bibliography=references.bib \
   --filter pandoc-crossref \
   -o content/chapter1.md
+```
 
-pandoc tex/chapter2.tex \
+### With latex_to_myst filter
+
+```bash
+pip install pandoc latex_to_myst
+
+pandoc tex/chapter1.tex \
   -f latex \
   -t gfm+tex_math_dollars \
+  -o content/chapter1.md \
   --wrap=none \
-  --citeproc \
-  --metadata=link-citations=true \
-  --bibliography=references.bib \
-  --filter pandoc-crossref \
-  -o content/chapter2.md
+  --filter=latex_to_myst
+```
 
-jupyter book init --write-toc
+## Table of Contents
 
-myst clean
+```bash
+# Auto-generate table of contents
+jupyter-book init --write-toc
+```
+
+## Important Notes
+
+**Jupyter Book 2 Architecture:**
+- Jupyter Book 2 is built on top of the MyST toolchain
+- `jupyter-book build` is **deprecated**
+- `myst build` is the **single unified entry point** for all builds
+- The build system is now backend-agnostic and more extensible
+- Use `myst build --html` for HTML sites
+- Use `myst build --pdf` for PDF exports
+
+## Resources
+
+- [Jupyter Book Documentation](https://jupyterbook.org/)
+- [MyST Markdown Guide](https://mystmd.org/guide)
+- [Executable Books Gallery](https://executablebooks.org/en/latest/gallery/)

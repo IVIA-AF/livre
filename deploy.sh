@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Simple build and deploy script for local macOS M2
-echo "🔨 Building MyST site locally..."
+echo "🔨 Building Jupyter Book 2 site locally..."
 myst build --html
 
-echo "💬 Injecting Giscus comments..."
+# Inject Giscus comments via post-processing script
 python3 inject_giscus.py
 
 echo "📁 Adding static files to git..."

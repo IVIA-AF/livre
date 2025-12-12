@@ -1,139 +1,118 @@
 # IVIA-AF: Initiative pour la Vulgarisation de l'Intelligence Artificielle en Afrique Francophone
 
-## 🚀 Déploiement sur Vercel avec Analytics Simple
+## 📚 Jupyter Book 2 - Guide d'Apprentissage Automatique
 
-Ce projet est maintenant configuré pour être déployé sur Vercel avec un système d'analytics simple pour suivre les consultations du livre.
+Ce projet utilise **Jupyter Book 2** pour créer un livre interactif sur l'apprentissage automatique, déployé sur Vercel avec intégration GitHub Discussions pour les commentaires.
 
-d2lbook is built on Sphinx, a Python-based documentation generator
+> **Important**: Jupyter Book 2 est construit sur la chaîne d'outils MyST. Par conséquent :
+> - ✅ **`myst build`** est le point d'entrée unifié pour tous les builds
+> - ❌ **`jupyter-book build`** est **DÉPRÉCIÉ** et ne doit pas être utilisé
+> - Le système de build est maintenant agnostique du backend et plus extensible
 
+## 🚀 Installation et Configuration
 
-### Installation rapide
+### Prérequis
+
+- Python 3.8 ou supérieur
+- pip (gestionnaire de paquets Python)
+
+### Installation
 
 ```bash
-# Installation des dépendances
+# Cloner le repository
+git clone https://github.com/IVIA-AF/livre.git
+cd livre
+
+# Installer les dépendances
 pip install -r requirements.txt
+```
 
-# Build local
-d2lbook build html
+## 🏗️ Construction du Livre
 
-# Déploiement sur Vercel
+### Build Local
+
+```bash
+# Construire le livre HTML
+myst build --html
+
+# Les fichiers générés se trouvent dans _build/html/
+```
+
+### Nettoyer les Builds Précédents
+
+```bash
+# Nettoyer les builds précédents
+myst clean
+
+# Puis reconstruire
+myst build --html
+```
+
+## 🧪 Tester Localement
+
+### Option 1: Serveur HTTP Python (Recommandé)
+
+```bash
+# Construire le livre
+myst build --html
+
+# Naviguer vers le répertoire de build
+cd _build/html
+
+# Démarrer un serveur HTTP local
+python -m http.server 8000
+
+# Ouvrir dans votre navigateur
+# http://localhost:8000
+```
+
+## 📦 Déploiement
+
+### Déploiement sur Vercel
+
+Le projet est configuré pour être déployé automatiquement sur Vercel :
+
+```bash
+# Build pour production
+myst build --html
+
+# Déployer sur Vercel
 vercel
 ```
 
-### Analytics et Statistiques
+Le fichier `vercel.json` configure automatiquement le répertoire de sortie (`_build/html`).
 
-Le système d'analytics simple vous permet de :
-- 📊 Suivre les pages visitées
-- 🌍 Voir d'où viennent les visiteurs (référents)
-- 🔗 Tracker les clics sur les liens externes
-- 📈 Utiliser Vercel Analytics intégré
+## 💬 Commentaires et Discussions GitHub
 
-Les données sont disponibles dans le dashboard Vercel ou via Google Analytics.
+Ce livre utilise **Giscus** pour intégrer les commentaires via GitHub Discussions. Chaque chapitre a son propre fil de discussion.
 
-### Configuration requise
+### Configuration GitHub
 
-- pip install git+https://github.com/d2l-ai/d2l-book
-- conda install pandoc librsvg
-- sudo apt-get install texlive-full
+Avant de déployer, assurez-vous que :
 
-d2lbook build html
+1. ✅ **GitHub Discussions sont activées** dans les paramètres du repository
+2. ✅ **La catégorie "Commentaire" existe** dans Discussions (ou mettez à jour le category-id dans `inject_giscus.py`)
+3. ✅ **Le repository est public** (ou les utilisateurs ont accès si privé)
+4. ✅ **L'application Giscus est autorisée** pour le repository
 
-<!-- Let’s clear and build again. -->
+### Fonctionnalités
 
-d2lbook build pdf
+- 💬 **Commentaires par chapitre** : Chaque page/chapitre a son propre fil de discussion
+- 🔐 **Authentification GitHub** : Les utilisateurs doivent être connectés à GitHub pour commenter
+- 🎯 **Intégration workflow** : Les commentaires peuvent être liés à des Issues/PRs pour les améliorations
+- 📊 **Réactions et engagement** : Support des réactions, markdown, et fonctionnalités GitHub
 
-rm -rf \_build && d2lbook build pdf
+## 🔧 Conversion de Contenu
 
-rm -rf \_build && d2lbook build html && d2lbook build pdf
+### Conversion LaTeX vers Markdown
 
-rm -rf \_build && d2lbook build html && d2lbook build pdf && d2lbook deploy html pdf
-
-rm -rf dist && d2lbook build html && d2lbook build pdf && d2lbook deploy html pdf
-
-d2lbook deploy html pdf
-
-## convert latex to md
-```bash 
-pandoc -s ch1.tex -o ch1.md
-```
-
-## Notebook to .md
-
-```bash 
-jupyter nbconvert --to markdown prise_en_main_python.ipynb --output-dir './'
-```
+Pour convertir des fichiers LaTeX en Markdown MyST :
 
 ```bash
-•	é → \'e
-•	à → \a`
-•	è → \e`
-•	ç → \c{c}
-```
-
-check the /Users/kabongo/Workstation/Projects/Book/IVIA.AFRICA/livre project when I run the "d2lbook build html" the produce hltml doesn't rellay mention the equation number correctly when referenced in the document and the citation reference doesn't work 
-
-Different Reference Styles:
-:numref: - Shows "Fig. 1" (recommended)
-:ref: - Shows the full caption
-:cite: - For bibliography references
-This is exactly how the d2lbook sample books work, and now your figures have the same professional, clickable references!
-
-
-✅ What Gets Converted:
-LaTeX	d2lbook Markdown
-\cite{key}	:cite:key``
-\citet{key}	:citet:key``
-Fig.~\ref{fig}	:numref:fig_fig_1``
-\begin{figure}...\end{figure}	![caption](image.jpg){width="80%"}\n:label:fig_label_1``
-\chapter{Title}	# Title
-\section{Title}	## Title
-\item[•] Text	- • Text
-\textbf{text}	**text**
-\begin{verbatim}...\end{verbatim}	Code blocks
-
-
-
-./quick_convert.sh tex/chapter1.tex content/chapter1.md
-./convert_with_pandoc_filter.sh tex/chapter3.tex content/chapter3.md
-
+# Conversion basique
 pandoc -s tex/chapter1.tex -o content/chapter1.md
 
-
-bash build-with-analytics.sh  
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-file -bi test.tex
-
-pandoc --from=latex \
-       --to=markdown+tex_math_dollars \
-       --wrap=none \
-       --lua-filter="d2lbook-pandoc-filter.lua" \
-       -o test.md test.tex
-
-
-iconv -f WINDOWS-1252 -t UTF-8 test.tex > test.utf8.tex 
-
-pandoc --from=latex \
-    --to=markdown+tex_math_dollars \
-    --mathjax \
-    --wrap=none \
-    --markdown-headings=atx \
-    -o content/chapter2.md tex/chapter2.tex
-
-
-<!-- This fix the issue with '' arround math eq -->
-pandoc tex/chapter2.tex \
-  -f latex \
-  -t commonmark_x+tex_math_dollars \
-  --wrap=none \
-  --citeproc \
-  --metadata=link-citations=true \
-  --bibliography=references.bib \
-  --filter pandoc-crossref \
-  -o content/chapter2.md
-
+# Conversion avec support des citations et références croisées
 pandoc tex/chapter1.tex \
   -f latex \
   -t commonmark_x+tex_math_dollars \
@@ -143,49 +122,67 @@ pandoc tex/chapter1.tex \
   --bibliography=references.bib \
   --filter pandoc-crossref \
   -o content/chapter1.md
+```
 
+### Conversion de Notebooks Jupyter
 
-<!-- Available with pip -->
-pandoc 2.12
-Compiled with pandoc-types 1.22, texmath 0.12.1.1, skylighting 0.10.4,
-citeproc 0.3.0.8, ipynb 0.1.0.1
-User data directory: /Users/kabongo/.local/share/pandoc
-Copyright (C) 2006-2021 John MacFarlane. Web:  https://pandoc.org
-This is free software; see the source for copying conditions. There is no
+```bash
+# Convertir un notebook en Markdown
+jupyter nbconvert --to markdown notebook.ipynb --output-dir './'
+```
 
-<!-- Latest  -->
-pandoc 3.8
-Features: +server +lua
-Scripting engine: Lua 5.4
-User data directory: /Users/kabongo/.local/share/pandoc
-Copyright (C) 2006-2025 John MacFarlane. Web:  https://pandoc.org
-This is free software; see the source for copying conditions. There is no
-warranty, not even for merchantability or fitness for a particular purpose.
+## 📝 Références et Citations
 
+Jupyter Book 2 supporte les références MyST :
 
+- `{numref}` - Affiche "Fig. 1" (recommandé pour les figures)
+- `{ref}` - Affiche la légende complète
+- `{cite}` - Pour les références bibliographiques
 
-## Issue with latex format 
+Exemple :
+```markdown
+Voir la figure {numref}`fig-label` pour plus de détails.
+```
 
-% \[
-% \begin{aligned}
-%     \mu_p:\quad &V\rightarrow{\mathbb{R}_+}\\
-%     &\mathbf{u}\mapsto \bigg{(}\sum_{i=1}^{n}|u_i|^p\bigg{)}^{\frac{1}{p}}
-% \end{aligned}
-% \]
+## 🛠️ Scripts Utilitaires
 
-\[
-\begin{aligned}
-    \mu_p:\quad &V\rightarrow{\mathbb{R}_+}\\
-    &\mathbf{u}\mapsto \left(\sum_{i=1}^{n}|u_i|^p\right)^{\frac{1}{p}}
-\end{aligned}
-\]
+### Scripts de Build
 
-<!-- parts/comments.html -->
-<p>FOOTER OK</p>
-<script src="https://utteranc.es/client.js"
-        repo="IVIA-AF/livre"
-        issue-term="title"
-        label="comments"
-        theme="preferred-color-scheme"
-        crossorigin="anonymous"
-        async></script>
+- `build.sh` - Build pour Vercel avec injection de commentaires
+- `build_production.sh` - Build de production
+- `start_dev.sh` - Serveur de développement local
+- `deploy.sh` - Build et déploiement sur GitHub
+
+## 📚 Structure du Projet
+
+```
+livre/
+├── content/           # Contenu du livre (chapitres)
+│   ├── chapter1.md
+│   ├── chapter2.md
+│   └── images/       # Images du livre
+├── intro.md          # Introduction
+├── myst.yml          # Configuration Jupyter Book 2
+├── parts/            # Parties réutilisables (footer, etc.)
+├── plugins/          # Plugins MyST personnalisés
+├── references.bib    # Bibliographie
+└── _build/           # Fichiers générés (ne pas commiter)
+```
+
+## 🔍 Dépannage
+
+### Problèmes Courants
+
+1. **Erreur de build** : Nettoyez les builds précédents avec `myst clean`
+2. **Commentaires ne s'affichent pas** : Vérifiez que GitHub Discussions sont activées
+3. **Images manquantes** : Vérifiez les chemins relatifs dans les fichiers Markdown
+
+## 📖 Ressources
+
+- [Documentation Jupyter Book 2](https://jupyterbook.org/)
+- [Guide MyST Markdown](https://mystmd.org/guide)
+- [Giscus Documentation](https://giscus.app/)
+
+## 📄 Licence
+
+Voir le fichier `LICENSE` pour plus d'informations.
