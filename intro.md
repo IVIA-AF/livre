@@ -155,7 +155,8 @@ Ce projet est une initiative collaborative et open-source. Nous accueillons chal
 - **Repository GitHub :** [github.com/IVIA-AF/livre](https://github.com/IVIA-AF/livre)
 - **Contact :** [contact@ivia.africa](mailto:contact@ivia.africa)
 - **Site web :** [www.ivia.africa](https://www.ivia.africa/)
-
+- **X (Twitter) :** [@IviaAf](https://x.com/IviaAf)
+- **Youtube :** [@IVIA-AF](https://www.youtube.com/@IVIA-AF)
 ---
 
 *Pour plus d'informations sur IVIA-AF, nos projets et notre équipe, visitez [www.ivia.africa](https://www.ivia.africa/)*
