@@ -14,6 +14,6 @@ echo "💾 Committing static files..."
 git commit -m "Update static files for deployment"
 
 echo "🚀 Pushing to GitHub..."
-git push origin jupyterbook
+git push origin main
 
 echo "✅ Done! Vercel will automatically deploy the static files"
