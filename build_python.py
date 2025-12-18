@@ -43,6 +43,10 @@ def main():
         print("💡 Make sure jupyter-book is properly installed")
         sys.exit(1)
 
+    # Inject Vercel Analytics
+    if not run_command("python3 inject_vercel_analytics.py", "Injecting Vercel Analytics"):
+        sys.exit(1)
+
     # Inject Giscus comments via post-processing script
     if not run_command("python3 inject_giscus.py", "Injecting Giscus comments"):
         sys.exit(1)

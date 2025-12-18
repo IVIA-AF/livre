@@ -7,6 +7,9 @@ python3 -m pip install -r requirements.txt
 echo "🌎 Building Jupyter Book 2 site..."
 myst build --html
 
+# Inject Vercel Analytics
+python3 inject_vercel_analytics.py
+
 # Inject Giscus comments via post-processing script
 # (Plugin approach doesn't work reliably with MyST site build)
 python3 inject_giscus.py
