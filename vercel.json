@@ -1,6 +1,4 @@
 {
-  "outputDirectory": "_build/html",
-  "framework": null,
   "headers": [
     {
       "source": "/(.*)",

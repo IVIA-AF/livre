@@ -26,11 +26,11 @@ Ce livre est en cours de développement. Certains chapitres sont actuellement di
 
 Ce livre couvre les concepts fondamentaux de l'apprentissage automatique, depuis les bases mathématiques jusqu'aux techniques avancées de deep learning. Voici la structure complète de l'ouvrage :
 
-## 1. {doc}`content/chapter1`
+## 1. [Introduction à l'Apprentissage Automatique](content/chapter1)
 - 1.1 C'est quoi Apprentissage Automatique
 - 1.2 Convention Mathématiques pour le document
 
-## 2. {doc}`content/chapter2`
+## 2. [Python, Mathématiques et Probabilités](content/chapter2)
 - 2.1 Langage Python et ses Librairies
   - 2.1.1 Installation de Python et Anaconda
   - 2.1.2 Prise en main de Python
@@ -50,7 +50,7 @@ Ce livre couvre les concepts fondamentaux de l'apprentissage automatique, depuis
     - Estimation par la méthode des moments
     - Estimation par maximum de vraisemblance
 
-## 3. Apprentissage Supervisé
+## 3. [Apprentissage Supervisé](content/chapter3)
 - 3.1 Problèmes de Régression
   - 3.1.1 La Régression Linéaire
     - La régression linéaire affine
@@ -78,7 +78,7 @@ Ce livre couvre les concepts fondamentaux de l'apprentissage automatique, depuis
   - 3.2.9 Machines à Vecteur de Support (Support Vector Machine: SVM en anglais)
   - 3.2.10 Conclusion
 
-## 4. Apprentissage Non-Supervisé
+## 4. [Apprentissage Non-Supervisé](content/chapter4)
 - 4.1 Introduction et Motivations
 - 4.2 Algorithmes de Partitionnement
   - 4.2.1 K-moyennes
@@ -94,7 +94,7 @@ Ce livre couvre les concepts fondamentaux de l'apprentissage automatique, depuis
 - 4.4 Applications
 - 4.5 Conclusion
 
-## 5. Les méthodes du noyau (Kernel methods)
+## 5. [Les Méthodes du Noyau (Kernel Methods)](content/chapter5)
 - 5.1 Motivations et Rappels
   - 5.1.1 Motivations
   - 5.1.2 Rappels
@@ -117,7 +117,7 @@ Ce livre couvre les concepts fondamentaux de l'apprentissage automatique, depuis
   - 5.4.1 Tutoriel: première session
   - 5.4.2 Tutoriel: deuxième session
 
-## 6. Apprentissage Profond (Deep Learning)
+## 6. [Apprentissage Profond (Deep Learning)](content/chapter6)
 - 6.1 Introduction, motivation et contexte
 - 6.2 Pourquoi les réseaux de neurones ?
 - 6.3 Définitions

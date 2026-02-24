@@ -45,9 +45,6 @@ for tex_file in tex/*.tex; do
         -f latex \
         -t commonmark_x+tex_math_dollars \
         --wrap=none \
-        --citeproc \
-        --metadata=link-citations=true \
-        --bibliography=references.bib \
         --filter pandoc-crossref \
         -o "$temp_file"
         
@@ -64,25 +61,21 @@ for tex_file in tex/*.tex; do
     if [ $? -eq 0 ]; then
         echo "Successfully converted $tex_file"
         
-        # Apply regex replacement to fix equation references for MyST
-        echo "Fixing equation references for MyST compatibility..."
+        # Apply generic python conversion for MyST compatibility
+        echo "Running generic python conversion script..."
         
-        # Use perl for better UTF-8 handling instead of sed
-        # Replace complex equation references with simple MyST format
-        # Pattern: [\[label\]](#label){reference-type="ref" reference="label"}
-        # Replacement: [](#label)
-        perl -i -pe 's/\[\\\[([^]]*)\\\]\]\(#\1\)\{reference-type="ref" reference="\1"\}/[](#\1)/g' "$temp_file"
+        # Use the virtual environment python
+        .venv/bin/python tools/convert_to_myst.py "$temp_file" "${temp_file}.myst"
         
-        # Also handle cases without the \[ \] wrapper
-        perl -i -pe 's/\[([^]]*)\]\(#\1\)\{reference-type="ref" reference="\1"\}/[](#\1)/g' "$temp_file"
-        
-        # Clean up headers by removing {#id} attributes
+        # Clean up headers by removing {#id} attributes using perl
         # Pattern: #### Title. {#id}
         # Replacement: #### Title.
-        perl -i -pe 's/^(#{1,6}\s+[^{]+)\s*\{#[^}]+\}\s*$/\1/' "$temp_file"
+        perl -i -pe 's/^(#{1,6}\s+[^{]+)\s*\{#[^}]+\}\s*$/\1/' "${temp_file}.myst"
         
         # Force move temporary file to final location (overwrite)
-        mv -f "$temp_file" "$output_file"
+        mv -f "${temp_file}.myst" "$output_file"
+        rm -f "$temp_file"
+
         
         echo "Fixed equation references and saved to $output_file"
     else
