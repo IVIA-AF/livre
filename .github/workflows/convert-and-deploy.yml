@@ -13,7 +13,8 @@ on:
       - "requirements.txt"
       - "myst.yml"
       - "_toc.yml"
-  workflow_dispatch: # allow manual trigger from GitHub UI
+      - "public/**"
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -24,31 +25,57 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ── Node.js (for mystmd) ───────────────────────────────────────────────
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
+      - name: Install mystmd
+        run: npm install -g mystmd
+
+      # ── Python (for inject scripts) ────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
 
-      - name: Install dependencies
-        run: |
-          npm install -g mystmd
-          pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
 
-      - name: Build MyST site
+      # ── Build the MyST site ────────────────────────────────────────────────
+      - name: Build site
         run: bash build.sh
 
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: .
-          vercel-args: "--prod --prebuilt"
+      # ── Package for Vercel prebuilt deploy ─────────────────────────────────
+      # Vercel's --prebuilt flag expects output in .vercel/output/
+      # For a pure static site: .vercel/output/static/ + config.json
+      - name: Prepare Vercel prebuilt output
+        run: |
+          mkdir -p .vercel/output/static
+          cp -r _build/html/. .vercel/output/static/
+          # Minimal Vercel Build Output API config (version 3 = static)
+          cat > .vercel/output/config.json << 'EOF'
+          {
+            "version": 3,
+            "routes": [
+              {
+                "src": "/(.*)",
+                "headers": {
+                  "X-Content-Type-Options": "nosniff",
+                  "X-XSS-Protection": "1; mode=block",
+                  "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://giscus.app https://*.giscus.app https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://giscus.app https://*.giscus.app https://github.githubassets.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; frame-src https://giscus.app https://*.giscus.app; connect-src 'self' https://giscus.app https://*.giscus.app https://api.github.com https://github.com https://vitals.vercel-insights.com https://va.vercel-scripts.com; img-src 'self' data: https: blob:; font-src 'self' data: https: https://cdnjs.cloudflare.com;"
+                },
+                "continue": true
+              }
+            ]
+          }
+          EOF
+
+      # ── Deploy pre-built output to Vercel (no Vercel build at all) ─────────
+      - name: Deploy to Vercel (prebuilt)
+        run: npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
